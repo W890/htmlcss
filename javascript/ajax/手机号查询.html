@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    用户名<input class="user" type="text">
-    密码<input class="pass" type="password">
+    输入手机号<input class="pho" type="">
     <button onclick="f1()">登录</button>
 
     <script>
-        let user = document.querySelector('.user')
-        let pass = document.querySelector('.pass')
+        let pho = document.querySelector('.pho')
         function f1(params) {
-            if (!user.value || !pass.value) {
+            if (!pho.value) {
                 return alert("表单不能为空")
             }
-            if (user.value != 'admin' || pass.value != '123456') {
-                return alert("用户名或密码错误")
+            if (pho.value != '15964210515') {
+                return alert("手机号错误")
             }
             let xhr = new XMLHttpRequest()
-            xhr.open('post', 'http://192.168.0.88:3002/login')
+            xhr.open('get', 'http://192.168.0.88:3002/phone')
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
-            xhr.send('username=admin&password=123456');
+            xhr.send('phone=15964210515');
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4) {
                     console.log(JSON.parse(xhr.responseText))
                 }
             }
-            // location.href='万年历.html'
         }
-        </script>
+    </script>
 </body>
+
 </html>
