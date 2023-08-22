@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兔小白</title>
+    <!-- 引入外部 -->
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header clean">
+            <!-- logo部分 -->
+            <div class="logo">
+                <img src="./images/logo.png" alt="">
+
+            </div>
+            <!-- 导航部分 -->
+            <div class="nav">
+                <a class="open" href="">首页</a>
+                <a href="">关于我</a>
+                <a href="">文章 </a>
+                <a href="">心情</a>
+                <a href="">相册</a>
+                <a href="">留言</a>
+            </div>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="content clean">
+            <!-- 左边内容 -->
+            <div class="content-left clean">
+                <div class="banner">
+                    <div class="box">
+                        <img src="./images/a1.jpg">
+                        <img src="./images/a2.jpg" alt="">
+                        <img src="./images/a3.jpg" alt="">
+                        <img src="./images/a4.jpg" alt="">
+                    </div>
+
+                </div>
+                <!-- ******************************************************* -->
+                <script>
+                    let box = document.querySelector('.box');
+                    let imgindex = document.querySelectorAll('.box img').length;
+                    let num = 0;
+                    setInterval(function (params) {
+                        num >= imgindex - 1 ? num = 0 : num++;
+                        box.style.top = -280 * num + 'px';
+                    }, 2000)
+                </script>
+                <!-- ****************************************************************** -->
+                <div class="bit clean">
+                    <h3>文章推荐</h3>
+                    <div class="bit-right">
+                        <a href="">栏目标题</a>
+                        <a href="">栏目标题</a>
+                        <a href="">栏目标题</a>
+                    </div>
+                </div>
+                <!-- 列表 -->
+                <div class="content-list">
+                    <!-- 列表中的每一项 -->
+                    <div class="list-item clean">
+                        <!-- 列表的左侧 -->
+                        <div class="item-left">
+                            <img src="./images/01.jpg">
+                        </div>
+                        <!-- 列表的右侧 -->
+                        <div class="item-right">
+                            <h3>住在手机里的朋友</h3>
+                            <p>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                                ...</p>
+
+                            <div class="bot clean">
+                                <div class="bot-left">
+                                    <a href="">个人博客</a>
+                                    <span>2023-07-18</span>
+                                </div>
+                                <div class="bot-right">
+                                    <span>评论(<a href="">30</a>)</span>
+                                    <span>浏览(<a href="">456</a>)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- 列表中的每一项 -->
+                    <div class="list-item clean">
+                        <!-- 列表的左侧 -->
+                        <div class="item-left">
+                            <img src="./images/02.jpg">
+                        </div>
+                        <!-- 列表的右侧 -->
+                        <div class="item-right">
+                            <h3>住在手机里的朋友</h3>
+                            <p>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                                ...</p>
+
+                            <div class="bot clean">
+                                <div class="bot-left">
+                                    <a href="">个人博客</a>
+                                    <span>2023-07-18</span>
+                                </div>
+                                <div class="bot-right">
+                                    <span>评论(<a href="">30</a>)</span>
+                                    <span>浏览(<a href="">456</a>)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- 列表中的每一项 -->
+                    <div class="list-item clean">
+                        <!-- 列表的左侧 -->
+                        <div class="item-left">
+                            <img src="./images/03.jpg">
+                        </div>
+                        <!-- 列表的右侧 -->
+                        <div class="item-right">
+                            <h3>住在手机里的朋友</h3>
+                            <p>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                                ...</p>
+
+                            <div class="bot clean">
+                                <div class="bot-left">
+                                    <a href="">个人博客</a>
+                                    <span>2023-07-18</span>
+                                </div>
+                                <div class="bot-right">
+                                    <span>评论(<a href="">30</a>)</span>
+                                    <span>浏览(<a href="">456</a>)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- 列表中的每一项 -->
+                    <div class="list-item clean">
+                        <!-- 列表的左侧 -->
+                        <div class="item-left">
+                            <img src="./images/04.jpg">
+                        </div>
+                        <!-- 列表的右侧 -->
+                        <div class="item-right">
+                            <h3>住在手机里的朋友</h3>
+                            <p>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                                ...</p>
+
+                            <div class="bot clean">
+                                <div class="bot-left">
+                                    <a href="">个人博客</a>
+                                    <span>2023-07-18</span>
+                                </div>
+                                <div class="bot-right">
+                                    <span>评论(<a href="">30</a>)</span>
+                                    <span>浏览(<a href="">456</a>)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- 列表中的每一项 -->
+                    <div class="list-item clean">
+                        <!-- 列表的左侧 -->
+                        <div class="item-left">
+                            <img src="./images/05.jpg">
+                        </div>
+                        <!-- 列表的右侧 -->
+                        <div class="item-right">
+                            <h3>住在手机里的朋友</h3>
+                            <p>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                                ...</p>
+
+                            <div class="bot clean">
+                                <div class="bot-left">
+                                    <a href="">个人博客</a>
+                                    <span>2023-07-18</span>
+                                </div>
+                                <div class="bot-right">
+                                    <span>评论(<a href="">30</a>)</span>
+                                    <span>浏览(<a href="">456</a>)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- 列表中的每一项 -->
+                    <div class="list-item clean">
+                        <!-- 列表的左侧 -->
+                        <div class="item-left">
+                            <img src="./images/06.jpg">
+                        </div>
+                        <!-- 列表的右侧 -->
+                        <div class="item-right">
+                            <h3>住在手机里的朋友</h3>
+                            <p>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                                ...</p>
+
+                            <div class="bot clean">
+                                <div class="bot-left">
+                                    <a href="">个人博客</a>
+                                    <span>2023-07-18</span>
+                                </div>
+                                <div class="bot-right">
+                                    <span>评论(<a href="">30</a>)</span>
+                                    <span>浏览(<a href="">456</a>)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- 列表中的每一项 -->
+                    <div class="list-item clean">
+                        <!-- 列表的左侧 -->
+                        <div class="item-left">
+                            <img src="./images/04.jpg">
+                        </div>
+                        <!-- 列表的右侧 -->
+                        <div class="item-right">
+                            <h3>住在手机里的朋友</h3>
+                            <p>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                                ...</p>
+
+                            <div class="bot clean">
+                                <div class="bot-left">
+                                    <a href="">个人博客</a>
+                                    <span>2023-07-18</span>
+                                </div>
+                                <div class="bot-right">
+                                    <span>评论(<a href="">30</a>)</span>
+                                    <span>浏览(<a href="">456</a>)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 右边内容 -->
+            <div class="content-right">
+                <h3 class="my">关注我</h3>
+                <!-- 图标区域 -->
+                <ul class="icon">
+                    <li class="icon-item">新浪微博</li>
+                    <li class="icon-item">腾讯微博</li>
+                    <li class="icon-item">RSS</li>
+                    <li class="icon-item">邮箱</li>
+                </ul>
+                <div>
+                    <img src="./images/ad300x100.jpg">
+                </div>
+                <!-- 切换 -->
+                <div class="newTop">
+                    <div class="tab clean">
+                        <div class="tab-item item-orange">点击排行</div>
+                        <div class="tab-item">最新文章</div>
+                        <div class="tab-item">站长推荐</div>
+                    </div>
+                    <ul>
+                        <li class="dog-item">住在手机里的朋友</li>
+                        <li class="dog-item">教你怎样用欠费手机拨打电话</li>
+                        <li class="dog-item">原来以为，一个人的勇敢是，删掉他的手机号码...</li>
+                        <li class="dog-item">手机的16个惊人小秘密，据说99.999%的人都不知</li>
+                        <li class="dog-item">你面对的是生活而不是手机</li>
+                        <li class="dog-item">豪雅手机正式发布! 在法国全手工打造的</li>
+                    </ul>
+                </div>
+                <h3 class="my">标签云</h3>
+                <div class="tag">
+                    <ul class="clean">
+                        <li class="tag-item"><a href="">个人博客</a></li>
+                        <li class="tag-item"><a href="">web开发</a></li>
+                        <li class="tag-item"><a href="">前端设计</a></li>
+                        <li class="tag-item"><a href="">Html</a></li>
+                        <li class="tag-item"><a href="">CSS3</a></li>
+                        <li class="tag-item"><a href="">Html+css3</a></li>
+                        <li class="tag-item"><a href="">百度</a></li>
+                        <li class="tag-item"><a href="">JavaScript</a></li>
+                        <li class="tag-item"><a href="">web开发</a></li>
+                        <li class="tag-item"><a href="">前端设计</a></li>
+                        <li class="tag-item"><a href="">Html</a></li>
+                        <li class="tag-item"><a href="">CSS3</a></li>
+                        <li class="tag-item"><a href="">Html+css3</a></li>
+                        <li class="tag-item"><a href="">百度</a></li>
+                    </ul>
+                </div>
+                <h3 class="my">图文推荐</h3>
+
+                <!-- 图文推荐 -->
+                <div class="imgtextlist">
+                    <ul>
+                        <li class="clean">
+                            <img src="./images/01.jpg" alt="">
+                            <div>
+                                <h4>住在手机里的朋友</h4>
+                                <div class="text-bottom">
+                                    <a href="">个人博客</a>
+                                    <a href="">2023-03-23</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="clean">
+                            <img src="./images/01.jpg" alt="">
+                            <div>
+                                <h4>住在手机里的朋友</h4>
+                                <div class="text-bottom">
+                                    <a href="">个人博客</a>
+                                    <a href="">2023-03-23</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="clean">
+                            <img src="./images/01.jpg" alt="">
+                            <div>
+                                <h4>住在手机里的朋友</h4>
+                                <div class="text-bottom">
+                                    <a href="">个人博客</a>
+                                    <a href="">2023-03-23</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="clean">
+                            <img src="./images/01.jpg" alt="">
+                            <div>
+                                <h4>住在手机里的朋友</h4>
+                                <div class="text-bottom">
+                                    <a href="">个人博客</a>
+                                    <a href="">2023-03-23</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="clean">
+                            <img src="./images/01.jpg" alt="">
+                            <div>
+                                <h4>住在手机里的朋友</h4>
+                                <div class="text-bottom">
+                                    <a href="">个人博客</a>
+                                    <a href="">2023-03-23</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+                <img src="./images/03.jpg">
+                <h3 class="my">友情链接</h3>
+                <div class="font-list">
+                    <a href="">杨青个人博客</a>
+                    <a href="">web开发</a>
+                    <a href="">前端设计</a>
+                    <a href="">Html</a>
+                    <a href="">CSS3</a>
+                    <a href="">Html5+css3</a>
+                    <a href="">百度</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="foot">
+        兔小白博客 Design by DanceSmile 蜀ICP备11002373号-1
+    </div>
+</body>
+
+</html>

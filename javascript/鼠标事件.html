@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标事件</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+
+    <script>
+        let div = document.querySelector('div')
+        div.onclick = function(params) {
+            console.log('点击了');
+        }
+        div.onmousedown = function(){
+            console.log('鼠标按下');
+        }
+        div.onmouseup = function() {
+            console.log('鼠标抬起');
+        }
+        // 建议
+        div.onmouseenter = function() {
+            console.log('鼠标移入');
+        }
+        div.onmouseleave = function() {
+            console.log('鼠标移出');
+        }
+        // // 不建议
+        div.onmouseover = function() {//会冒泡
+            console.log('鼠标移入');
+        }
+        div.onmouseout = function() {//会冒泡
+            console.log('鼠标移出');
+        }
+        div.onmousemove = function() {
+            console.log('鼠标移动');
+        }
+    </script>
+</body>
+</html>

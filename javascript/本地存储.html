@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <p></p> -->
+    <input type="text">
+    <br>
+    <button onclick="add()">新建内存</button>
+    <button onclick="look()">查看内存</button>
+    <button onclick="del()">删除缓存</button>
+    <p>渲染的值：<span></span></p>
+    <!-- <p class="p1">123
+
+    </p> -->
+    <script>
+        //sessionStorage.removeItem('name')
+        let input = document.querySelector('input');
+        function add(params) {
+            // 获取input的值
+            let value = input.value;
+            if(!value) return alert('请输入内容');
+            // 写入缓存
+            sessionStorage.setItem('key',value);
+        }
+        function look(params) {
+            // 查询缓存
+            let text = sessionStorage.getItem('key');
+            // 渲染到页面
+            document.querySelector('span').innerHTML = text
+        }
+        function del(params) {
+            let type = confirm('是否要删除');
+             if(type == true){
+                // 删除缓存
+            sessionStorage.removeItem('key');
+             }
+        }
+        // console.log(sessionStorage.getItem('name'))
+        // let name = '正三'
+        // name = sessionStorage.getItem('name')
+        // document.querySelector('p').innerHTML = name;
+        // setTimeout(i=>{
+        //     let name = '李四';
+        //     document.querySelector('p').innerHTML = name;
+        //     sessionStorage.setItem('name',name);
+        // },3000)
+
+        // function delfun(params) {
+        //     sessionStorage.removeItem('name');
+        // }
+
+        // 本地存储 写入缓存
+        // sessionStorage.setItem('缓存名称'，缓存数据)
+        // 本地存储 读取缓存
+        // sessionStorage.getItem('缓存的名称')
+        // 本地存储 删除缓存
+        // sessionStorage.removeItem('缓存的名称')
+
+
+    </script>
+</body>
+</html>

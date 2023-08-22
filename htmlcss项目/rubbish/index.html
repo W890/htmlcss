@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兔小白</title>
+    <!-- <link rel="stylesheet" href="./css/rubbish.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .outbox {
+            height: 2800px;
+            width: 1100px;
+            margin-left: 400px;
+            background-color: bisque;
+        }
+
+        .zi1 {
+            list-style: none;
+            display: inline-block;
+            width: 50px;
+            height: 15px;
+            background-color: #48ae15;
+            text-align: center;
+            color: white;
+            line-height: 50px;
+            float: right;
+            padding: 20px;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .img1 {
+            float: left;
+            padding-left: 20px;
+        }
+
+        zi1:hover {
+            background-color: #ffffff;
+            color: black;
+        }
+
+        .shouye {
+            background-color: #f3ff41;
+            color: black;
+        }
+
+        .shouye:hover {
+            background-color: #ffffff;
+        }
+
+        .box3 {
+            height: 80px;
+            width: 1100px;
+            margin-right: 20px;
+        }
+
+        .boxradioleft {
+            border-radius: 100px 0px 0px 100px;
+        }
+
+        .boxradioright {
+            border-radius: 0px 100px 100px 0px;
+        }
+
+        .imga1 {
+            height: 270px;
+            width: 600px;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .box4 {
+            height: 1000px;
+            width: 640px;
+            margin: 10px;
+            float: left;
+        }
+
+        .ul2 {
+            color: #7c90ab;
+            list-style: none;
+
+        }
+
+        /* p{
+text-align: right;
+
+
+} */
+        .pbleft {
+            text-align: left;
+        }
+
+        .img01 {
+            margin-top: 10px;
+            float: left;
+        }
+
+        .p-dog {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .newsbg01 {
+            float: left;
+        }
+
+        .newsbg02 {
+            float: left;
+        }
+
+        .newsbg03 {
+            float: left;
+        }
+
+        .newsbg04 {
+            float: left;
+        }
+
+        .floot_left {
+            float: left;
+            color: #b0b5b5;
+            font-size: 10px;
+        }
+
+        .green {
+            color: #48ae15;
+        }
+
+        .one {
+            height: 245px;
+            width: 650px;
+            border-bottom: 2px;
+            border-bottom: solid;
+            border-bottom-color: #cccccc;
+        }
+
+        .box-right {
+            padding: 10px;
+            height: 2050px;
+            width: 410px;
+            background-color: #f3ff41;
+            float: right
+        }
+
+        .img-left {
+            float: left;
+            margin-right: 40px;
+            margin-left: 10px;
+
+        }
+
+        .sigexiaotu {
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .zhizao {
+            height: 130px;
+            width: 400px;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .left-zi1 {
+            padding: 5px;
+            height: 30px;
+
+            background-color: #f77825;
+            color: black;
+
+        }
+
+        .li-right1 {
+            width: 120px;
+            height: 30px;
+            list-style: none;
+            padding: 5px 5px;
+            line-height: 50px;
+            text-align: center;
+            float: left;
+            background-color: white;
+            color: black;
+        }
+
+        .li-right1:hover {
+            background-color: #f77825;
+            color: white;
+        }
+
+        .bg-right-zili {
+            background-color: #f77825;
+            color: white;
+        }
+
+        .right-daohang {
+            width: 350px;
+            height: 30px;
+            font-size: 12px;
+            list-style: none;
+            line-height: 35px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: #b0b5b5 solid;
+            border-bottom-width: 2px;
+        }
+
+        .right-daohang:hover {
+            border-bottom-width: 4px;
+        }
+
+        .number-right-red {
+            background-color: red;
+            color: black;
+            height: 15px;
+            width: 20px;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .number-right-ju {
+            background-color: #ff6600;
+            color: black;
+            height: 15px;
+            width: 20px;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .number-right-cheng {
+            background-color: #ff9900;
+            color: black;
+            height: 15px;
+            width: 20px;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .number-right-hui {
+            background-color: #666666;
+            color: black;
+            height: 15px;
+            width: 20px;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outbox">
+        <div>
+            <img class="img1" src="./images/logo.png">
+            <div class="box3">
+                <ul>
+                    <li class="boxradioright zi1"> </li>
+                    <li class="zi1">留言</li>
+                    <li class="zi1">相册</li>
+                    <li class="zi1">心情</li>
+                    <li class="zi1">文章</li>
+                    <li class="zi1">关于我</li>
+                    <li class="shouye zi1">首页</li>
+                    <li class="boxradioleft zi1"> </li>
+                </ul>
+            </div>
+        </div>
+        <div class="box4">
+            <img class="imga1" src="./images/a1.jpg">
+            <p>
+                <span class="pbleft"><b>文章推荐</b></span>
+                <span>栏目标题</span>
+                &nbsp;&nbsp;
+                <span>栏目标题</span>
+                &nbsp;&nbsp;
+                <span>栏目标题</span>
+            </p>
+            <b>
+                <hr color="#db6d4c">
+            </b>
+            <div class="one">
+                <img class="img01" src="./images/01.jpg">
+                <p class="p-dog">
+                    <span><b>住在手机里的朋友</b></span><br>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                    ...
+                </p>
+                <div>
+                    <img class="newsbg01" src="./images/newsbg01.png">
+                    <p class="green floot_left">个人博客</p>
+                    <img class="newsbg02" src="./images/newsbg02.png">
+                    <p class="floot_left">2014-002-19</p>
+                    <img class="newsbg03" src="./images/newsbg03.png">
+                    <p class="floot_left">评论(30)</p>
+                    <img class="newsbg04" src="./images/newsbg04.png">
+                    <p class="floot_left">浏览(456)</p>
+                </div>
+                <br>
+            </div>
+            <div class="one">
+                <img class="img01" src="./images/02.jpg">
+
+                <p chass="p-dog">
+                    <span><b>住在手机里的朋友</b><br>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                        ...</span>
+                </p>
+                <div>
+                    <img class="newsbg01" src="./images/newsbg01.png">
+                    <p class="green floot_left">个人博客</p>
+                    <img class="newsbg02" src="./images/newsbg02.png">
+                    <p class="floot_left">2014-002-19</p>
+                    <img class="newsbg03" src="./images/newsbg03.png">
+                    <p class="floot_left">评论(30)</p>
+                    <img class="newsbg04" src="./images/newsbg04.png">
+                    <p class="floot_left">浏览(456)</p>
+                </div>
+            </div>
+            <div class="one">
+                <img class="img01" src="./images/03.jpg">
+                <p chass="p-dog">
+                    <span><b>住在手机里的朋友</b><br>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                        ...</span>
+                </p>
+                <div>
+                    <img class="newsbg01" src="./images/newsbg01.png">
+                    <p class="green floot_left">个人博客</p>
+                    <img class="newsbg02" src="./images/newsbg02.png">
+                    <p class="floot_left">2014-002-19</p>
+                    <img class="newsbg03" src="./images/newsbg03.png">
+                    <p class="floot_left">评论(30)</p>
+                    <img class="newsbg04" src="./images/newsbg04.png">
+                    <p class="floot_left">浏览(456)</p>
+                </div>
+            </div>
+            <div class="one">
+                <img class="img01" src="./images/04.jpg">
+                <p chass="p-dog">
+                    <span><b>住在手机里的朋友</b><br>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                        ...</span>
+                </p>
+                <div>
+                    <img class="newsbg01" src="./images/newsbg01.png">
+                    <p class="green floot_left">个人博客</p>
+                    <img class="newsbg02" src="./images/newsbg02.png">
+                    <p class="floot_left">2014-002-19</p>
+                    <img class="newsbg03" src="./images/newsbg03.png">
+                    <p class="floot_left">评论(30)</p>
+                    <img class="newsbg04" src="./images/newsbg04.png">
+                    <p class="floot_left">浏览(456)</p>
+                </div>
+            </div>
+            <div class="one">
+                <img class="img01" src="./images/05.jpg">
+                <p chass="p-dog">
+                    <span><b>住在手机里的朋友</b><br>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                        ...</span>
+                </p>
+                <div>
+                    <img class="newsbg01" src="./images/newsbg01.png">
+                    <p class="green floot_left">个人博客</p>
+                    <img class="newsbg02" src="./images/newsbg02.png">
+                    <p class="floot_left">2014-002-19</p>
+                    <img class="newsbg03" src="./images/newsbg03.png">
+                    <p class="floot_left">评论(30)</p>
+                    <img class="newsbg04" src="./images/newsbg04.png">
+                    <p class="floot_left">浏览(456)</p>
+                </div>
+            </div>
+            <div class="one">
+                <img class="img01" src="./images/06.jpg">
+                <p chass="p-dog">
+                    <span><b>住在手机里的朋友</b><br>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                        ...</span>
+                </p>
+                <div>
+                    <img class="newsbg01" src="./images/newsbg01.png">
+                    <p class="green floot_left">个人博客</p>
+                    <img class="newsbg02" src="./images/newsbg02.png">
+                    <p class="floot_left">2014-002-19</p>
+                    <img class="newsbg03" src="./images/newsbg03.png">
+                    <p class="floot_left">评论(30)</p>
+                    <img class="newsbg04" src="./images/newsbg04.png">
+                    <p class="floot_left">浏览(456)</p>
+                </div>
+            </div>
+            <div class="one">
+                <img class="img01" src="./images/04.jpg">
+                <p chass="p-dog">
+                    <span><b>住在手机里的朋友</b><br>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                        ...</span>
+                </p>
+                <div>
+                    <img class="newsbg01" src="./images/newsbg01.png">
+                    <p class="green floot_left">个人博客</p>
+                    <img class="newsbg02" src="./images/newsbg02.png">
+                    <p class="floot_left">2014-002-19</p>
+                    <img class="newsbg03" src="./images/newsbg03.png">
+                    <p class="floot_left">评论(30)</p>
+                    <img class="newsbg04" src="./images/newsbg04.png">
+                    <p class="floot_left">浏览(456)</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="box-right">
+            <div>关注我<br>
+                <hr>
+            </div>
+            <div class="sigexiaotu">
+                <img class="img-left" src="./images/ico_05_1.jpg">
+                <img class="img-left" src="./images/ico_06_1.jpg">
+                <img class="img-left" src="./images/ico_04_1.jpg">
+                <img class="img-left" src="./images/ico_07_1.jpg">
+            </div>
+            <p>
+                <span>新浪微博</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>腾讯微博</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>RSS</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>邮箱</span>
+            </p>
+            <img class="zhizao" src="./images/ad300x100.jpg">
+            <div>
+                <ul class="left-zi1">
+                    <li class="li-right1 bg-right-zili">点击排行</li>
+                    <li class="li-right1">最新文章</li>
+                    <li class="li-right1">站长推荐</li>
+                </ul>
+            </div>
+            <div>
+
+                <ul>
+                    <li class="right-daohang"><span class="number-right-red">1</span>住在手机里的朋友</li>
+                    <li class="right-daohang"><span class="number-right-ju">2</span>教你怎样用欠费手机拨打电话</li>
+                    <li class="right-daohang"><span class="number-right-cheng">3</span>原来以为，一个人的勇敢是，删掉他的手机号码...</li>
+                    <li class="right-daohang"><span class="number-right-hui">4</span>手机的16个惊人小秘密，据说99.999%的人都不知道</li>
+                    <li class="right-daohang"><span class="number-right-hui">5</span>你面对的是生活而不是手机</li>
+                    <li class="right-daohang"><span class="number-right-hui">6</span>豪雅手机正式发布！在法国全手工打造的</li>
+                </ul>
+            </div>
+            <style>
+                .ppp-pp {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    height: 30px;
+                    border-bottom: 2px #b0b5b5;
+                }
+            </style>
+            <style>
+                .ui-biaoqian {
+                    list-style: none;
+                    float: left;
+                    padding: 5px 10px;
+
+                    background-color: #036564;
+                    margin: 15px;
+                    color: white;
+                    text-align: center;
+                    border-radius: 80px 80px 80px 80px;
+                }
+            </style>
+            <style>
+                .div-biaoqian {
+                    height: 300px;
+                    width: 430px;
+                }
+            </style>
+            <div class="div-biaoqian">
+                <p class="ppp-pp"><b>标签云</b></p>
+                <hr>
+                <div>
+                    <ul>
+                        <li class="ui-biaoqian">&nbsp;个人微博&nbsp;</li>
+                        <li class="ui-biaoqian">&nbsp;web开发&nbsp;</li>
+                        <li class="ui-biaoqian">&nbsp;前端设计&nbsp;</li>
+                        <li class="ui-biaoqian">&nbsp;Html&nbsp;</li>
+                        <li class="ui-biaoqian">&nbsp;CSS3&nbsp;</li>
+                        <li class="ui-biaoqian">&nbsp;Html5+css3&nbsp;</li>
+                        <li class="ui-biaoqian">&nbsp;百度&nbsp;</li>
+                        <li class="ui-biaoqian">&nbsp;Javascript&nbsp;</li>
+                        <li class="ui-biaoqian">&nbsp;web开发&nbsp;</li>
+                        <li class="ui-biaoqian">&nbsp;前端设计&nbsp;</li>
+                        <li class="ui-biaoqian">&nbsp;HTml&nbsp;</li>
+                        <li class="ui-biaoqian">&nbsp;CSS3&nbsp;</li>
+                        <li class="ui-biaoqian">&nbsp;Html5+css3&nbsp;</li>
+                        <li class="ui-biaoqian">&nbsp;百度&nbsp;</li>
+                    </ul>
+                </div>
+            </div>
+            <style>
+                .img-pp {
+                    height: 100px;
+                    float: left;
+                    margin: 10px;
+                }
+
+                .div-pp1 {
+                    width: 420px;
+                    height: 400px;
+                }
+                .img-pp1{
+                    float: left;
+                }
+                .img-pp2{
+                    float: left;
+                }
+                .pp-pp1{
+                    color: #759b08;
+                    font-size: 13px;
+                    margin: 10px 10px;
+                    float: left;
+                }
+                .pp-pp22{
+                    margin-top: 10px;
+                    font-size: 15px;
+                }
+                .fudong{
+                    width: 200px;
+                float: left;
+                }
+            </style>
+            <div class="div-pp1">
+                <p class="ppp-pp"><b>图文推荐</b></p>
+                <hr>
+                <div style="height: 120px;">
+                    <img class="img-pp" src="./images/01.jpg">
+                <div class="fudong"><p class="pp-pp22">住在手机里的朋友</p> <br>
+                    <img class="img-pp2" src="./images/lanmbq.png">
+                    <p class="pp-pp1">个人博客</p>
+                    <img class="img-pp2" src="./images/datepng.png">
+                    <p class="pp-pp1">2014-02-19</p></div>
+                </div>
+                <div style="height: 120px;">
+                    <img class="img-pp" src="./images/01.jpg">
+                <div class="fudong"><p class="pp-pp22">住在手机里的朋友</p> <br>
+                    <img class="img-pp2" src="./images/lanmbq.png">
+                    <p class="pp-pp1">个人博客</p>
+                    <img class="img-pp2" src="./images/datepng.png">
+                    <p class="pp-pp1">2014-02-19</p></div>
+                </div>
+                <div style="height: 120px;">
+                    <img class="img-pp" src="./images/01.jpg">
+                <div class="fudong"><p class="pp-pp22">住在手机里的朋友</p> <br>
+                    <img class="img-pp2" src="./images/lanmbq.png">
+                    <p class="pp-pp1">个人博客</p>
+                    <img class="img-pp2" src="./images/datepng.png">
+                    <p class="pp-pp1">2014-02-19</p></div>
+                </div>
+                <div style="height: 120px;">
+                    <img class="img-pp" src="./images/01.jpg">
+                <div class="fudong"><p class="pp-pp22">住在手机里的朋友</p> <br>
+                    <img class="img-pp2" src="./images/lanmbq.png">
+                    <p class="pp-pp1">个人博客</p>
+                    <img class="img-pp2" src="./images/datepng.png">
+                    <p class="pp-pp1">2014-02-19</p></div>
+                </div>
+                <div style="height: 120px;">
+                    <img class="img-pp" src="./images/01.jpg">
+                <div class="fudong"><p class="pp-pp22">住在手机里的朋友</p> <br>
+                    <img class="img-pp2" src="./images/lanmbq.png">
+                    <p class="pp-pp1">个人博客</p>
+                    <img class="img-pp2" src="./images/datepng.png">
+                    <p class="pp-pp1">2014-02-19</p></div>
+                </div>
+
+
+                <img src="./images/03.jpg">
+                <p class="ppp-pp"><b>友情链接</b></p>
+                <hr>
+            </div>
+            <div>
+
+            </div>
+            <style>
+                .dubu-1{
+                    height: 30px;
+                    width: 1100px;
+                    background-color: black;
+                }
+                .pp-45p{
+                    color: white;
+                    font-size: 13px;
+                    text-align: center;
+                }
+            </style>
+            <div class="dibu-1">
+                <p class="pp-45p">兔小白博客 Design by DanceSmile 蜀ICP备11002373号-1</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

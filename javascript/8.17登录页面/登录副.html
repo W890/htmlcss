@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录副</title>
+    <style>
+        div {
+            width: 1300px;
+            /* height: 50px; */
+            background-color: red;
+        }
+
+        li {
+            float: left;
+            list-style: none;
+            border: 1px solid;
+            margin-right: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>学生信息登记</h1>
+    <div>
+        学号<input type="text">
+        姓名<input type="text">
+        年龄<input type="text">
+        性别<input type="text">
+        成绩<input type="text">
+        <button>添加</button>
+    </div>
+    <div class="div1">
+        <ul>
+            <li>学号</li>
+            <li>姓名</li>
+            <li>年龄</li>
+            <li>性别</li>
+            <li>成绩</li>
+            <li>操作</li>
+        </ul>
+        <br>
+    </div>
+    <script>
+        let inputs = document.querySelectorAll('input');
+        let button = document.querySelector('button');
+        button.onclick = function () {
+            let obj = {
+                "学号": inputs[0].value,
+                "姓名": inputs[1].value,
+                "年龄": inputs[2].value,
+                "性别": inputs[3].value,
+                "成绩": inputs[4].value
+            }
+            console.log(obj);
+            let newobj = JSON.stringify(obj);
+            console.log(newobj);
+            sessionStorage.setItem("newobj", newobj);
+
+            let str = sessionStorage.getItem('newobj');
+            let newstr = str.split(',');
+
+            let p = document.createElement('p');
+            let div1 = document.querySelector('.div1');
+            p.innerHTML = `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        ${inputs[0].value}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        ${inputs[1].value}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        ${inputs[2].value}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        ${inputs[3].value}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        ${inputs[4].value}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span>X</span>`
+            div1.appendChild(p)
+        }
+    </script>
+</body>
+
+</html>

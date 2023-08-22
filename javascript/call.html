@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function f1(a,b){
+            console.log(this);
+            console.log((a+b));
+        }
+        let obj = {
+            name:123
+        }
+        // call:修改this指向
+        f1.call(obj,2,3);
+
+        // 继承
+        function Fn1(name,age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        function Fn2(name,age ,tiem) {
+            this.tiem = tiem;
+            // 通过call继承父的属性
+            Fn1.call(this.name,age)
+        }
+        let sum = new Fn2('张三',15,30);
+        console.log(sum);
+    </script>
+</body>
+</html>

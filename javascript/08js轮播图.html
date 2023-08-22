@@ -1,0 +1,355 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        .img2 {
+            display: none;
+        }
+
+        .img3 {
+            display: none;
+        }
+
+        img {
+            height: 500px;
+            width: 1000px;
+        }
+
+        .but1 {
+            position: absolute;
+            left: 432px;
+            top: 218px;
+        }
+
+        .but2 {
+            position: absolute;
+            right: 320px;
+            top: 218px;
+        }
+
+        div {
+            height: 500px;
+            width: 1000px;
+            background: url("./images/02.jpg") no-repeat;
+            margin-left: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button class="but1">《</button>
+        <img class="img1" src="./images/02.jpg" alt="">
+        <img class="img2" src="./images/03.jpg" alt="">
+        <img class="img3" src="./images/05.jpg" alt="">
+        <button class="but2">》</button>
+    </div>
+    <div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+       
+
+      
+
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            width: 1000px;
+            height: 600px;
+            float: left;
+        }
+
+        .img-list {
+            width: 4000px;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        .box {
+            width: 1000px;
+            height: 600px;
+            border: 1px solid;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            top:150px
+        }
+
+        .left,.right {
+            font-size: 60px;
+            font-weight: 1000;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9;
+            color: black;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+
+        .cirle {
+            width: 90px;
+            height: 20px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 10%;
+            z-index: 99;
+        }
+
+        .cirle span {
+            float: left;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            margin-left: 10px;
+        }
+
+        .cirle span:nth-child(1) {
+            margin: 0;
+        }
+
+        .cirle .open {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div class="img-list">
+            <img src="./images/07.png" alt="">
+            <img src="./images/06.jpg" alt="">
+            <img src="./images/01.jpg" alt="">
+            <img src="./images/05.jpg" alt="">
+        </div>
+        <p class="left">《</p>
+        <p class="right">》</p>
+        <div class="cirle">
+            <span class="open"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <script>
+       // 获取左侧按钮
+       let left = document.querySelector('.left');
+        // 获取右侧按钮
+        let right = document.querySelector('.right');
+        let imglist = document.querySelector('.img-list');
+        // 获取img个数
+        let imgindex = document.querySelectorAll('.img-list img').length;
+        // 获取指示器个数
+        let span = document.querySelectorAll('span');
+        // 移动次数
+        let num = 0;
+        left.addEventListener('click', function () {
+            num <= 0 ? num = imgindex - 1 : num--;
+            setimg();
+        })
+
+        right.addEventListener('click', function () {
+            num >= imgindex - 1 ? num = 0 : num++;
+            setimg();
+        })
+        // 添加指示器方法
+        for(let i = 0;i<span.length;i++) {
+            span[i].addEventListener('click',function(){
+                num = i;
+                // 调用轮播图方法
+                setimg();
+            })
+        }
+
+        // 封装函数
+        function setimg() {
+            for (let i = 0; i < span.length; i++) {
+                span[i].className = ' ';
+            }
+            span[num].className = 'open';
+            //轮播图图片位置
+            imglist.style.left = -1000 * num + 'px';
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            width: 350px;
+            height: 350px;
+            float: left;
+        }
+
+        .img-list {
+            width: 1400px;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            border: 1px solid;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .left,
+        .right {
+            font-size: 30px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9;
+
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+
+        .cirle {
+            width: 90px;
+            height: 20px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 10%;
+            z-index: 99;
+        }
+
+        .cirle span {
+            float: left;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            background-color: black;
+            margin-left: 10px;
+        }
+
+        .cirle span:nth-child(1) {
+            margin: 0;
+        }
+
+        .cirle .open {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="left">《</div>
+        <div class="right">》</div>
+        <div class="img-list">
+            <img src="https://img13.360buyimg.com/n1/jfs/t1/90090/20/15871/328904/5e7373e7Ea73d6cd8/17eebe78d5a7b8d0.jpg.avif"
+                alt="">
+            <img src="https://img13.360buyimg.com/n1/jfs/t1/97097/12/15694/245806/5e7373e6Ec4d1b0ac/9d8c13728cc2544d.jpg.avif"
+                alt="">
+            <img src="https://img13.360buyimg.com/n1/jfs/t1/92488/33/15698/286527/5e7373e7E98f42fb5/752a11232634a077.jpg.avif"
+                alt="">
+            <img src="https://img13.360buyimg.com/n1/jfs/t1/103886/40/15757/256057/5e7373e7E8783446c/dd9b385485c1c439.jpg.avif"
+                alt="">
+        </div>
+        <div class="cirle">
+            <span class="open"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <script>
+        // 获取左侧按钮
+        let left = document.querySelector('.left');
+        // 获取右侧按钮
+        let right = document.querySelector('.right');
+        let imglist = document.querySelector('.img-list');
+        // 获取img个数
+        let imgindex = document.querySelectorAll('.img-list img').length;
+        // 获取指示器个数
+        let span = document.querySelectorAll('span');
+        // 移动次数
+        let num = 0;
+        left.addEventListener('click', function () {
+            num <= 0 ? num = imgindex - 1 : num--;
+            setimg();
+        })
+
+        right.addEventListener('click', function () {
+            num >= imgindex - 1 ? num = 0 : num++;
+            setimg();
+        })
+        // 添加指示器方法
+        for(let i = 0;i<span.length;i++) {
+            span[i].addEventListener('click',function(){
+                num = i;
+                // 调用轮播图方法
+                setimg();
+            })
+        }
+
+        // 封装函数
+        function setimg() {
+            for (let i = 0; i < span.length; i++) {
+                span[i].className = ' ';
+            }
+            span[num].className = 'open';
+            //轮播图图片位置
+            imglist.style.left = -350 * num + 'px';
+        }
+    </script>
+</body>
+
+</html> -->

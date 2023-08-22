@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <style>
+        input {
+            height: 30px;
+            width: 400px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: red;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div> <input class="username" type="text"></div>
+    <div><input class="password" type="password">
+        <span class="look">小眼睛</span>
+    </div>
+    <div><button>登录</button></div>
+
+
+
+    <script>
+        // 获取用户名input
+        let username = document.querySelector('.username');
+        // 获取密码input
+        let password = document.querySelector('.password');
+        // 获取登录按钮
+        let but = document.querySelector('button');
+        // 点击登录事件
+        but.onclick = function (params) {
+            // 得到用户名参数
+            let namevalue = username.value;
+            // 得到密码参数
+            let passvalue = password.value;
+
+            if (!namevalue) {
+                //alert('请输入用户名');
+                let p = document.createElement('p');
+                p.innerText = '请输入用户名';
+                username.parentNode.appendChild(p);
+                // 改变样式
+                username.classList.add('red');
+            } else if (!passvalue) {
+                //alert('请输入密码');
+                let p = document.createElement('p');
+                p.innerText = '请输入密码';
+                password.parentNode.appendChild(p);
+                // 改变样式
+                password.classList.add('red');
+            } else {
+                alert('登录成功');
+            }
+        }
+        // 获取小眼睛
+        let look = document.querySelector('.look');
+        look.onclick = function () {
+            password.type = password.type == 'text' ? 'password' : 'text';
+        }
+
+    </script>
+</body>
+
+</html>

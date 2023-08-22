@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            font-size: 20px;
+            list-style: none;
+        }
+        li{
+            float: left;
+            margin-left: 20px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+
+    <script>
+        let num = prompt('请输入一个数字');
+        let lis = document.getElementsByTagName('li');
+        console.log(lis);
+        let ci = lis[num-1].parentNode.children;      
+        for(var i = 0; i < ci.length; i++) {
+            lis[i].style.backgroundColor = 'blue';
+        }
+        lis[num-1].style.backgroundColor = 'red';
+
+
+    </script>
+</body>
+</html>

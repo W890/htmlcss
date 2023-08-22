@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取时间</title>
+</head>
+
+<body>
+    <input value="" type="text">
+    <button>计算</button>
+    <p>01:23:56</p>
+    <script>
+        let input = document.querySelector('input');
+        let p = document.querySelector('p');
+        let button = document.querySelector('button');
+
+        function gettime(s) {
+            let h = parseInt(s / 3600 % 24);
+            let m = parseInt(s / 60 % 60)
+            let ss = parseInt(s % 60)
+            h = h<10?'0'+h:h;
+            m = m<10?'0'+m:m;
+            ss = ss<10?'0'+ss:ss;
+
+            let text = `${h}:${m}:${ss}`;
+            return text;
+        }
+        button.addEventListener('click', function() {
+            if (!input.value) return alert('请输入数值');
+            console.log(gettime(input.value));
+            p.innerHTML = `当前时间：${gettime(input.value)};`
+        })
+        setInterval(i=>{
+            p.innerHTML = `当前时间：${gettime(input.value)};`
+        })
+    </script>
+</body>
+
+</html>

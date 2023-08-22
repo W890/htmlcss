@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录主</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .outmax {
+            width: 100%;
+            height: 941px;
+            background: url('../images/back1.jpg') no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .div1 {
+            width: 800px;
+            height: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 128, 0, 0.747);
+            border-radius: 20px;
+        }
+
+        .input1 {
+            width: 300px;
+            height: 40px;
+            padding-left: 10px;
+            margin-top: 24px;
+            margin-left: 220px;
+        }
+
+        .input2 {
+            width: 200px;
+            height: 40px;
+            padding-left: 10px;
+            margin-top: 24px;
+            margin-left: 225px;
+        }
+
+        .input3 {
+            width: 200px;
+            height: 40px;
+            padding-left: 10px;
+            margin-top: 24px;
+            margin-left: 225px;
+        }
+
+        .button0 {
+            width: 150px;
+            height: 43px;
+            margin-left: 10px;
+
+        }
+
+        .button1 {
+            width: 150px;
+            height: 43px;
+            margin-left: 10px;
+        }
+
+        .button2 {
+            width: 140px;
+            height: 40px;
+            background-color: rgb(99, 99, 143);
+            border: 0;
+            border-radius: 10px;
+            font-size: 20px;
+            position: absolute;
+            left: 345px;
+            bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outmax">
+        <div class="div1">
+            <input class="input1" type="text" placeholder="请填写用户名">
+            <br>
+            <input class="input1" type="text" placeholder="请填写密码">
+            <br>
+            <input class="input2" type="text" placeholder="请填写验证码">
+            <button class="button0">点击获取验证码</button>
+            <br>
+            <input class="input3" type="text" placeholder="请填写手机号">
+            <button class="button1">点击发送</button>
+            <br>
+            <button class="button2">登录</button>
+        </div>
+    </div>
+
+    <script>
+        let inputs = document.querySelectorAll('input');
+        let value0 = inputs[0].value;   
+        let value1 = inputs[1].value;
+        let value2 = inputs[2].value;  
+        //let value3 = inputs[3].value;
+
+        let input3 = document.querySelector('.input3');
+        let value = input3.value;
+        // 验证码部分
+        //生成4位验证码
+        let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+        let str = '';
+        for (let i = 0; i < 4; i++) {
+            let s = parseInt(Math.random() * arr.length-1);
+            str += arr[s];
+        }
+        // 点击获取验证码
+        let input2 = document.querySelector('.input2');
+        let button0 = document.querySelector('.button0');
+
+        button0.onclick = function () {
+            button0.innerHTML = str;
+        }
+        // 手机号部分
+        let button1 = document.querySelector('.button1');
+        // 点击获取验证码并倒计时
+        button1.onclick = function () {
+            // 60秒倒计时
+            let num = 59;
+            if (!value3) {
+                button1.innerHTML = '已发送60s后重新发送';
+                let daojis = setInterval(function (params) {
+                    button1.innerHTML = `已发送${num}s后重新发送`;
+                    if (num == 0) {
+                        clearInterval(daojis);
+                        button1.innerHTML = '点击发送';
+                    }
+                    num--;
+                }, 1000)
+
+            } else {
+                alert('请输入手机号');
+            }
+        }
+
+        let button2 = document.querySelector('.button2');
+        
+        button2.onclick = function () {
+            // if(!value0&&!value1&&!value2&&!value3){
+            //     location.assign('./登录副.html');
+            // }
+            // else {
+            //     return alert('请填写个人信息');
+            // }
+            console.log(value0);
+            console.log(value1);
+            console.log(value2);
+            console.log(value3);
+
+        }
+
+    </script>
+</body>
+
+</html>

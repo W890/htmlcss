@@ -1,0 +1,572 @@
+    /* 全局变量 */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    .div1{
+        width: 1920px;
+        position: relative;
+    }
+
+    /* 顶部导航栏 */
+    .div2-top {
+        height: 60px;
+        width: 1920px;
+        background-color: #191d3a;
+        position: relative;
+    }
+
+    .div2-top img {
+        float: left;
+        margin-left: 400px;
+        margin-right: 30px;
+    }
+
+    .div2-top div {
+        width: 640px;
+        height: 40px;
+        margin-left: 608px;
+    }
+
+    .div2-top div a {
+        font-size: 14px;
+        color: #6b7180;
+        text-align: center;
+        padding: 20px 2px 0px;
+        display: inline-block;
+        height: 40px;
+        width: 88px;
+    }
+
+    .div2-top div a:hover {
+        background-color: #252947;
+    }
+
+    .div2-top button {
+        background-color: #38b774;
+        color: white;
+        width: 102px;
+        height: 34px;
+        position: absolute;
+        bottom: 12px;
+        right: 602px;
+        border-style: none;
+        border-radius: 5px;
+    }
+
+    .div2-top button:hover {
+        background-color: #2ba364;
+    }
+
+    .div2-top p {
+        display: block;
+        position: absolute;
+        right: 500px;
+        bottom: 20px;
+    }
+
+    .div2-top p .span1 {
+        color: #33a16c;
+        font-size: 12px;
+    }
+
+    .div2-top p .span2 {
+        color: #ccc;
+        font-size: 12px;
+    }
+
+    /* 内容部分 */
+    /* 斗地主图片区域 */
+    .div3-1-imp {
+        height: 458px;
+        width: 1920px;
+        position: relative;
+    }
+
+    .div3-1-imp .img1 {
+        height: 458px;
+        width: 1920px;
+    }
+
+    .div3-1-imp .p1 {
+        display: block;
+        height: 36px;
+        width: 442px;
+        position: absolute;
+        right: 474px;
+        top: 164px;
+        font-size: 13px;
+    }
+
+    .div3-1-imp .p2 {
+        display: block;
+        height: 30px;
+        width: 120px;
+        float: right;
+        background: url(../images/index/download.png) no-repeat;
+        padding-left: 20px;
+        position: absolute;
+        right: 772px;
+        top: 206px;
+    }
+
+    /* 下载游戏部分 */
+    .div3-center .div3-1-imp .div3-2 {
+        width: 344px;
+        height: 106px;
+        position: absolute;
+        right: 572px;
+        top: 236px;
+    }
+
+    .div3-center .div3-1-imp .div3-2 div {
+        float: left;
+        width: 84px;
+        height: 96px;
+        margin: 1px;
+        padding-top: 10px;
+        border-radius: 5px;
+        background: url(../images/index/pad.png) no-repeat;
+        background-color: #f2f8fd;
+    }
+    .div3-center .div3-1-imp .div3-2 div a{
+        display: block;
+        height: 16px;
+        width: 25px;
+        padding-top: 58px;
+        padding-left: 30px;
+    }
+    .div3-center .div3-1-imp .div3-2 div:nth-child(1) {
+        background-position: 28px -178px;
+        background-color: #ffffff;
+    }
+
+    .div3-center .div3-1-imp .div3-2 div:nth-child(2) {
+        background-position: 28px 20px;
+        background-color: #ffffff;
+    }
+
+    .div3-center .div3-1-imp .div3-2 div:nth-child(3) {
+        background-position: 28px -80px;
+        background-color: #ffffff;
+    }
+
+    .div3-center .div3-1-imp .div3-2 div:nth-child(4) {
+        background-position: 28px -480px;
+        background-color: #ffffff;
+    }
+
+    .div3-center .div3-1-imp .div3-3 {
+        height: 110px;
+        width: 110px;
+        background-color: #f0f6fe;
+        border-radius: 5px;
+        position: absolute;
+        right: 460px;
+        top: 232px;
+    }
+
+    .div3-center .div3-1-imp .div3-3 img {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -40px;
+        margin-top: -40px;
+    }
+
+    /* 在线游戏部分 */
+    .online{
+        width: 120px;
+        position:absolute;
+        right: 466px;
+        top: 62px;
+        text-align: center;
+        line-height: 37px;
+        background: url(../images/index/online.png) no-repeat;
+        background-color: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .online div{
+        height: 40px;
+        background-color: #fff;
+        display: none;
+    }
+    .online div a{
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background:url(../images/index/online.png) no-repeat;
+        background-position: 0px -47px;
+    }
+    .online div a:nth-child(2){
+        background-position: -50px -47px;
+    }
+    .online div a:nth-child(3){
+        background-position: -100px -47px;
+    }
+    .online:hover div{
+        display: block;
+    }
+
+
+/* 中部四个图片位置 */
+.div5{
+    height: 200px;
+    width: 1000px;
+    position: absolute;
+    left: 458px;
+    top: 568px;
+    
+}
+/* 1111111111111111111111111111111111111111 */
+.div5 .div5-1{
+    height: 200px;
+    width: 218px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.div5 .div5-1-2{
+    width: 218px;
+    height: 74px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.div5 .div5-1-2:hover{
+    background-color: #4cbe82;
+}
+.div5 img{
+    height: 126px;
+    width: 218px;
+}
+.div5 .div5-1 .div5-1-2 .div5-p1{
+    text-align: center;
+    font-size: 15px;
+    color: black;
+    line-height: 37px;
+}
+
+.div5 .div5-1 .div5-1-2 .div5-p2{
+    text-align: center;
+    font-size: 12px;
+    color: green;
+    line-height: 37px;
+}
+.div5 .div5-1 .div5-1-2 .div5-p2:hover{
+    color: white;
+}
+
+
+/* 222222222222222222222222222222222222222222222 */
+.div5 .div5-2{
+    height: 200px;
+    width: 218px;
+    position: absolute;
+    left: 262px;
+    top: 0;
+}
+.div5 .div5-2-2{
+    width: 218px;
+    height: 74px;
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+}
+.div5 .div5-2-2:hover{
+    background-color: #4cbe82;
+}
+.div5 .div5-2 .div5-2-2 .div5-p1{
+    text-align: center;
+    font-size: 15px;
+    color: black;
+    line-height: 37px;
+}
+
+.div5 .div5-2 .div5-2-2 .div5-p2{
+    text-align: center;
+    font-size: 12px;
+    color: green;
+    line-height: 37px;
+}
+.div5 .div5-2 .div5-2-2 .div5-p2:hover{
+    color: white;
+}
+
+/* 3333333333333333333333333333333333333333333333 */
+.div5 .div5-3{
+    height: 200px;
+    width: 218px;
+    position: absolute;
+    right: 262px;
+    top: 0;
+}
+.div5 .div5-3-2{
+    width: 218px;
+    height: 74px;
+    position: absolute;
+    right: 0px;
+    bottom: 0;
+}
+.div5 .div5-3-2:hover{
+    background-color: #4cbe82;
+}
+.div5 .div5-3 .div5-3-2 .div5-p1{
+    text-align: center;
+    font-size: 15px;
+    color: black;
+    line-height: 37px;
+}
+
+.div5 .div5-3 .div5-3-2 .div5-p2{
+    text-align: center;
+    font-size: 12px;
+    color: green;
+    line-height: 37px;
+}
+.div5 .div5-3 .div5-3-2 .div5-p2:hover{
+    color: white;
+}
+
+
+/* 4444444444444444444444444444444444444444444444444 */
+.div5 .div5-4{
+    height: 200px;
+    width: 218px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.div5 .div5-4-2{
+    width: 218px;
+    height: 74px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.div5 .div5-4-2:hover{
+    background-color: #4cbe82;
+}
+.div5 .div5-4 .div5-4-2 .div5-p1{
+    text-align: center;
+    font-size: 15px;
+    color: black;
+    line-height: 37px;
+}
+
+.div5 .div5-4 .div5-4-2 .div5-p2{
+    text-align: center;
+    font-size: 12px;
+    color: green;
+    line-height: 37px;
+}
+.div5 .div5-4 .div5-4-2 .div5-p2:hover{
+    color: white;
+}
+
+/* 下划线部分 */
+.huaxian{
+    height: 40px;
+    width: 1014px;
+    border-bottom: 1px solid black;
+    position: absolute;
+    left: 460px;
+    top: 784px;
+}
+.huaxian .huaxian-dian{
+    width: 142px;
+    height: 40px;
+    background-color: #ffffff;
+    position: absolute;
+    left: 432px;
+    top: 20px;
+}
+.huaxian-dian div{
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 14px;
+    left: 26px;
+}
+.huaxian-dian div:nth-child(2){
+    background-color: #b5c0cb;
+    bottom: 14px;
+    left: 64px;
+}
+.huaxian-dian div:nth-child(3){
+    background-color: #b5c0cb;
+    bottom: 14px;
+    left: 100px;
+}
+.huaxian-dian div:nth-child(2):hover{
+    background-color: green;
+}
+.huaxian-dian div:nth-child(3):hover{
+    background-color: green;
+}
+
+/* 内容下半部分 */
+.div6{
+    width: 980px;
+    height: 310px;
+    position: absolute;
+    left: 478px;
+    top: 858px;
+}
+.div6 img{
+    width: 490px;
+    height: 310px;
+}
+/* 左下部分 */
+.div6 .div6-1{
+    width: 490px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    top: 0; 
+}
+.div6 .div6-1-1{
+    width: 490px;
+    height: 190px;
+    position: absolute;
+    left: 0;
+    bottom: -110px;
+}
+.div6 .div6-1-1 p{
+    line-height: 32px;
+    text-align: left;
+    font-size: 12px;
+    padding-top: 14px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.div6 .div6-1-1 p:hover{
+    color: #4cbe82;
+}
+.div6-1 span{
+    font-size: 12px;
+    color: #b5c0cb;
+    float: right;
+    padding-right: 15px;
+}
+/* 右下部分 */
+.div6 .div6-2{
+    width: 490px;
+    height: 200px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.div6 .div6-2 .div6-2-1{
+    width: 308px;
+    height: 148px;
+    position: absolute;
+    right: 160px;
+    bottom: -88px;
+}
+.div6 .div6-2 .div6-2-1 p{
+    line-height: 27px;
+    color: white;
+    font-size: 12px;
+    padding-top: 10px;
+    border-bottom: 1px solid white;
+}
+
+.div6 .div6-2 .div6-2-p1{
+    display: block;
+    height: 20px;
+    width: 116px;
+    position: absolute;
+    left: 18px;
+    top: 118px;
+}
+.div6 .div6-2 .div6-2-p2{
+    display: block;
+    height: 50px;
+    width: 116px;
+    color: white;
+    font-size: 23px;
+    position: absolute;
+    left: 82px;
+    top: 36px;
+}
+.div6 .div6-2 .div6-2-p2 span{
+    font-size: 12px;
+    color: white;
+}
+/* more */
+.mire{
+    color: #38b774;
+    border-radius: 5px;
+    border: 1px  solid;
+    width: 66px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    position: absolute;
+    left: 218px;
+    top: 54px;
+    font-size: 12px;
+}
+.mire span{
+    position: absolute;
+    top: 8px;
+    right: 6px;
+    line-height: 0;
+}
+
+    /* 底部部分 */
+    .div-bottom{
+        width: 1920px;
+        height: 190px;
+        background-color: #191d3a;
+        position: absolute;
+        bottom: 0;
+    }
+    .div-bottom-1{
+        width: 772px;
+        height: 150px;
+        position: absolute;
+        bottom: 12px;
+        left: 428px;
+    }
+    .div-bottom-1 p{
+        font-size: 12px;
+        line-height: 50px;
+        color: #ccc;
+    }
+    .div-bottom .div-bottom-2{
+        width: 42px;
+        height: 38px;
+        position: absolute;
+        right: 726px;
+        bottom: 20px;
+    }
+    .div-bottom-2 img{
+        height: 42px;
+        width: 34px;
+    }
+
+    /* top部分 */
+.gototop{
+    position:fixed;
+    width: 68px;
+    height: 28px;
+    right: 30px;
+    bottom: 15%;
+    background: url(../images/index/top.png) no-repeat 0 -40px;
+
+}
+
+.gototop:hover{
+    background-position: 0 0;
+}

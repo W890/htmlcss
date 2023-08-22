@@ -1,0 +1,9 @@
+@font-face {
+    font-family: wyk;
+    src: url(../DS-DIGIT.TTF);
+}
+
+p{
+    font-size: 30dp;
+    font-family: wyk;
+}

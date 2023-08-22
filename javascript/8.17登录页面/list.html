@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hider{
+            width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input{
+            width: 120px;
+        }
+        table{
+            width: 700px;
+        }
+        th{
+            background-color: aqua;
+            line-height: 30px;
+        }
+        .page{
+            text-align: center;
+            margin-top: 20px;
+
+        }
+        .page span{
+            display: inline-block;
+            height: 20px;
+            border: 1px;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+        .page .pagelist{
+            display: inline-block;
+            width: auto;
+            border: 0;
+            padding: 0 ;
+        }
+        .pagelist span{
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+  
+   <div class="hider">
+    <h1>成绩录入</h1>
+    姓名: <input class="name" type="text">
+    年龄:<input class="age" type="text">
+    性别: <select class="sex" name="" id="">
+        <option value="男">男</option>
+        <option value="女">女</option>
+    </select>
+    成绩:<input class="ment" type="text"> 
+    <button class="add">添加</button>
+
+   </div>
+   <div class="hider">
+    <h1>成绩展示</h1>
+    <table>
+        <thead>
+
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+
+        </thead>
+        <tbody> 
+            <tr>
+                <th>1</th>
+                <th>张三</th>
+                <th>18</th>
+                <th>男</th>
+                <th>69</th>
+                <th><span>删除</span></th>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page">
+        <span onclick="openpage('<')"><</span>
+        <div class="pagelist">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+        </div>
+        <span onclick="openpage('>')">></span>
+    </div>
+   </div>
+
+   <script>
+    // 获取表单元素
+    let name = document.querySelector('.name')
+    let age = document.querySelector('.age')
+    let sex = document.querySelector('.sex')
+    let ment = document.querySelector('.ment')
+    let add = document.querySelector('.add')
+    // 获取列表元素
+    let tbody = document.querySelector('tbody')
+      // 分页 参数
+      let pagenum =1
+    let pagesize = 5
+    let totel
+    // 列表数据
+    // console.log(getdata());
+    let listdata = getdata()
+    // 调用渲染数据到页面方法 初始化传入分页处理完成的数据
+    lookitem(updata(listdata,0))
+    // 添加数据
+    function adddata(params) {
+        let obj ={}
+        obj.id = listdata.length+1
+        obj.name = name.value
+        obj.age  = age.value
+        obj.sex  = sex.value
+        obj.ment = ment.value
+        // 插入数据
+        listdata.push(obj)
+
+        // 写入缓存
+        setdata('list',listdata)
+        // console.log(listdata);     
+    }
+    // 渲染数据到页面
+    function lookitem(arr) {
+        console.log(arr,134);
+        // 每次点击清空tbody中的内容
+        tbody.innerHTML = ''
+      
+        arr.forEach(function(item,index) {
+              // 创建tr元素
+            let tr = document.createElement('tr')
+            // 将信息写入tr元素
+            tr.innerHTML = `
+                <th>${item.id}</th>
+                <th>${item.name}</th>
+                <th>${item.age}</th>
+                <th>${item.sex}</th>
+                <th>${item.ment}</th>
+                <th><span data-index = ${index}>删除</span></th>`
+        // 向tbody中插入tr
+        tbody.appendChild(tr)
+        })
+    }
+    // 删除数据
+    tbody.addEventListener('click',function(e){
+        // 事件委托代理
+        if (e.target.tagName == 'SPAN') {
+        //    通过自定义参数获取选中元素的下标
+        // e.target.dataset.index
+        // 删除选中项
+        listdata.splice(e.target.dataset.index,1)
+            // 写入缓存
+            setdata('list',listdata)
+        // // 更新视图
+        // lookitem() 
+        // // 更新分页
+        // // setpagelist()
+         // 调用添加数据事件
+        // 渲染分页
+        setpagelist()
+        // 更新分页
+        openpage(pagenum)
+        }
+
+    })
+    // 2.0
+    // 写入缓存
+    function setdata(name,arr) {
+        // 将数据转成json字符串
+        let data = JSON.stringify(arr)
+        // 写入缓存
+        localStorage.setItem(name,data)   
+    }
+    // 读取缓存
+    function getdata() {
+        //  将数据转成json对象
+        return JSON.parse(localStorage.getItem('list')) ||[]       
+    }
+    // 3.0
+    // 分页
+
+
+    function setpagelist() {
+        let pagelist = document.querySelector('.pagelist')
+        // 计算分页数 总条数/每页显示的条数
+        totel = Math.ceil(getdata().length/pagesize)
+        let span = ''
+      for(let i = 1;i<=totel;i++){
+        span+= `<span onclick="openpage(${i})">${i}</span>`  
+      }
+      pagelist.innerHTML = span
+        
+    }
+    function openpage(e) {
+        // e:对应页码
+        console.log(getdata());
+        // 修改页码  生成对应的数据
+        // 0 5 10 15
+        switch (e) {
+            case '<':
+                 pagenum<=1?pagenum =1:pagenum--
+                break;
+                case '>':
+                 pagenum>=totel?pagenum =totel:pagenum++
+                
+                break;
+        
+            default:
+                if (e>totel) {
+                    pagenum = totel
+                }else{
+                    pagenum = e
+                }
+                
+                break;
+        }
+        // 更新页面
+        lookitem(updata(getdata(),(pagenum-1)*5))
+
+    }
+    // 数据处理过滤
+    function updata(arr,index) {
+        console.log(index);
+       return arr.slice(index,index+pagesize)
+    }
+    setpagelist()
+    // 点击add后的执行
+    add.addEventListener('click',function(){
+        // 调用添加数据事件
+        // 写入缓存
+        adddata()
+        // 渲染分页
+        setpagelist()
+        // 更新分页
+        openpage(pagenum)
+        // lookitem(updata(getdata(),(pagenum-1)*5))
+    })
+
+   </script>
+</body>
+</html>

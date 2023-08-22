@@ -1,0 +1,243 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wyk</title>
+</head>
+<body> -->
+    <!-- <p id="pp1">哈哈哈</p> -->
+
+
+    
+    <!-- <ul class="ul-red">
+        <li>红色</li>
+        <li>红色</li>
+        <li>红色</li>
+        <li>红色</li>
+        <li>红色</li>
+        <li>红色</li>
+        <li>红色</li>
+        <li>红色</li>
+        <li>红色</li>
+        <li>红色</li>
+    </ul> -->
+
+    <!-- <ul class="ul-blue">
+        <li>蓝色</li>
+        <li>蓝色</li>
+        <li>蓝色</li>
+        <li>蓝色</li>
+        <li>蓝色</li>
+        <li>蓝色</li>
+    </ul> -->
+    
+    <!-- <p></p> -->
+    <!-- <p></p>
+    <p></p>
+    <p></p> -->
+    <!-- <div>123456</div> -->
+
+    <!-- <style>
+        span{
+            color: red;
+        }
+    </style> -->
+    
+    <!-- <style>
+        div{
+            background-color: red;
+            width: 200px;
+            height: 200px;
+        }
+        p{
+            background-color: aqua;
+            line-height: 20px;
+        }
+    </style>
+    <div>
+        我是div
+        <p>
+            我是p
+        </p>
+    </div>
+    <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+
+
+
+
+    <script>
+    let p1 = document.getElementsByTagName('p');
+    console.log(p1) -->
+    <!-- // console.log(p[0]);
+    // console.log(p[0].parentNode);
+    // p[0].parentNode.style.backgroundColor = 'blue';
+
+
+    // let lione = document.getElementsByClassName('lione')[0];
+    // console.log('下个兄弟节点：',lione.nextElementSibling);
+    // console.log('上一个兄弟节点：',lione.previousElementSibling);
+
+
+
+    // console.log(lione.firstElementChild);
+    // console.log(lione.firstChild);
+    // console.log(lione.chiledren);
+    // console.log(lione.childNodes);
+
+
+    //     var date = new Date();
+
+    //    let year =date.getFullYear();
+    //    let month = date.getMonth()+1;
+    //    let dates = date.getDate();
+    //    let h = date.getHours();
+    //    let m = date.getMinutes();
+    //    let s = date.getSeconds();
+    //    let day = date.getDay();
+
+    //    let p = document.querySelector('p');
+    //    let arr = ['日','一','二','三','四','五','六']
+       
+    //    p.innerHTML = `${year}/${month}/${dates}/${h}/${m}/${s}<span>星期${arr[day]}</span>`
+
+ 
+
+
+
+
+
+
+
+
+        // let p = document.getElementsByTagName('p')
+        // p[0].innerText = 'sdfasd<span>fasdfsad'
+        // p[1].innerText = '134554111'
+        // p[2].innerHTML = '465<span>dfds'
+        // p[3].innerHTML = `456hhhh123`
+        
+        
+
+
+
+
+
+
+        // let lis1 = document.getElementsByClassName('ul-red');
+        // let lis2 = document.getElementsByClassName('ul-blue');
+        // for(var i = 0; i < lis1.length;i++){
+        //     lis1[i].style.color = 'red';
+        //     lis2[i].style.color = 'blue';
+        // }
+        // let lis1 = document.getElementsByTagName('li');
+        // for(var i = 0; i < lis1.length; i+=2){
+        //     lis1[i].style.color = 'red';
+        // }
+
+
+        // var pp1 = document.getElementById('pp1');
+        // console.log(pp1);
+        // pp1.style.color='red';
+        // pp1.style.fontSize = '30px'
+
+        // var obj = {
+        //     name:'dhf',
+        //     age:16,
+        //     type:true,
+        //     style:{
+        //         color:'red'
+        //     },
+        //     arr:[],
+        //     f1:function() {
+        //         console.log('fffff');
+        //     }
+        // }
+        // console.log(obj); -->
+
+
+
+    <!-- </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom练习</title>
+</head>
+<body>
+    <p id="p1">dfdfdfdfdsff</p>
+    <p>大是大非</p>
+    <p class="cp">dfas</p>
+
+    <div> 
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <script>
+        // 根据id获取元素，返回单个元素
+        let p1 = document.getElementById('p1');
+        console.log(p1);
+        // 根据标签名获取元素，以数组形式返回所有标签
+        let p =document.getElementsByTagName('p');
+        console.log(p);
+        // 根据类名获取元素，以数组形式返回所有标签
+        let cp = document.getElementsByClassName('cp');
+        console.log(cp);
+        // h5新增的
+        // 根据选择器获取所有元素，以数组形式返回所有标签
+        // 参数用的选择器，css怎么写这里怎么写
+        let ps = document.querySelectorAll('p');
+        console.log(ps);
+        // 根据选择器获取单个元素
+        let pc  = document.querySelector('.cp');
+        console.log(pc);
+        // 获取当前元素的父元素，parentNode
+        let li = document.querySelector('li')
+        console.log(li.parentNode.parentNode);
+        // 获取兄弟节点
+        // 下一个兄弟节点nextElementSibling
+        console.log(li.nextElementSibling);
+        // 上一个兄弟节点previousElementSibling
+        console.log(li.nextElementSibling.previousElementSibling);
+
+        // 获取子元素
+        let ul = document.querySelector('ul');
+        console.log(ul.children);
+
+        // 创建节点
+        let h1 = document.createElement('h1');
+        console.log('h1');
+        h1.innerText = '我是js创建的';
+        // 插入到div中
+        ul.parentNode.appendChild(h1);
+        
+        // 移除节点(移除了li[0])
+        li.remove();
+
+        // 替换节点
+        let h3 = document.createElement('h3');
+        h3.innerText = 'h1替换来的h3';
+                                        // div中的h1
+        ul.parentNode.replaceChild(h3,ul.parentNode.children[1]);
+
+        // 克隆节点 true代表深克隆
+        let liall = document.querySelectorAll('li');
+        console.log(liall);
+        //console.log(liall.cloneNode(true));
+        console.log(liall[0].cloneNode(true));
+
+
+
+    </script>
+</body>
+</html>

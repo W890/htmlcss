@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串练习题</title>
+</head>
+
+<body>
+    <script>
+        let src = 'https://www.baidu.com/s?name=张三&password=ascderf&tn=baidu';
+
+        let name = src.substr(29,2);
+        console.log(name);
+        let password = src.toUpperCase().substr(41,7);
+        console.log(password);
+
+        let are = [];
+        are[0] = name;
+        are[1] = password;
+        console.log(are);
+
+
+
+    </script>
+</body>
+
+</html>

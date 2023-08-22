@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气预报</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            text-align: center;
+        }
+        .outdiv{
+            width: 1000px;
+            height: 300px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            background-color: green;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .ul1 li{
+            list-style: none;
+            float: left;
+            width: 100px;
+            height: 80px;
+            background-color: yellowgreen;
+            border: 1px solid;
+            margin-left: 30px;
+            margin-top: 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 19px;
+        }
+        .ul2 li{
+            list-style: none;
+            float: left;
+            width: 150px;
+            height: 30px;
+            background-color: blanchedalmond;
+            border: 1px solid;
+            margin-left: 30px;
+            margin-top: 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 19px;
+        }
+        .topdiv{
+            width: 1000px;
+            height: 200px;
+            background-color: red;
+        }
+        .bottomdiv{
+            width: 1000px;
+            height: 200px;
+            background-color: blue;
+            position: absolute;
+            top: 350px;
+            left: 50%;
+            transform: translate(-50%);
+            border-radius: 10px;
+        }
+        .bottomdiv ul li{
+            list-style: none;
+            float: left;
+            width: 150px;
+            height: 80px;
+            background-color: blanchedalmond;
+            border: 1px solid;
+            margin-left: 30px;
+            margin-top: 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 19px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outdiv">
+        <h1>青岛</h1>
+        <div class="topdiv">
+            <ul class="ul1">
+                <li>温度</li>
+                <li>湿度</li>
+                <li>天气</li>
+                <li>降雨量</li>
+                <li>风向</li>
+                <li>风级</li>
+                <li>aqi指数</li>
+            </ul>
+            <ul class="ul1">
+                <li>29</li>
+                <li>77</li>
+                <li>晴</li>
+                <li>00</li>
+                <li>南风</li>
+                <li>三级</li>
+                <li>42</li>
+            </ul>
+        </div>
+        <div>
+            <ul class="ul2">
+                <li>2023.8.19</li>
+                <li>2023.8.20</li>
+                <li>2023.8.21</li>
+                <li>2023.8.22</li>
+                <li>2023.8.23</li>
+            </ul>
+        </div>
+    </div>
+    <div class="bottomdiv">
+        <ul>
+            <li>温度</li>
+            <li>天气</li>
+            <li>白天降雨量</li>
+            <li>夜晚降雨量</li>
+            <li>风向</li>
+        </ul>
+        <ul class="zim">
+            <li>26\/31℃</li>
+            <li>多云</li>
+            <li>01</li>
+            <li>01</li>
+            <li>南风</li>
+        </ul>
+    </div>
+
+    <script>
+        let lisfirst = document.querySelectorAll('.ul2 li');
+        let lislast = document.querySelectorAll('.zim li');
+        console.log(lisfirst);
+        lisfirst[0].onclick = function(){
+            lislast[0].innerHTML = '26\/31℃'
+            lislast[1].innerHTML = '多云'
+            lislast[2].innerHTML = '01'
+            lislast[3].innerHTML = '01'
+            lislast[4].innerHTML = '南风'
+        }
+        lisfirst[1].onclick = function(){
+            lislast[0].innerHTML = '24\/30℃'
+            lislast[1].innerHTML = '小雨'
+            lislast[2].innerHTML = '07'
+            lislast[3].innerHTML = '07'
+            lislast[4].innerHTML = '东南风转南风'
+        }
+        lisfirst[2].onclick = function(){
+            lislast[0].innerHTML = '25\/29℃'
+            lislast[1].innerHTML = '小雨'
+            lislast[2].innerHTML = '07'
+            lislast[3].innerHTML = '07'
+            lislast[4].innerHTML = '东南风转南风'
+        }
+        lisfirst[3].onclick = function(){
+            lislast[0].innerHTML = '24\/30℃'
+            lislast[1].innerHTML = '小雨'
+            lislast[2].innerHTML = '07'
+            lislast[3].innerHTML = '07'
+            lislast[4].innerHTML = '东南风转南风'
+        }
+        lisfirst[4].onclick = function(){
+            lislast[0].innerHTML = '21\/31℃'
+            lislast[1].innerHTML = '晴'
+            lislast[2].innerHTML = '00'
+            lislast[3].innerHTML = '00'
+            lislast[4].innerHTML = '南风转北风'
+        }
+    </script>
+</body>
+</html>

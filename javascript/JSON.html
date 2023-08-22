@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let json = {
+            "name": "张三",
+            "age": 15,
+            "type": true,
+            "arr": ["校长", "校车", "校花", "校园", "校服"]
+        }
+        console.log(json);
+       
+        let newjson = JSON.stringify(json)
+        console.log(newjson);
+        let newjsonzifu = JSON.parse(newjson);
+        console.log(newjsonzifu);
+    </script>
+</body>
+
+</html>

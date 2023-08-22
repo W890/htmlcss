@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        let arr = [
+            {
+                name: "张三",
+                age: 16,
+                childern: [
+                    {
+                        name: "小张三"
+                    },
+                    {
+                        name: "小张三三"
+                    }
+                ]
+            },
+            { name: "李四", age: 17, childern: [{ name: "小李四" }] },
+            { name: "王五", age: 18, childern: [{ name: "小王五" }] },
+            { name: "赵六", age: 19, childern: [{ name: "小赵六" }] },
+            { name: "王五", age: 18, childern: [{ name: "小王五" }] },
+            { name: "赵六", age: 19, childern: [{ name: "小赵六" }] },
+        ];
+        let div = document.querySelector("div");
+        arr.forEach(function (item) {
+            // console.log(item);
+            let text = '';
+            item.childern.forEach(function (otem) {
+                console.log(otem);
+                text += otem.name;
+            })
+            // 创建元素
+            let p = document.createElement("p");
+            // p.innerHTML = '<span>姓名：'+item.name +'</span>,<span>姓名：'+item.age +'</span>'
+            p.innerHTML = `<span>姓名：${item.name}</span>,<span>年龄：${item.age}</span>+<span>后代：小张三</span>`;
+            div.appendChild(p);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五星好评</title>
+    <style>
+        span {
+            position: absolute;
+            left: 180px;
+            top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="./images/hui.png" alt="">
+        <img src="./images/hui.png" alt="">
+        <img src="./images/hui.png" alt="">
+        <img src="./images/hui.png" alt="">
+        <img src="./images/hui.png" alt="">
+    </div>
+    <span></span>
+
+    <script>
+        let imgs = document.querySelectorAll('img');
+        let div = document.querySelector('div');
+        let span = document.querySelector('span');
+        // 选中的下标
+        let open = null;
+
+        let text = ["差", "一般", "良好", "好", "非常好"];
+
+
+        for (let i = 0; i < imgs.length; i++) {
+            // 鼠标移入
+            imgs[i].onmouseenter = function (params) {
+                imgs[i].src = './images/huang.png';
+                let perv = this.previousElementSibling;
+                console.log(perv);
+                // 获取上个兄弟元素
+                while (perv) {
+                    perv.src = "./images/huang.png";
+                    perv = perv.previousElementSibling;
+                }
+                // 获取下个兄弟元素
+                let next = this.nextElementSibling;
+                while (next) {
+                    next.src = "./images/hui.png";
+                    next = next.nextElementSibling;
+                }
+                // 文字赋值
+                span.innerText = text[i];
+
+                // 方法一
+                // for (let r = 0; r < imgs.length; r++) {
+                //     if (i < r) {
+                //         imgs[r].src = './images/huang.png';
+                //     } else {
+                //         imgs[r].src = './images/hui.png';
+                //     }
+                // }
+
+            };
+            // 鼠标点击事件
+            imgs[i].onclick = function() {
+                // 把选择的下标赋值给open
+                open = i;
+            };
+        }
+
+        // 鼠标移出
+        div.onmouseleave = function (params) {
+            // 判断open是否有值
+            if (open || open == 0) {
+                for (let i = 0; i < imgs.length; i++) {
+                    if (i <= open) {
+                        imgs[i].src = './images/huang.png';
+                        
+                    } else {
+                        imgs[i].src = './images/hui.png';
+                    }
+                }
+            } else {
+                sapn.innerText = "";
+                // 没有值恢复成灰色的
+                for (let i = 0; i < imgs.length; i++) {
+                    imgs[i].src = './images/hui.png';
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>

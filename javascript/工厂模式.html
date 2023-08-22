@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function cartob(name,tiem) {
+            // 创建一个空白对象 锅
+            // var object = {};
+            // 添加属性
+            // object.name = name;
+            // object.tiem = tiem;
+            this.name = name;
+            this.tiem = tiem;
+            // 添加方法
+            // object.setName = function(params) {
+            //     console.log('我是香辣'+this.name);
+            // }
+            // object.getName = function(params) {
+            //     console.log('我是清蒸'+this.name);
+            // }
+            this.setName = function(params) {
+                console.log('我是香辣'+this.name);
+            }
+            this.getName = function(params) {
+                console.log('我是清蒸'+this.name);
+            }
+            // 出厂
+            // return object;
+        }
+        let zhoudapeng = new cartob('螃蟹',5);
+        zhoudapeng.getName();
+        // new:
+        // 1.偷偷在给我们创建了一空对象；
+        // 2.替我们返回了对象
+
+
+
+        // let zhoudapeng = cartob('螃蟹',1);
+        // console.log(zhoudapeng);
+        // zhoudapeng.setName();
+        // zhoudapeng.getName();
+        
+        // let liufuyang = cartob('皮皮虾',20);
+        // liufuyang.setName();
+    </script>
+</body>
+</html>

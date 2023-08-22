@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .div1 {
+            width: 1000px;
+            height: 50px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+        .div1 div {
+            width: 150px;
+            height: 50px;
+            margin-right: 62px;
+            background-color: green;
+            float: left;
+        }
+        .div1 div:hover{
+            background-color: chocolate;
+        }
+        .div1 div:last-child{
+            margin-right: 0;
+        }
+
+        .div2 {
+            width: 1000px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            top: 70px;
+            transform: translate(-50%);
+        }
+
+        .div2 div {
+            width: 1000px;
+            height: 200px;
+            background-color: blueviolet;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .nolook {
+            display: none;
+        }
+
+        .look {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="div2">
+        <div class="nolook">1</div>
+        <div class="nolook">2</div>
+        <div class="nolook">3</div>
+        <div class="nolook">4</div>
+        <div class="nolook">5</div>
+    </div>
+    <script>
+        let div1s = document.querySelectorAll('.div1 div');
+        let div2s = document.querySelectorAll('.div2 div');
+        // 鼠标移入显示
+        function look(params) {
+            params.className = 'look'
+        }
+        // 鼠标移出不显示
+        function nolook(params) {
+            params.className = 'nolook'
+        }
+        // 给每个div添加显示/不显示
+        for (let i = 0; i < div1s.length; i++) {
+            div1s[i].addEventListener('mouseenter', function () {
+                look(div2s[i]);
+            })
+            div1s[i].addEventListener('mouseleave', function () {
+                nolook(div2s[i]);
+            })
+        }
+    </script>
+</body>
+
+</html>

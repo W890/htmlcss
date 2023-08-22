@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会飞的猪</title>
+</head>
+<style>
+    body{
+        background: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fsafe-img.xhscdn.com%2Fbw1%2Fe3b76d05-a2d0-44b3-9307-793a480ab796%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fsafe-img.xhscdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1694156016&t=b4f16970e656beab0be4d65bd9b360cb) no-repeat;
+        background-size: 100%;
+    }
+    img{
+        width: 100px;
+        position: absolute;
+    }
+</style>
+<body>
+    <img src="https://s1.ax1x.com/2023/08/09/pPZWToT.jpg" alt="">
+
+    <script>
+        let img = document.querySelector('img');
+        document.onmousemove = function(e) {
+            img.style.top = e.pageY - 50 + 'px';
+            img.style.left = e.pageX - 50 + 'px';
+        }
+    </script>
+
+
+</body>
+</html>

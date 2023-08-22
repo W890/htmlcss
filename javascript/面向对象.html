@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面向对象</title>
+</head>
+<body>
+    <script>
+        let obj = {name:'张三'};
+        console.log(obj);
+        obj.getName = function(params) {
+            console.log(this.name);
+        }
+        obj.getName();
+        function CarName(name) {
+            // this：this指向的是实例成员
+            this.name = name;
+            this.getName = function(params) {
+                console.log((this.name));
+            }
+        }
+        let si = new CarName('李四');
+        // 直接向够造函数身上添加的成员
+        CarName.age = 17;
+        // 直接向构造函数身上添加的方法
+        // 静态方法
+        CarName.fn = function() {
+            console.log(this.age);
+        }
+        // 只能由构造函数来访问
+        // console.log(si);
+        CarName.fn();
+        si.getName();
+        let wu = new CarName('小王');
+        wu.getName();
+    </script>
+</body>
+</html>

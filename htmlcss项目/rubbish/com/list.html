@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- <link rel="stylesheet" href="../list.css"> -->
+</head>
+<style>
+    .content-list {
+        width: 670px;
+        margin: 0 auto;
+    }
+    .list-item{
+        padding: 20px 0;
+        border-bottom:1px solid #ccc;
+    }
+    .item-left {
+        width: 170px;
+        height: 140px;
+
+        float: left;
+        /* 超出隐藏 */
+        overflow: hidden;
+    }
+    .item-left img {
+        /* 添加过渡效果 */
+        transition: all 0.8s;
+    }
+    .item-left img:hover {
+        /* 等比例放大 */
+        transform: scale(1.2);
+    }
+    .item-right {
+        width: 480px;
+        height: 140px;
+        float: right;
+    }
+    .item-right h3 {
+        font-size: 16px;
+    }
+    .item-right p {
+        font-size: 12px;
+        color: #666;
+        line-height: 20px;
+        margin: 10px 0;
+    }
+    .bot div {
+        width: 170px;
+        height: 30px;
+        font-size: 12px;
+        line-height: 30px;
+    }
+    .bot .bot-left a {
+        color: #759b08;
+        display: inline-block;
+        padding-left: 20px;
+        background: url(../images/newsbg01.png) no-repeat;
+        background-position: 0 7px;
+    }
+    .bot .bot-left span {
+        display: inline-block;
+        padding-left: 20px;
+        background: url(../images/newsbg02.png) no-repeat;
+        background-position: 0 7px;
+        margin-left: 10px;
+    }
+    .bot-left {
+        float: left;
+    }
+    .bot-right {
+        float: right;
+    }
+    .bot .bot-right a {
+        color: #759b08;
+    }
+    .bot div span {
+        color: #666666;
+    }
+    .bot .bot-right span {
+        display: inline-block;
+        padding-left: 20px;
+        background: url(../images/newsbg02.png) no-repeat;
+        background-position: 0 7px;
+
+    }
+
+    .bot .bot-right span:nth-child(1) {
+        background: url(../images/newsbg03.png) no-repeat;
+        background-position: 0 7px;
+    }
+
+    .bot .bot-right span:nth-child(2) {
+        background: url(../images/newsbg04.png) no-repeat;
+        background-position: 0 7px;
+        margin-left: 10px;
+    }
+</style>
+
+<body>
+    <!-- 列表 -->
+    <div class="content-list">
+        <!-- 列表中的每一项 -->
+        <div class="list-item clean">
+            <!-- 列表的左侧 -->
+            <div class="item-left">
+                <img src="../images/01.jpg">
+            </div>
+            <!-- 列表的右侧 -->
+            <div class="item-right">
+                <h3>住在手机里的朋友</h3>
+                <p>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                    ...</p>
+
+                <div class="bot clean">
+                    <div class="bot-left">
+                        <a href="">个人博客</a>
+                        <span>2023-07-18</span>
+                    </div>
+                    <div class="bot-right">
+                        <span>评论(<a href="">30</a>)</span>
+                        <span>浏览(<a href="">456</a>)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 列表中的每一项 -->
+        <div class="list-item clean">
+            <!-- 列表的左侧 -->
+            <div class="item-left">
+                <img src="../images/02.jpg">
+            </div>
+            <!-- 列表的右侧 -->
+            <div class="item-right">
+                <h3>住在手机里的朋友</h3>
+                <p>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                    ...</p>
+
+                <div class="bot clean">
+                    <div class="bot-left">
+                        <a href="">个人博客</a>
+                        <span>2023-07-18</span>
+                    </div>
+                    <div class="bot-right">
+                        <span>评论(<a href="">30</a>)</span>
+                        <span>浏览(<a href="">456</a>)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 列表中的每一项 -->
+        <div class="list-item clean">
+            <!-- 列表的左侧 -->
+            <div class="item-left">
+                <img src="../images/03.jpg">
+            </div>
+            <!-- 列表的右侧 -->
+            <div class="item-right">
+                <h3>住在手机里的朋友</h3>
+                <p>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                    ...</p>
+
+                <div class="bot clean">
+                    <div class="bot-left">
+                        <a href="">个人博客</a>
+                        <span>2023-07-18</span>
+                    </div>
+                    <div class="bot-right">
+                        <span>评论(<a href="">30</a>)</span>
+                        <span>浏览(<a href="">456</a>)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 列表中的每一项 -->
+        <div class="list-item clean">
+            <!-- 列表的左侧 -->
+            <div class="item-left">
+                <img src="../images/04.jpg">
+            </div>
+            <!-- 列表的右侧 -->
+            <div class="item-right">
+                <h3>住在手机里的朋友</h3>
+                <p>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                    ...</p>
+
+                <div class="bot clean">
+                    <div class="bot-left">
+                        <a href="">个人博客</a>
+                        <span>2023-07-18</span>
+                    </div>
+                    <div class="bot-right">
+                        <span>评论(<a href="">30</a>)</span>
+                        <span>浏览(<a href="">456</a>)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 列表中的每一项 -->
+        <div class="list-item clean">
+            <!-- 列表的左侧 -->
+            <div class="item-left">
+                <img src="../images/05.jpg">
+            </div>
+            <!-- 列表的右侧 -->
+            <div class="item-right">
+                <h3>住在手机里的朋友</h3>
+                <p>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                    ...</p>
+
+                <div class="bot clean">
+                    <div class="bot-left">
+                        <a href="">个人博客</a>
+                        <span>2023-07-18</span>
+                    </div>
+                    <div class="bot-right">
+                        <span>评论(<a href="">30</a>)</span>
+                        <span>浏览(<a href="">456</a>)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 列表中的每一项 -->
+        <div class="list-item clean">
+            <!-- 列表的左侧 -->
+            <div class="item-left">
+                <img src="../images/06.jpg">
+            </div>
+            <!-- 列表的右侧 -->
+            <div class="item-right">
+                <h3>住在手机里的朋友</h3>
+                <p>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                    ...</p>
+
+                <div class="bot clean">
+                    <div class="bot-left">
+                        <a href="">个人博客</a>
+                        <span>2023-07-18</span>
+                    </div>
+                    <div class="bot-right">
+                        <span>评论(<a href="">30</a>)</span>
+                        <span>浏览(<a href="">456</a>)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 列表中的每一项 -->
+        <div class="list-item clean">
+            <!-- 列表的左侧 -->
+            <div class="item-left">
+                <img src="../images/04.jpg">
+            </div>
+            <!-- 列表的右侧 -->
+            <div class="item-right">
+                <h3>住在手机里的朋友</h3>
+                <p>通信时代，无论是初次相见还是老友重逢，交换联系方式，常常是彼此交换名片，然后郑重或是出于礼貌用手机记下对方的电话号码。在快节奏的生活里，我们不知不觉中就成为住在别人手机里的朋友。又因某些意外，变成了别人手机里匆忙的过客，这种快餐式的友谊
+                    ...</p>
+
+                <div class="bot clean">
+                    <div class="bot-left">
+                        <a href="">个人博客</a>
+                        <span>2023-07-18</span>
+                    </div>
+                    <div class="bot-right">
+                        <span>评论(<a href="">30</a>)</span>
+                        <span>浏览(<a href="">456</a>)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

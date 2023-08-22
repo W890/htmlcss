@@ -1,0 +1,248 @@
+/* 全局 */
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+.clear{
+    overflow: hidden;
+}
+.out-div{
+    height: 947px;
+    width: 1920px;
+    position: relative;
+}
+
+/* 背景图片部分 */
+.out-div .bg-div{
+    width: 1920px;
+    height: 878px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.out-div .bg-div img{
+    width: 1920px;
+    height: 878px;
+}
+/* 支付宝logo */
+.bg-div .logo{
+    width: 74px;
+    height: 25px;
+    position: absolute;
+    left: 184px;
+    top: 17px;
+}
+.bg-div .logo img{
+    width: 74px;
+    height: 25px;
+}
+/* ipv6logo */
+.bg-div .ipv6{
+    width: 33px;
+    height: 23px;
+    position: absolute;
+    left: 276px;
+    top: 17px;
+}
+.bg-div .ipv6 img{
+    width: 33px;
+    height: 23px;
+}
+/* 我已有支付宝账户 快速登录 */
+.bg-div .wenzi-div{
+    width: 160px;
+    height: 22px;
+    position: absolute;
+    right: 180px;
+    top: 17px;
+}
+.wenzi-div p{
+    font-size: 13px;
+    color: #bfbfbf;
+}
+.bg-div .wenzi-div p a{
+    color: #fff;
+    font-size: 13px;
+}
+/* 你是中心 */
+.bg-div .big-logo{
+    width: 600px;
+    height: 130px;
+    position: absolute;
+    left: 640px;
+    top: 178px;
+}
+.bg-div .big-logo img{
+    width: 100%;
+    height: 100%;
+}
+/* 四个块 */
+.four-div{
+    width: 750px;
+    height: 50px;
+    position: absolute;
+    left: 580px;
+    top: 400px;
+}
+.four-div div{
+    width: 170px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: #0f95dc;
+    float: left;
+    margin-right: 17px;
+}
+.four-div div:hover{
+    background-color: #0da0e8;
+}
+.four-div div .a1{
+    display: block;
+    height: 50px;
+    width: 170px;
+    color: #fff;
+    font-size: 14px;
+    padding-top: 14px;
+    padding-left: 50px;
+    line-height: 30px;
+    background: url(../images/geren.png) no-repeat;
+    background-size: 22px 22px;
+    background-position: 18px 16px;
+}
+.four-div div .a2{
+    display: block;
+    height: 50px;
+    width: 170px;
+    color: #fff;
+    font-size: 14px;
+    padding-top: 14px;
+    padding-left: 50px;
+    line-height: 30px;
+    background: url(../images/kaifazhe.png) no-repeat;
+    background-size: 22px 22px;
+    background-position: 18px 16px;
+}
+.four-div div .a3{
+    display: block;
+    height: 50px;
+    width: 170px;
+    color: #fff;
+    font-size: 14px;
+    padding-top: 14px;
+    padding-left: 50px;
+    line-height: 30px;
+    background: url(../images/shangjia.png) no-repeat;
+    background-size: 22px 22px;
+    background-position: 18px 16px;
+}
+.four-div .div-dong div{
+    display: none;
+    width: 170px;
+    height: 100px;
+    background-color: #0da0e8;
+    position: absolute;
+    top: -20px;
+    left: 374px;
+}
+.four-div .div-dong{
+    transition: all 0.8s;
+}
+.four-div .div-dong div p{
+    color: #fff;
+    font-size: 14px;
+    line-height: 40px;
+    padding-top: 10px;
+    padding-left: 38px;
+}
+.four-div .div-dong div p:first-child{
+    border-bottom: 0.5px solid white;
+}
+.four-div .div-dong:hover div{
+    display: block;
+    transition: all 0.8s;
+}
+/* 下侧部分 */
+.bottom-div{
+    height: 69px;
+    width: 1920px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.bottom-div .div-dip{
+    width: 886px;
+    height: 69px;
+    position: absolute;
+    left: 500px;
+    top: 0;
+}
+/* 下侧上 */
+.ul-a11 li{
+    list-style: none;
+}
+.ul-a11{
+    margin-left: 14px;
+}
+.div-dip a{
+    float: left;
+    font-size: 12px;
+    color: #666666;
+    text-align: center;
+}
+.div-dip .ul-a11 li a{
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-top: 6px;
+    border-right: 1px solid #666666;
+}
+.bottom-div .div-dip .ul-a11 li a:last-child{
+    border-right: 0px;
+}
+/* 下侧中 */
+.div-dip .p1{
+    margin-left: 240px;
+}
+/* 下侧下 */
+.div-deep{
+    width: 175px;
+    height: 17px;
+    position: absolute;
+    bottom: 10px;
+    left: 352px;
+}
+.div-deep div{
+    float: left;
+    height: 17px;
+    width: 35px;
+    background: url(../images/nav-icons.png) no-repeat;
+    background-position: 0px -12px;
+}
+.div-deep div:nth-child(2){
+    background-position: -33px -12px;
+}
+.div-deep div:nth-child(3){
+    background-position: -72px -12px;
+}
+.div-deep div:nth-child(4){
+    background-position: -101px -12px;
+}
+.div-deep div:nth-child(5){
+    background-position: -131px -12px;
+}
+.div-deep div:hover{
+    background-position: 0px -34px;
+}
+.div-deep div:nth-child(2):hover{
+    background-position: -33px -34px;
+}
+.div-deep div:nth-child(3):hover{
+    background-position: -72px -34px;
+}
+.div-deep div:nth-child(4):hover{
+    background-position: -101px -34px;
+}
+.div-deep div:nth-child(5):hover{
+    background-position: -131px -34px;
+}

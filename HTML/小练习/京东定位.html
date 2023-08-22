@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东定位</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .div1{
+        width: 500px;
+        height: 500px;
+        background-color: red;
+        position: relative;
+        top: 200px;
+        left: 750px;
+    }
+
+    .div2{
+        width: 50px;
+        height: 50px;
+        background-color: cadetblue;
+        position: absolute;
+        /* left: 0px;
+        top: 250px; */
+        top: 50%;
+        margin-top: -25px;
+    }
+
+    .div3{
+        width: 50px;
+        height: 50px;
+        background-color: cadetblue;
+        position: absolute;
+        /* right: 0px;
+        top: 250px; */
+        right: 0px;
+        top: 50%;
+        margin-top: -25px;
+    }
+    .div1 .div4 div{
+        width: 20px;
+        height: 20px;
+        background-color: chartreuse;
+        border-radius: 50px;
+        position: absolute;
+        bottom: 5px;
+        left: 175px;
+    }
+    .div1 .div4 div:nth-child(2){    
+        left: 205px;
+    }
+    .div1 .div4 div:nth-child(3){ 
+        left: 235px;
+    }
+    .div1 .div4 div:nth-child(4){      
+        left: 265px;
+    }
+    .div1 .div4 div:nth-child(5){     
+        left: 295px;
+    }
+</style>
+<body>
+    <div class="div1">
+        <div class="div2">《</div>
+        <div class="div3">》</div>
+        <div class="div4">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</body>
+</html

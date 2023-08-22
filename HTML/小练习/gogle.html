@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+</head>
+<body>
+    <style>
+        .g-g1{
+            color: rgb(42, 42, 204);
+            font-size: 80px;
+        }
+        .g-o1{
+            color: red;
+            font-size: 50px;
+        }
+        .g-o2{
+            color: rgb(218, 218, 35);
+            font-size: 50px;
+        }
+        .g-g2{
+            color: rgb(42, 42, 204);
+            font-size: 50px;
+        }
+        .g-l{
+            color: green;
+            font-size: 50px;
+        }
+        .g-e{
+            color: red;
+            font-size: 50px;
+
+        }
+        .list{
+            background-color: cadetblue;
+        }
+
+        [type="text"]{
+            background-color: yellowgreen;
+        }
+        .number{
+            color: blue;
+        }
+        .list{
+            color: green;
+        }
+        /* 子选择器 */
+        .div>ul{
+            color: red;
+            margin: 10px;
+        }
+        /* 兄弟选择器 */
+        ul+ol{
+            background-color: #66cc00;
+        }
+        ul~ol{
+            font-size: 30px;
+        }
+        /* 交集选择器 */
+        li.fa{
+            color: rebeccapurple;
+            font-weight: bold;
+        }
+        /* 并集选择器 */
+        .ol1 li , .ol2 li{
+            color: #66cc00;
+        }
+
+        /* 伪类选择器 */
+        .boxkeep{
+            width: 200px;
+            height: 100px;
+            background-color: #66cc00;
+        }
+        .boxkeep:hover{
+            background-color: red;
+        }
+    </style>
+    <div><span class="g-g1">G</span><span class="g-o1">o</span><span class="g-o2">o</span><span class="g-g2">g</span><span class="g-l">l</span><span class="g-e">e</span></div>
+    
+    昵称：<input type="text" name="username" >
+    密码:<input type="text" name="username">
+   
+    第一<input type="text">
+    第二<input type="text">
+    <p class="number">1316516564545</p>
+    <br>
+    <div class="list">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <div class="list1">
+        <ul>
+            <li class="fa">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <div class="list2">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+</body>
+</html>

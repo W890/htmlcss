@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 200px;height: 200px;
+        background-color: red;
+
+    }
+    p {
+        display: block;
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+        color: aliceblue;
+    }
+</style>
+<body>
+    <div>
+        <p>泡泡</p>
+    </div>
+    <script>
+        let div = document.querySelector('div');
+        let p = document.querySelector('p');
+        p.onclick = function() {
+            console.log('我是p的');
+
+        }
+        div.onclick = function() {
+            console.log('我是div的');
+        }
+        
+        div.onclick = function(event) {
+            console.log(event.target.tagName);
+            if(event.target.tagName === 'p'){
+                event.target.style.backgroundColor = '#000'
+            }
+        }
+    </script>
+</body>
+</html>

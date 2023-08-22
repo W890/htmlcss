@@ -1,0 +1,87 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>风琴图</title>
+    <style>
+        div {
+            width: 100px;
+            height: 300px;
+            display: inline-block;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a1"></div>
+    <div class="a2"></div>
+    <div class="a3"></div>
+    <div class="a4"></div>
+
+    <script>
+
+        let a = document.querySelectorAll('div')
+        for (let i = 0; i < a.length; i++) {
+            a[i].onmouseenter = function () {
+                a[i].style.width = '500px'
+            }
+            a[i].onmouseout = function () {
+                a[i].style.width = '100px'
+            }
+
+        }
+
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手风琴图</title>
+    <style>
+        div{
+            width: 800px;
+            margin: 0 auto;
+        }
+        img{
+            float: left;
+            width: 100px;
+            height: 400px;
+            transition: all 0.8s;
+        }
+        .look{
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="./images/01.jpg" alt="">
+        <img src="./images/02.jpg" alt="">
+        <img src="./images/03.jpg" alt="">
+        <img src="./images/04.jpg" alt="">
+    </div>
+
+
+    <script>
+        let imgs = document.querySelectorAll('img');
+        for(var i = 0;i < imgs.length;i++) {
+            imgs[i].addEventListener('mouseenter',function(){
+                for (let r = 0;r < imgs.length;r++) {
+                    imgs[r].className = ' ';
+                }
+                this.className = 'look'
+            })
+        }
+    </script>
+</body>
+</html>

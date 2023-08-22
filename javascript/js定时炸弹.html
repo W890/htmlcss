@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js定时炸弹</title>
+    <style>
+        .div1 {
+            width: 1000px;
+            height: 700px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .div2 {
+            color: red;
+            font-weight: 700;
+            font-size: 56px;
+            width: 219px;
+            height: 97px;
+            background-color: white;
+            position: relative;
+            left: 480px;
+            top: 435px;
+        }
+
+        img {
+            width: 1000px;
+            height: 700px;
+        }
+        .div3{
+            width: 1000px;
+            height: 800px;
+            margin: 0 auto;
+        }
+        .xian1{
+            width: 30px;
+            height: 100px;
+            background-color: red;
+            float: left;
+        }
+        .xian2{
+            width: 30px;
+            height: 100px;
+            float: right;
+            background-color: blue;
+        }
+        .nolook{
+            display: none;
+        }
+        .look{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <div class="div2">
+            <!-- 00:01:01 -->
+            00:00:10
+        </div>
+        <img src="https://s1.ax1x.com/2023/08/14/pPMV8gI.jpg" alt="">
+        <img class="nolook" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F02%2F20200302193919_fuxhw.gif&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1694590615&t=a0ceb46e40702d0e66d91005c59ccb16"
+            alt="">
+        <img class="nolook" src="https://dingyue.ws.126.net/2020/1005/114b521cg00qhpywc0217c000hs0090m.gif" alt="">
+    </div>
+    <div class="div3">
+        <div class="xian1"></div>
+        <div class="xian2"></div>
+    </div>
+    <script>
+        let div1 = document.querySelector('.div1');
+        let div2 = document.querySelector('.div2');
+        let imgs = document.querySelectorAll('img');
+        let xian1 = document.querySelector('.xian1');
+        let xian2 = document.querySelector('.xian2');
+
+       
+
+        let num = 10;
+        // 定时器也叫延时器 多长时间后执行
+        let tiem = setTimeout(function*(params) {
+            div2.innerHTML = '00:00:'+num;
+            div1.style.background = src('https://dingyue.ws.126.net/2020/1005/114b521cg00qhpywc0217c000hs0090m.gif')
+        },5000);
+
+        // 计时器，每隔多长时间执行一次
+        let tiems = setInterval(function(params) {
+            num--;
+            if(num == 0) {
+                // 停止定时器
+                clearTimeout(tiem);
+            }
+            if(num == 0) {
+                // 停止计时器
+                clearInterval(tiems);
+            }
+            div2.innerHTML = '00:00:'+num;
+        },1000);
+        
+        xian1.onclick = function(){
+            div1.className = 'look'
+        }
+        xian2.onclick = function(){
+            div1.className = 'look'
+        }
+        </script>
+</body>
+
+</html>

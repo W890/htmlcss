@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>locktion</title>
+</head>
+<body>
+    <p>http://www.hao360.cn:80/cctn/1.html?id=15#45446</p>
+    <!-- http 是协议 -->
+    <!-- www.hao360.cn 是域名 -->
+    <!-- :80是端口 -->
+     <!-- /cctn/1.html 资源路径 -->
+     <!-- ? 代表参数 -->
+    <script>
+        // hash:获取#后面的值
+        console.log(window.location.hash);
+        // href:获取完整的url地址
+        console.log(window.location.href);
+        // 获取参数
+        console.log(window.location.search);
+        // host:获取主机名和端口
+        console.log(window.location.host);
+        // 获取主机名
+        console.log(window.location.hostname);
+        // 获取端口
+        console.log(window.location.port);
+        // 获取协议
+        console.log(window.location.protocol);
+        // 获取文件名称
+        console.log(window.location.pathname);
+
+        // setInterval(function(params){
+        //     location.href = 'http://www.baidu.com'
+        // },5000)
+
+        function fu (params){
+            //location.href = '锚点.html?id=456#kk'
+            location.replace('http://www.baidu.com')
+        }
+        fu()
+
+        
+
+
+        
+        </script>
+</body>
+</html>

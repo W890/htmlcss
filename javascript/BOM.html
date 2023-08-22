@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+</head>
+<body>
+    <p>5</p>
+    <script>
+       
+        let p = document.querySelector('p');
+        let num = 5;
+        // 定时器也叫延时器 多长时间后执行
+        let tiem = setTimeout(function*(params) {
+            p.innerHTML = num;
+            console.log('爆炸');
+        },5000);
+
+        // 计时器，每隔多长时间执行一次
+        let tiems = setInterval(function(params) {
+            num--;
+            if(num == 0) {
+                // 停止定时器
+                clearTimeout(tiem);
+            }
+            if(num == 0) {
+                // 停止计时器
+                clearInterval(tiems);
+            }
+            p.innerHTML = num;
+        },1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 1800px;height: 30px; background-color: red;"></div>
+    <script>
+        console.log(window.innerWidth);
+        console.log(window.innerHeight);
+        // 获取盒子宽高
+        let div = document.querySelector('div')
+        console.log(div.offsetWidth);
+        console.log(div.offsetHeight);
+        console.log(div.offsetLeft);
+        console.log(div.offsetTop);
+        // 监听滚动事件
+        window.onscroll = function(e){
+            console.log(document.documentElement.scrollTop);
+            
+        }
+    </script>
+</body>
+</html>

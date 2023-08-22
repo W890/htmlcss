@@ -1,0 +1,124 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品更换</title>
+    <style>
+        .container {
+            overflow: hidden;
+        }
+
+        .container .box {
+            height: 30px;
+            width: 100px;
+            float: left;
+            border: 1px solid;
+            padding-top: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box" onclick="changeColor(this, '宫廷玉液酒')">点我有惊喜</div>
+        <div class="box" onclick="changeColor(this, '一百八一杯')">惊喜吧哈哈</div>
+        <div class="box" onclick="changeColor(this, '问我怎么办')">是不是下一跳</div>
+        <div class="box" onclick="changeColor(this, '马上用亮甲')">哈哈哈哈</div>
+    </div>
+
+    <p id="displayText">宫廷玉液酒</p>
+
+    <script>
+        let p = document.getElementsByTagName('p');
+        function changeColor(element, newText) {
+            var boxes = document.getElementsByClassName("box");
+            for (var i = 0; i < boxes.length; i++) {
+                boxes[i].style.backgroundColor = "";
+            }
+            element.style.backgroundColor = "red";
+
+            var displayText = document.getElementById("displayText");
+            displayText.innerText = newText;
+        }
+    </script>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点击切换</title>
+    <style>
+        .hider p {
+            display: block;
+            float: left;
+            width: 100px;
+            height: 30px;
+            border: 1px black solid;
+        }
+
+        .open {
+            background-color: aqua;
+        }
+
+        .hider {
+            overflow: hidden;
+        }
+
+        .content p {
+            display: none;
+        }
+
+        .content .look {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hider">
+        <p class="open">asdf</p>
+        <p>dfa</p>
+        <p>asdf</p>
+        <p>h</p>
+    </div>
+    <div class="content">
+        <p class="look">abc</p>
+        <p>edf</p>
+        <p>ghj</p>
+        <p>jkl</p>
+    </div>
+    <script>
+        let cp = document.querySelectoAll('.content p');
+        let p = document.querySelectorAll('.hider p');
+        for (let i = 0; i < p.length; i++) {
+            // 给每一项添加点击时间
+            p[i].onclick = function (params) {
+                // 取消所有的类样式
+                let childrens = this.parentNode.childrern;
+                console.log(childrens);
+                for (let r = 0; r < childrens.length; r++) {
+                    // 清空所有的元素类
+                    childrens[r].className = ''
+                    // 内容
+                    cp[r].className = '';
+                }
+                // 给点击元素添加类样式
+                this.classList.add('open');
+
+                //根据i显示对应的内容
+                cp[i].classList.add('look');
+            }
+        }
+    </script>
+</body>
+
+</html>

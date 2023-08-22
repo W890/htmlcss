@@ -1,0 +1,140 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>记事本</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    .input-container {
+      display: flex;
+      align-items: center;
+    }
+    .input-box {
+      width: 200px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    #itemList {
+      list-style: none;
+      padding: 0;
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      margin: 5px;
+    }
+    .item-text {
+      margin-right: 10px;
+    }
+    .delete-button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="input-container">
+      <input type="text" class="input-box" id="inputText" placeholder="输入内容">
+      <button onclick="addItem()">添加</button>
+    </div>
+    <ul id="itemList">
+    </ul>
+  </div>
+
+  <script>
+    function addItem() {
+      var inputText = document.getElementById("inputText");
+      var itemList = document.getElementById("itemList");
+
+      if (inputText.value.trim() === "") {
+        return;
+      }
+
+      var listItem = document.createElement("li");
+      listItem.classList.add("item");
+
+      var itemText = document.createElement("span");
+      itemText.classList.add("item-text");
+      itemText.innerText = inputText.value;
+
+      var deleteButton = document.createElement("span");
+      deleteButton.classList.add("delete-button");
+      deleteButton.innerText = "删除";
+      deleteButton.onclick = function() {
+        itemList.removeChild(listItem);
+      };
+
+      listItem.appendChild(itemText);
+      listItem.appendChild(deleteButton);
+      itemList.appendChild(listItem);
+
+      inputText.value = "";
+    }
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记事本</title>
+    <style>
+        p{
+            width: 300px;
+            position: relative;
+
+
+        }
+        span{
+            position:absolute;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <button onclick="settext()">添加</button>
+    <div></div>
+    <div>
+        合计<font class="num">0</font>
+    </div>
+
+
+    <script>
+        let div = document.querySelector('div');
+        function settext(params) {
+            let input = document.querySelector('input');
+            console.log(input.value);
+            let p = document.createElement('p');
+            p.innerHTML = `${input.value}<span>X</span>`;              
+            div.appendChild(p)
+            // 设置总条数
+            delfun();
+            upnum();
+        }
+        // 删除
+        function delfun(params) {
+            let spans = document.getElementsByTagName('span');
+            for(let i = 0; i < spans.length; i++) {
+                spans[i].onclick = function(params) {
+                    this.parentNode.remove();
+                    upnum();
+                }
+            }
+        } 
+        // 更新条数
+        function upnum(params){
+            let nums = div.children.length;
+            let num = document.querySelector('.num');
+            num.innerHTML = nums;
+        }
+    </script>
+</body>
+</html>

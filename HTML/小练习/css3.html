@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css3</title>
+</head>
+<style>
+    div{
+        background-color: aquamarine;
+        width: 500px;
+        height: 500px;
+    }
+    p{
+        line-height: 80px;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    p:nth-child(even){
+        background-color: bisque;
+    }
+    P::first-line{
+        color: chocolate;
+        font-size: 20px;
+    }
+    P::selection{
+        background-color: blue;
+        color: #FFF;
+    }
+</style>
+<body>
+   <div>
+    <p>书名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+    <p>dafsdfasdfasdgasdgadwfasdfasdfasdfasdfasdfasdfasfasdfd</p>
+    <p>sadfasdfasdfasdagdgasdfasdgasdgadfgasdfasdfasdfasdfasd</p>
+    <p>asdfasdfasdfasdfasgdsgasdfasdfagasdgasdfasdfasdfadfasd</p>
+    <p>asdfasdfasdfasdfasdfasdfasdfasdgasdgasdasdfasdfasdfasd</p>
+   </div>
+</body>
+</html>

@@ -1,0 +1,259 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+.container{
+    width: 1280px;
+    height: 1969px;
+    margin: 0 auto;
+    background-color: #fafafa;
+}
+/* 上部 *****************************************************************************/
+.top{
+    height: 60px;
+    width: 82%;
+    padding-left: 230px;
+}
+.top img{
+    width: 168px;
+    height: 100%;
+    float: left;
+}
+.top-li a{
+    float: left;
+    padding-left: 50px;
+    padding-top: 20px;
+    font-size: 12px;
+    color: #404040;
+}
+.top-li a:first-child{
+    padding-left: 200px;
+    color: #3889d8;
+}
+/* 中部 **************************************************************************/
+.center{
+    width: 100%;
+}
+.bg-div{
+    width: 100%;
+    height: 418px;
+}
+.bg-div img{
+    height: 100%;
+    width: 100%;
+}
+/* 我们的服务 *****************************/
+.wenzi{
+    width: 675px;
+    height: 38px;
+    position: relative;
+    left: 318px;
+    top: 80px;
+    border-top: 1px solid #838383;
+    padding-top: 32px;
+}
+.wenzi p{
+    font-size: 11px;
+    color: #838383;
+}
+.wenzi .p2{
+    padding-left: 58px;
+}
+.wenzi div{
+    font-weight: 700;
+    font-size: 13px;
+    text-align: center;
+    position: absolute;
+    left: 282px;
+    top: -15px;
+    background-color: #fafafa;
+}
+.wenzi div span{
+    font-size: 11px;
+    color: #838383;
+}
+/* 上边三个块 ****************************/
+.three-kuai{
+    width: 750px;
+    height: 344px;
+    position: relative;
+    top: 112px;
+    left: 298px;
+}
+.three-kuai div{
+    float: left;
+    width: 176px;
+    height: 344px;
+    background-color: #ffffff;
+    margin-right: 34px;
+    padding: 0px 20px;
+    position: relative;
+}
+.three-kuai div img{
+    width: 100%;
+    height: 132px;
+}
+.three-kuai div P{
+    font-size: 12PX;
+    color: #838383;
+}
+.three-kuai div h4{
+    padding-left: 52px;
+    padding-bottom: 10px;
+}
+.three-kuai div div{
+    width: 54px;
+    height: 21px;
+    background-color: #ffffff;
+    border: 1px solid #ff9412;
+    position: absolute;
+    bottom: 36px;
+    left: 60px;
+    border-radius: 5px;
+    color: #ff9412;
+    font-size: 12px;
+    padding-top: 5px;
+}
+.three-kuai div div:hover{
+    background-color: #ff9412;
+    border: 1px solid #ff9412;
+    color: #fff;
+}
+/* 经典案例 *********************/
+.jingdian{
+    height: 30px;
+    width: 689px;
+    border-top: 1px solid #838383;
+    position: relative;
+    left: 313px;
+    top: 207px;
+}
+.jingdian div{
+    font-weight: 700;
+    font-size: 13px;
+    text-align: center;
+    position: absolute;
+    left: 282px;
+    top: -15px;
+    background-color: #fafafa;
+}
+.jingdian div span{
+    font-size: 11px;
+    color: #838383;
+}
+/* 下边三个块 ***********************/
+.three-xiakuai{
+    width: 708px;
+    height: 142px;
+    position: relative;
+    top: 250px;
+    left: 318px;
+}
+.three-xiakuai div{
+    float: left;
+    width: 220px;
+    height: 142px;
+    margin-right: 16px;
+}
+.three-xiakuai img{
+    width: 220px;
+    height: 142px;
+}
+/* 俩箭头 */
+.img1{
+    width: 42px;
+    height: 42px;
+}
+.div-left{
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    left: 524px;
+    top: 1224px;
+}
+.div-right{
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    right: 490px;
+    top: 1220px;
+}
+/* 合作媒体 **********************/
+.hezuomeiti{
+    height: 30px;
+    width: 689px;
+    border-top: 1px solid #838383;
+    position: relative;
+    left: 321px;
+    top: 340px;
+}
+.hezuomeiti div{
+    font-weight: 700;
+    font-size: 13px;
+    text-align: center;
+    position: absolute;
+    left: 282px;
+    top: -15px;
+    background-color: #fafafa;
+}
+.hezuomeiti span{
+    font-size: 11px;
+    color: #838383;
+}
+/* 下边那些块子 */
+.muchkuai{
+    width: 754px;
+    height: 178px;
+    position: relative;
+    top: 400px;
+    left: 285px;
+}
+.num1 div{
+    width: 137px;
+    height: 56px;
+    float: left;
+    border-right: 1px dotted #838383;
+    border-bottom: 1px dotted #838383;
+    padding-left: 13px;
+    padding-top: 4px;
+}
+.num1 div:last-child{
+    border-right: 0;
+}
+.no-bottom div{
+    border-bottom: 0;
+}
+/* 底部 ************************************************************************/
+.bottom{
+    width: 100%;
+    height: 112px;
+    background-color: #1f1f1f;
+    position: relative;
+    top: 580px;
+}
+.bottom div a{
+    float: left;
+    color: #ffffff;
+    font-size: 11px;
+    padding: 0px 10px;
+    border-right: 1px solid #656a6a;
+}
+.bottom div a:hover{
+    color: #0078d4;
+}
+.bottom div a:last-child{
+    border-right: 0;
+}
+.bottom div{
+    overflow: hidden;
+    padding: 24px 420px;
+}
+.bottom p{
+    color: #656a6a;
+    font-size: 11px;
+    margin-left: 454px;
+    margin-top: -7px;
+}

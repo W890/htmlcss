@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .login {
+      width: 400px;
+      height: 200px;
+      border: 1px solid;
+      text-align: center;
+      border-radius: 15px;
+      margin: 0 auto;
+    }
+
+    .codevalue,
+    .phone {
+      width: 140px;
+    }
+
+    .code {
+      display: inline-block;
+      border: 1px solid;
+      margin-left: 5px;
+      padding: 0 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <p>用户名：<input class="username" type="text" /></p>
+    <p>密码：<input class="password" type="password" /></p>
+    <p>
+      验证码：<input class="codevalue" type="text" /><span onclick="" class="code">4567</span>
+    </p>
+    <p>
+      手机验证码：<input class="phone" type="text" />
+      <button class="phonecode" onclick="settiem()">
+        获取验证码
+      </button>
+    </p>
+    <p><button onclick="but()">提交</button></p>
+  </div>
+  <script>
+    let codevalue = document.querySelector('.codevalue')
+    let codedom = document.querySelector(".code");
+    let phonecode = document.querySelector(".phonecode");
+    let username = document.querySelector(".username");
+    let password = document.querySelector(".password");
+
+    // 验证码的方法
+    function setcode() {
+      let code = "";
+      let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+      ];
+      // 循环4次每次生成35以内的随机数的下标
+      for (var i = 0; i < 4; i++) {
+        code += arr[Math.floor(Math.random() * arr.length - 1)];
+      }
+
+      codedom.innerHTML = code;
+      // 通过闭包验证验证码是否正确
+      let prove = function (value) {
+        console.log(value);
+        return value === code
+      }
+
+
+      return prove
+    }
+    // 初始化
+    let prove = setcode()
+    //   codedom 点击切换
+    codedom.addEventListener('click', function () {
+      prove = setcode()
+    })
+    //   倒计时
+    let tiemtype = true;
+    let tiemint = null
+    function settiem(params) {
+      if (tiemtype) {
+        tiemtype = false
+        let num = 5;
+        tiemint = setInterval(() => {
+
+          if (num == 0) {
+            clearInterval(tiemint)
+            phonecode.innerHTML = '点击获取验证码'
+            tiemtype = true
+          } else {
+            phonecode.innerHTML = num;
+          }
+          num--;
+        }, 1000);
+      }
+    }
+    //   提交验证
+
+    function but(params) {
+
+      // if(!username.value) return alert('请输入用户名')
+      // if(!password.value) return alert('请输入密码')
+      if (!prove(codevalue.value)) return alert('请输入正确验证码')
+
+      //    验证通过后
+      location.href = 'list.html'
+
+    }
+
+    let num = [1, 2, 3, 4, 5, 6, 7, 8, 98];
+    let newnum = [];
+    function getnew(params) {
+      for (var i = 0; i < num.length; i++) {
+        newnum[i] = num[Math.floor(Math.random) * (num.length - 1)];
+      }
+    }
+    getnew(num);
+    console.log(newnum);
+
+    let arr = ['fasd', 'dgds', 'dhfg', 'ewqer', 'tyi', 'cxzbb', 'ewyt', 'rwtey', 'fjgds']
+    let newarr = []
+    function rand() {
+      for (var i = 0; i < arr.length; i++) {
+        let index = parseInt(Math.random() * arr.length)
+        let b = arr[index]
+        arr[index] = arr[i]
+        arr[i] = b
+      }
+    }
+    rand()
+  </script>
+</body>
+
+</html>

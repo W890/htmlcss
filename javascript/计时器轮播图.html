@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计时器轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            width: 1000px;
+            height: 600px;
+            float: left;
+        }
+
+        .img-list {
+            width: 4000px;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        .box {
+            width: 1000px;
+            height: 600px;
+            border: 1px solid;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            top: 150px
+        }
+
+        .left,
+        .right {
+            font-size: 60px;
+            font-weight: 1000;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9;
+            color: black;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+
+        .cirle {
+            width: 90px;
+            height: 20px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 10%;
+            z-index: 99;
+        }
+
+        .cirle span {
+            float: left;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            margin-left: 10px;
+        }
+
+        .cirle span:nth-child(1) {
+            margin: 0;
+        }
+
+        .cirle .open {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <div class="img-list">
+            <img src="./images/07.png" alt="">
+            <img src="./images/06.jpg" alt="">
+            <img src="./images/01.jpg" alt="">
+            <img src="./images/05.jpg" alt="">
+        </div>
+        <p class="left">《</p>
+        <p class="right">》</p>
+        <div class="cirle">
+            <span class="open"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <script>
+        // 获取左侧按钮
+        let left = document.querySelector('.left');
+        // 获取右侧按钮
+        let right = document.querySelector('.right');
+        let imglist = document.querySelector('.img-list');
+        // 获取img个数
+        let imgindex = document.querySelectorAll('.img-list img').length;
+        // 获取指示器个数
+        let span = document.querySelectorAll('span');
+        // 移动次数
+        let num = 0;
+        left.addEventListener('click', function () {
+            num <= 0 ? num = imgindex - 1 : num--;
+            setimg();
+        })
+
+        right.addEventListener('click', function () {
+            num >= imgindex - 1 ? num = 0 : num++;
+            setimg();
+        })
+        // 添加指示器方法
+        for (let i = 0; i < span.length; i++) {
+            span[i].addEventListener('click', function () {
+                num = i;
+                // 调用轮播图方法
+                setimg();
+            })
+        }
+
+        // 封装函数
+        function setimg() {
+            for (let i = 0; i < span.length; i++) {
+                span[i].className = ' ';
+            }
+            span[num].className = 'open';
+            //轮播图图片位置
+            imglist.style.left = -1000 * num + 'px';
+        }
+
+        let tiemval = null;
+        // 计时器容器
+        let tiemout = null;
+         let box = document.querySelector('.box');
+        // tiemval = setInterval(function (params) {
+        //     num >= imgindex - 1 ? num = 0 : num++;
+        //     setimg();
+        // }, 1000)
+
+        
+        // // 鼠标移入
+        // box.onmouseenter = function (params) {
+        //     clearInterval(tiemval)
+        // }
+
+        // // 鼠标移出
+        // box.onmouseleave = function () {
+        //     clearTimeout(tiemout);//防抖，消除上次计时器
+        //     // 计时器两秒钟后执行
+        //     tiemout = setTimeout(function (params) {
+        //         // 启动定时器
+        //         tiemval = setInterval(function (params) {
+        //             num >= imgindex - 1 ? num = 0 : num++;
+        //             setimg();
+        //         }, 1000)
+        //     }, 2000)
+        // }
+
+        aurotype(true);
+        box.addEventListener('mouseenter', function (params) {
+            aurotype(false);
+        })
+        box.addEventListener('mouseleave', function (params) {
+            aurotype(true);
+        })
+        function aurotype(e) {
+            if (e) {
+                clearTimeout(tiemout);//防抖，消除上次计时器
+                // 计时器两秒钟后执行
+                tiemout = setTimeout(function (params) {
+                    // 执行轮播
+                    tiemval = setInterval(function (params) {
+                        num >= imgindex - 1 ? num = 0 : num++;
+                        setimg();
+                    }, 1000)
+                }, 2000)
+            } else {
+                // 停止轮播
+                clearInterval(tiemval)
+            }
+        }
+    </script>
+</body>
+
+</html>

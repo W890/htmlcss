@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指定时间倒计时</title>
+</head>
+
+<body>
+    <input type="text">
+    <button>计算</button>
+    <p>距离月底还有<span class="tiem"></span></p>
+
+    <script>
+        let input = document.querySelector('input');
+        let but = document.querySelector('button');
+        but.addEventListener('click', function () {
+            //console.log(input.value);
+            setInterval(function (params) {
+                settime(input.value);
+            },1000)
+        })
+
+        function settime(params) {
+            // 获取当前时间戳
+            let date = new Date().getTime();
+            // 获取指定日期时间戳
+            let end = new Date(params).getTime();
+            // 毫秒转秒数
+            let ends = parseInt((end - date) / 1000);
+            let d = (parseInt(ends / 24 / 60 / 60) + '').padStart(2, '0');
+            let h = (parseInt(ends / 60 / 60 % 24) + '').padStart(2, '0');
+            let m = (parseInt(ends / 60 % 60) + '').padStart(2, '0');
+            let s = (parseInt(ends % 60) + '').padStart(2, '0');
+            // 获取tiem
+            let tiem = document.querySelector('.tiem');
+            tiem.innerHTML = `${d}天${h}时${m}分${s}秒`
+        }
+
+
+    </script>
+
+</body>
+
+</html>

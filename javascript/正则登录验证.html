@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="请填写用户名">
+    <br>
+    <input type="text" placeholder="请填写密码">
+    <br>
+    <button>登录</button>
+    <script>
+        let inputs = document.querySelectorAll('input');
+        let button = document.querySelector('button');
+        button.onclick = function () {
+            if (/^[\u4e00-\u9fa5]{0,}$/.test(inputs[0].value)) {
+                console.log(inputs[0].value);
+            } else {
+                alert('请输入正确的用户名格式,且只能是汉字')
+            }
+            if (/^[\u4E00-\u9FA5A-Za-z0-9_]{6,18}$/.test(inputs[1].value)) {
+                console.log(inputs[1].value);
+            } else {
+                alert('请输入正确的密码格式')
+            }
+        }
+
+    </script>
+</body>
+
+</html>

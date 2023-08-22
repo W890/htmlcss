@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>位置相关</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: green;
+            position: absolute;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        账号：
+        <input type="text">
+        <br>
+        密码：
+        <input type="text">
+        <button>登录</button>
+    </div>
+    <script>
+        let div = document.querySelector('div');
+        let but = document. querySelector('button');
+        div.addEventListener('mousedown', function (e) {
+            // let x = e.pageX - div.offsetLeft;
+            // let y = e.pageY - div.offsetTop;
+            document.addEventListener('mousemove',move)
+
+            function move(r){
+                div.style.left = r.pageX - e.offsetX +'px';
+                div.style.top = r.pageY - e.offsetY + 'px';
+                // div.style.left = r.pageX -x + 'px';
+                // div.style.top = r.pageY - y + 'px';
+            }
+            
+            document.addEventListener('mouseup',function (params) {
+                document.removeEventListener('mousemove',move)
+            })
+            
+        })
+
+        
+    </script>
+</body>
+
+</html>

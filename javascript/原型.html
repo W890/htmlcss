@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function SetName(name, tiem) {
+            this.name = name;
+            this.tiem = tiem;
+            // this.sing = function(){
+            //     console.log('糊锅了,锅都得扔');
+            // }
+        }
+        // 现存问题
+        // 创建多个function，浪费内存空间
+        // 解决这个问题
+
+        // prototype:原型
+        // 本身就是一个对象，我们直接定义在Protoype对象上，这有所有的实例就可以共享这些方法
+        SetName.prototype.sing = function() {
+            console.log('糊锅了,锅都得扔');
+        }
+
+        SetName.prototype.num = 1;
+        // console.log(SetName.prototype);
+
+
+        let zhoudapeng = new SetName('螃蟹',30);
+        let liufuyang = new SetName('海蛎子',60);
+        
+        // __proto__:指向于prototype 相当于路引，为对象的查找机制提供一个方向
+        // constructor：构造函数，指向构造函数本身
+        // console.log(zhoudapeng.__proto__);
+        console.log(zhoudapeng);
+        console.log(zhoudapeng.__proto__);
+
+        zhoudapeng.sing();
+        liufuyang.sing();
+        console.log(zhoudapeng.num);
+    </script>
+</body>
+</html>

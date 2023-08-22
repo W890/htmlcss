@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>换肤</title>
+    <!-- <style>
+        .back-img{
+            position:relative;
+            height: 640px;
+            background: url("https://www.51miz.com/sucai/1295063.html?keyword_id=1786491") no-repeat;
+        }
+        .imgs{
+            width: -500px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            top:30%;
+            transform: translate(-50%);
+        }
+        img{
+            width: 100px;
+            height: 60px;
+        }
+    </style> -->
+    <style>
+        .back-img {
+            width: 410px;
+            height: 256px;
+            background: url(https://ts3.cn.mm.bing.net/th?id=OIP-C.Md86Wi2EYiKHNPldRZiD4gHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2)no-repeat;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+
+        }
+
+        .bordes {
+            border: 5px solid #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-img">
+        <div class="imgs">
+            <img class="bordes" src="https://www.51miz.com/sucai/1295063.html?keyword_id=1786491" alt="">
+            <img  src="https://www.51miz.com/tupian/1537156.html?keyword_id=1786491" alt="">
+            <img  src="https://www.51miz.com/tupian/1540707.html?keyword_id=1786491" alt="">
+            <img  src="https://www.51miz.com/tupian/1513480.html?keyword_id=1786491" alt="">
+        </div>
+    </div>
+    
+    <script>
+        let imgs = document.querySelectorAll('img');
+        let backimg = document.getElementsByClassName('back-img')[0];
+        
+        
+        for (let i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function(){
+                // 获取src属性
+                console.log(this.src);
+                // 赋值给背景图
+                backimg.style.background = `url(${this.src})`;
+                // 获取父元素下所有的子元素
+                let fu = this.parentNode.children;
+
+                // 遍历移除所有的类名
+                for(let j = 0; j < fu.length; j++) {
+                    fu[j].classList.remove('bordes');
+                }
+                // 给点击的元素添加类名
+                this.classNane = 'bordes';
+                console.log(fu);
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <style>
+        .back-img {
+            width: 410px;
+            height: 256px;
+            background: url(https://ts3.cn.mm.bing.net/th?id=OIP-C.Md86Wi2EYiKHNPldRZiD4gHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2)no-repeat;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+
+        }
+
+        .bordes {
+            border: 5px solid #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back-img">
+        < img class="bordes"
+            src="https://ts2.cn.mm.bing.net/th?id=OIP-C.th6FlIUU3ebI8pl4ccYHZgHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"
+            alt="">
+                    < img
+                src="https://ts4.cn.mm.bing.net/th?id=OIP-C.rHuc8SKa0wLVwCqqA27uIwHaEt&w=313&h=199&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"
+                alt="">
+                        < img
+                    src="https://ts1.cn.mm.bing.net/th/id/R-C.b49dbddffaa692d75988e0c5882dacca?rik=r6IIYs2muimY7A&riu=http%3a%2f%2fwww.quazero.com%2fuploads%2fallimg%2f140529%2f1-140529145A4.jpg&ehk=Co9XURYRCjJXUTzFG0Mw6lD7olzDKceEgv3slEC8kvQ%3d&risl=&pid=ImgRaw&r=0"
+                    alt="">
+                 < img
+                        src="https://tse2-mm.cn.bing.net/th/id/OIP-C.YKoZzgmubNBxQ8j-mmoTKAHaEK?pid=ImgDet&rs=1" alt="">
+                    
+    </div>
+    
+    <script>
+        let imgs = document.querySelectorAll('img')
+        let backing = document.getElementsByClassName('back-img')[0]
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function (params) {
+                this.src
+                backing.style.background = `url(${this.src})`
+                let fu = this.parentNode.children
+                for (let index = 0; index < fu.length; index++) {
+                    fu[index].classList.remove('bordes')
+
+                }
+                this.className = 'bordes'
+            }
+        }
+    </script>
+</body>
+
+</html> -->

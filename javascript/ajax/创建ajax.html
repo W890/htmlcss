@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="Ajax()">发起请求</button>
+    <script>
+        function Ajax(params) {
+            //1.创建ajsx对象
+            let xhr = new XMLHttpRequest()
+            // 2.与服务器建立连接      相当于输入手机号
+            // get请求
+            // xhr.open('get','http://192.168.0.88:3002/echare?id=123')
+            // post请求
+            xhr.open('post','http://192.168.0.88:3002/echare?id=123')
+            // 2.2设置请求头
+            // xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            // application/x-www-form-urlencoded:传递的是form data  name=张三
+            xhr.setRequestHeader('Content--type','application/json')
+            xhr.setRequestHeader('token','123456');
+
+            // 3.发送数据   点击拨打
+            // get发送的数据是写在url上的
+            // xhr.send()
+            // post发送的数据是在请求体中
+            xhr.send(JSON.stringify({name:'张三'}))
+            // 4.接收服务端发送过来的数据
+            xhr.onload = function(){
+                // 接收到的数据 通过JSOM.parse转为JSON对象
+                let data = JSON.parse(xhr.responseText)
+                console.log(data);
+            } 
+            // 4.1接收服务端发送过来的数据
+            xhr.onreadystatechange = function() {
+                // ajax状态码 0:初始化 1:载入 2:载入完成 3:解析读取服务器响应 4:读取服务器响应完成
+                let ma = xhr.readyState;
+                // console.log(xhr.readyState);
+                if (xhr.readyState == 2){
+                    console.log(xhr.responseText);
+                }
+                if (xhr.readyState == 3){
+                    console.log(xhr.responseText);
+                }
+                // 如果状态码是4代码已完成
+                if (xhr.readyState == 4){
+                    // 打印数据
+                    console.log(xhr.responseText);
+                }
+                // 获取状态码
+                console.log((xhr.status));
+            }
+
+
+
+        }
+    </script>
+</body>
+</html

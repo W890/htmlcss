@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时炸弹</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .bong {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        .maka {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        .kuang {
+            width: 550px;
+            height: 371px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .tiem {
+            width: 108px;
+            background: #c0c7c6;
+            font-size: 26px;
+            position: absolute;
+            left: 50%;
+            top: 43%;
+            line-height: 1.8;
+        }
+
+        .red {
+            width: 200px;
+            height: 77px;
+            position: absolute;
+            top: 18%;
+        }
+
+        .yellow {
+            width: 200px;
+            height: 77px;
+            position: absolute;
+            top: 5%;
+            left: 43%;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div>
+
+        <div class="kuang">
+            <div class="tiem">
+                00:01:01
+            </div>
+            <img class="cu" src="https://s1.ax1x.com/2023/08/14/pPMV8gI.jpg" alt="">
+            <div onclick="set(true)" class="red"></div>
+            <div onclick="set(false)" class="yellow"></div>
+        </div>
+        <img class="maka"
+            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F02%2F20200302193919_fuxhw.gif&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1694590615&t=a0ceb46e40702d0e66d91005c59ccb16"
+            alt="">
+        <img class="bong" src="https://dingyue.ws.126.net/2020/1005/114b521cg00qhpywc0217c000hs0090m.gif" alt="">
+    </div>
+    <script>
+        // 获取dong
+        let dong = document.querySelector('.bong')
+        let maka = document.querySelector('.maka')
+        let tiem = document.querySelector('.tiem')
+        // 定时器的容器
+        let tiemfun = null
+
+        let num = 10
+
+        // 设置倒计时
+        tiemfun = setInterval(function () {
+            // 判断倒计时是否结束
+            // 调用爆炸的方法
+            if (num == 0) return set(true)
+            num--
+            // console.log(settiem(num));
+
+            // 将时间渲染到页面
+            tiem.innerHTML = settiem(num)
+        }, 1000)
+
+        function settiem(tiem) {
+            // 计算时分秒并转成字符串
+            // 拆解
+            // 获取小时
+            // h = parseInt(tiem/60/60%24)
+            // 转换成字符串
+            // h = parseInt(tiem/60/60%24)+''
+            // 补齐位数
+            // h.padStart(2,'0')
+            // 在拼接冒号
+            let h = (parseInt(tiem / 60 / 60 % 24) + '').padStart(2, '0') + ':'
+            let m = (parseInt(tiem / 60 % 60) + '').padStart(2, '0') + ':'
+            let s = (parseInt(tiem % 60) + '').padStart(2, '0')
+
+            return h + m + s
+        }
+
+        function set(v) {
+            // v:true 剪错了
+            if (v) {
+                dong.style.display = 'block'
+
+            } else {
+                // 停止计时器
+                clearInterval(tiemfun)
+                setTimeout(function () {
+                    maka.style.display = 'block'
+                }, 2000)
+            }
+        }
+    </script>
+</body>
+
+</html>
