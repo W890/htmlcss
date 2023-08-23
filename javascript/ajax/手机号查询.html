@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>手机号查询</title>
 </head>
 
 <body>
@@ -21,8 +21,8 @@
                 return alert("手机号错误")
             }
             let xhr = new XMLHttpRequest()
-            xhr.open('get', 'http://192.168.0.88:3002/phone')
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+            xhr.open('get', 'http://192.168.0.88:3002/phone?phone=15964210515')
+            xhr.setRequestHeader('token', '123456')
             xhr.send('phone=15964210515');
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4) {

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         // 查询万年历
+         function wandate(params) {
+            // 获取输入的日期
+            let date = document.querySelector('.date').value
+            // 准备ajax
+            var xhr = new XMLHttpRequest()
+            xhr.open('get',`http://192.168.0.88:3002/wan?date=${date}`)
+            // 在header中传递token
+            xhr.setRequestHeader("token",token)
+            xhr.send()
+            xhr.onload=function(){
+                console.log(JSON.parse(xhr.responseText));
+            }
+        }
+
+        // 会变得
+        // 请求方式、请求地址、请求参数、请求头信息、成功之后的操作
+        let option = {
+            method:'get',
+            url:'http://192.168.0.88:3002/wan',
+            data:{
+                date:'2023-03-15',
+                uni:'666'
+            },
+            contentType:{
+                token:'123456'
+            }
+        }
+        let option2 = {
+            method:'post',
+            url:'http://192.168.0.88:3002/login',
+            data:{
+                username:'admin',
+                password:'123456'
+            },
+            contentType:{
+            //    type:'application/x-www-form-urlencoded'
+             type:'application/json'
+            }
+        }
+        ajax(option)
+        ajax(option2)
+        function ajax(option) {
+            console.log(39,option);
+              // 准备ajax
+              var xhr = new XMLHttpRequest()
+            //   参数
+            
+            if (option.method =='get') {
+                // url 拼接参数            // 将对象转成字符串格式
+                option.url = option.url+'?'+setstring(option.data)
+            }
+              xhr.open(option.method,option.url)
+            // 在header中传递token
+            if (option.contentType.token) {
+                xhr.setRequestHeader("token",option.contentType.token)
+            }
+            if (option.contentType.type) {
+                xhr.setRequestHeader('Content-type',option.contentType.type)
+            }
+            // 处理发送的数据
+            if (option.method =='get') {
+                xhr.send()
+            }else{
+                // xhr.send(setstring(option2.data))
+                xhr.send(JSON.stringify(option2.data))
+            }
+            
+            xhr.onload=function(){
+                console.log(JSON.parse(xhr.responseText));
+            }
+            
+        }
+
+        function setstring(obj) {
+
+            let str = ''
+            for(var i in obj){
+                console.log(i);
+                console.log(obj[i]);
+                str+= i+'='+obj[i]+'&'
+                
+            }
+                return str.substring(0,str.length-1)
+            
+        }
+
+    </script>
+</body>
+</html>

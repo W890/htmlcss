@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>天气查询</title>
 </head>
 <body>
-    <div></div>
+    查询天气城市<input class="tianqi" type="text">
+    <button onclick="f1()">查询</button>
+
+    <script>
+        let data = document.querySelector('.tianqi')
+        function f1(params) {
+            if (!data.value) {
+                return alert("表单不能为空")
+            }
+            if (data.value != '青岛') {
+                return alert("请填写正确城市")
+            }
+            let xhr = new XMLHttpRequest()
+            xhr.open('get', 'http://192.168.0.88:3002/qi?city=%E9%9D%92%E5%B2%9B')
+            xhr.setRequestHeader('token', '123456')
+            xhr.send('city=青岛');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    console.log(JSON.parse(xhr.responseText))
+                }
+            }
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="login">
+        <p>用户名：<input class="admin" type="text" value="admin"></p>
+    <p>密码：<input class="password" type="password" value="123456"></p>
+    <p><button onclick="login()">登陆</button></p>
+    </div>
+
+
+    <div class="content">
+    <p>手机号：<input class="phone" type="text"><button onclick="query()">查询</button></p>
+    </div>
+
+    <script>
+        let admin = document.querySelector('.admin')
+        let password = document.querySelector('.password')
+        // 获取token
+        let token = localStorage.getItem('token')
+        // 调用页面渲染
+        look()
+        function login() {
+            // 获取输入的值
+            let adminvalue = admin.value
+            let passwordvalue = password.value
+            console.log(adminvalue,passwordvalue);
+            // ajax部分
+            var xhr = new XMLHttpRequest()
+            // 设置请求信息
+            xhr.open('post','http://192.168.0.88:3002/login')
+
+            //    // 设置请求头
+            //    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+            // // 设置请求参数并发送请求
+            // xhr.send(`username=${adminvalue}&password=${passwordvalue}`)
+                 // 设置请求头
+            xhr.setRequestHeader('Content-type','application/json')
+              // 设置请求参数并发送请求
+            //   整理数据
+            let obj = {
+                username:adminvalue,
+                password:passwordvalue
+            }
+            xhr.send(JSON.stringify(obj))
+            // 接受数据
+            xhr.onload = function(){
+                // 将接受的的数据转换为JSON对象
+                let data = JSON.parse(xhr.responseText)
+                // console.log(data);
+                // 做错误处理
+                if(data.code!=200) return alert(data.msg)
+                
+                // 存入缓存
+                localStorage.setItem('token',data.data.token)
+                // 给页面token赋值
+                token = data.data.token
+                look()
+
+            }
+            
+        }
+        // 查询手机
+        function query() {
+            // 获取输入的手机号
+            let phone = document.querySelector('.phone').value
+            // 准备ajax
+            var xhr = new XMLHttpRequest()
+            xhr.open('get',`http://192.168.0.88:3002/phone?phone=${phone}`)
+            // 在header中传递token
+            xhr.setRequestHeader("token",token)
+            xhr.send()
+            xhr.onload=function(){
+                console.log(JSON.parse(xhr.responseText));
+            }
+        }
+
+        // 控制内容显示隐藏
+        function look(params) {
+            let content = document.querySelector('.content')
+            let login = document.querySelector('.login')
+            if (token) {
+                content.style.display = 'block'
+            login.style.display = 'none'
+            }else{
+                content.style.display = 'none'
+            login.style.display = 'block'
+            }
+           
+
+           
+        }
+    </script>
+</body>
+</html>
+
+

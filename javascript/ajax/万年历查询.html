@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>万年历查询</title>
 </head>
 <body>
     查询日期<input class="data" type="text">
@@ -19,8 +19,8 @@
                 return alert("请填写正确日期")
             }
             let xhr = new XMLHttpRequest()
-            xhr.open('get', 'http://192.168.0.88:3002/wan')
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+            xhr.open('get', 'http://192.168.0.88:3002/wan?date=2023-3-18')
+            xhr.setRequestHeader('token', '123456')
             xhr.send('data=2023-3-18');
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4) {
