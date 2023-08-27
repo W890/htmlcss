@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气预报</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .bbq {
+            width: 802px;
+            height: 1206px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+        #div1,
+        #div2,
+        #div3 {
+            width: 800px;
+            height: 400px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bbq">
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script>
+        // 公共地址
+        let BACEURL = ''
+
+        function ajax({ method, url, data, success }) {
+            // 准备ajax
+            var xhr = new XMLHttpRequest();
+            // 拼接公共域名
+            url = BACEURL + url
+            //   判断get/post
+            if (method == "get") {
+                // 拼接参数
+                let str = "";
+                for (var i in data) {
+                    str += i + "=" + data[i] + "&";
+                }
+                url = url + "?" + str.substring(0, str.length - 1);
+            }
+            // 拨号
+            xhr.open(method, url);
+            //设置请求头
+            if (method == 'post') {
+                xhr.setRequestHeader("Content-type", "application/json");
+            }
+            // 判断token
+            let token = localStorage.getItem('token')
+            if (token) {
+                xhr.setRequestHeader("token", token);
+            }
+            if (method == "get") {
+                xhr.send();
+            } else {
+                xhr.send(JSON.stringify(data));
+            }
+            // 处理接受到的数据
+            xhr.onload = function () {
+                success(JSON.parse(xhr.responseText));
+            };
+        }
+
+        ajax({
+            method: "get",
+            url: "http://www.nmc.cn/rest/weather?stationid=54857&_=1692944434612",
+            data: {},
+            success: function (res) {
+                console.log(res);
+                console.log(res.data.passedchart);
+                console.log(res.data.predict.detail);
+                console.log(res.data.tempchart);
+
+                var window24h = []//24小时内温度变化
+                for (let i = 0; i < res.data.passedchart.length; i++) {
+                    window24h.push(res.data.passedchart[i])
+                }
+                console.log(window24h);
+
+                var window5day = []//5天内温度情况
+                for (let i = 0; i < 5; i++) {
+                    window5day.push(res.data.predict.detail[i])
+                }
+                console.log(window5day);
+
+                var max_min5day = []//5天最高温最低温
+                for (let i = 0; i < 5; i++) {
+                    max_min5day.push(res.data.tempchart[i])
+                }
+                console.log(max_min5day);
+
+
+
+                // 24小时温度变化
+                // 基于准备好的dom，初始化echarts实例
+                var myChart1 = echarts.init(document.getElementById('div1'));
+                // 指定图表的配置项和数据
+                var option = {
+                    title: {
+                        text: '24小时内温度变化'
+                    },
+                    tooltip: {},
+                    legend: {
+                        show: false
+                    },
+                    xAxis: {
+                        data: window24h.map(res => res.time)
+                    },
+                    yAxis: {},
+                    series: [
+                        {
+                            name: '温度',
+                            type: 'line',
+                            data: window24h.map(res => res.temperature)
+                        }
+                    ]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart1.setOption(option);
+
+                // 5天温度变化
+                // 基于准备好的dom，初始化echarts实例
+                var myChart2 = echarts.init(document.getElementById('div2'));
+                // 指定图表的配置项和数据
+                var option = {
+                    title: {
+                        text: '5天内温度情况'
+                    },
+                    tooltip: {},
+                    legend: {
+                        data: ['白天温度', '夜间温度']
+                    },
+                    xAxis: {
+                        data: window5day.map(res => res.date)
+                    },
+                    yAxis: {},
+                    series: [
+                        {
+                            name: '白天温度',
+                            type: 'bar',
+                            data: window5day.map(res => res.day.weather.temperature)
+                        }, {
+                            name: '夜间温度',
+                            type: 'bar',
+                            data: window5day.map(res => res.night.weather.temperature)
+                        }
+                    ]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart2.setOption(option);
+
+                // 5天最高/低气温
+                // 基于准备好的dom，初始化echarts实例
+                var myChart3 = echarts.init(document.getElementById('div3'));
+                // 指定图表的配置项和数据
+                var option = {
+                    title: {
+                        text: '5天内最高/低温度情况'
+                    },
+                    tooltip: {},
+                    legend: {
+                        data: ['最高温度', '最低温度']
+                    },
+                    xAxis: {
+                        data: max_min5day.map(res => res.time)
+                    },
+                    yAxis: {},
+                    series: [
+                        {
+                            name: '最高温度',
+                            type: 'bar',
+                            data: max_min5day.map(res => res.max_temp)
+                        },
+                        {
+                            name: '最低温度',
+                            type: 'bar',
+                            data: max_min5day.map(res => res.min_temp)
+                        }
+                    ]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart3.setOption(option);
+            },
+        });
+
+
+
+    </script>
+</body>
+
+</html>

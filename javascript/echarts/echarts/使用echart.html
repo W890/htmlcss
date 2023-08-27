@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="./js/shine.js"></script>
+    <script src="./js//ajax.js"></script>
+  </head>
+  <body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM   准备个盛放图表的容器 -->
+    <div id="main" style="height: 300px"></div>
+    <script>
+      // 基于准备好的dom，初始化echarts实例  dom元素
+      var myChart = echarts.init(document.getElementById("main"), "shine");
+      // 指定图表的配置项和数据
+      var option = {
+        // 全局调色盘。
+        title: {
+          text: "ECharts 入门示例",
+          show: true,
+          link: "http://www.baidu.com",
+          textStyle: {
+            color: "#0098d9",
+          },
+        },
+        tooltip: {},
+        legend: {
+          // left:'10%',
+          itemWidth: 20,
+          lineStyle: {
+            // width:20
+          },
+        },
+        xAxis: {
+          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+        },
+        yAxis: {},
+        series: [
+          {
+            type: "bar",
+            name: "2015",
+            //   数据
+            data: [15.3, 92.1, 94.4, 85.4],
+            itemStyle: {
+              color: "#60df54",
+            },
+            label: {
+              show: true,
+              color: "#000",
+            },
+            //   barWidth:80
+          },
+          {
+            type: "bar",
+            name: "2016",
+            data: [55.8, 89.4, 91.2, 76.9],
+          },
+          // {
+          //   type: 'bar',
+          //   name: '2017',
+          //   data: [97.7, 83.1, 92.5, 78.1]
+          // },
+          // {
+          //   type: 'line',
+          //   name: '2222',
+          //   data: [97.7, 83.1, 92.5, 78.1]
+          // }
+        ],
+      };
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+      //    图表响应式
+      window.addEventListener("resize", function (params) {
+        myChart.resize();
+      });
+
+      ajax({
+        method: "get",
+        url: "http://192.168.0.88:3002/echare",
+        data: {},
+        success: function (res) {
+          console.log(res);
+          console.log(res.data2);
+          let x = res.data2.map(item=>item.name);
+          let y = res.data2.map(item=>item.price);
+          let y2= res.data2.map(item=>item.link);
+          // console.log('map',map);
+          let fore  =res.data2.forEach(item => {
+            console.log(item.name);
+          });
+          console.log('forEach',fore);
+          var option = {
+            // 全局调色盘。
+            xAxis: {
+              data2: x,
+            },
+            series: [
+              {
+                //   数据
+                data: y,
+              },
+              {
+                data: y2,
+              },
+            ],
+          };
+          myChart.setOption(option);
+        },
+      });
+    </script>
+  </body>
+</html>

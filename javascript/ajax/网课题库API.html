@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input class="admin" type="text">
+    <button onclick="xun()">寻找</button>
+    <script src="./aja练习/ajax.js"></script>+
+ <script>
+     function xun(params) {
+            let admin = document.querySelector('.admin').value
+            // 发起ajax
+            ajax({
+                method: 'get', //请求方式
+                url: 'https://api.vvhan.com/api/ti.ku',  //地址
+                //参数
+                data: {
+                    ti: '题目'
+                },
+                // 成功的结果
+                success: function (res) {
+                    // 请求结果
+                    console.log(res);
+                    localStorage.setItem('token', res.data.ti)
+                }
+            })
+        }
+ </script>
+</body>
+
+</html>

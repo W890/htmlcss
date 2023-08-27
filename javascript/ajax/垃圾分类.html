@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 200px;
+            border: 1px solid;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>垃圾名<input class="name" type="text" value="香蕉"></p>
+        <p><button onclick="gotoo()">开始分类</button></p>
+    </div>
+    <script>
+        // 公共地址
+        let BACEURL = 'https://api.oioweb.cn/api/common/'
+
+        function ajax({ method, url, data, success, wh }) {
+            // 准备ajax
+            var xhr = new XMLHttpRequest();
+            // 拼接公共域名
+            url = BACEURL + url
+            //   判断get/post
+            if (method == "get") {
+                // 拼接参数
+                let str = "";
+                if (wh) {
+                    str += data.id
+                    url = url + str;
+                } else {
+                    for (var i in data) {
+                        str += i + "=" + data[i] + "&";
+                    }
+                    url = url + "?" + str.substring(0, str.length - 1);
+                }
+            }
+            // 拨号
+            xhr.open(method, url);
+            //设置请求头
+            if (method == 'post') {
+                xhr.setRequestHeader("Content-type", "application/json");
+            }
+            // 判断token
+            let token = localStorage.getItem('token')
+            if (token) {
+                xhr.setRequestHeader("token", token);
+            }
+            if (method == "get") {
+                xhr.send();
+            } else {
+                xhr.send(JSON.stringify(data));
+            }
+            // 处理接受到的数据
+            xhr.onload = function () {
+                success(JSON.parse(xhr.responseText));
+            };
+        }
+
+
+
+
+       
+
+        function gotoo(params) {
+            let name = document.querySelector('.name').value;
+            // 发起ajax
+            ajax({
+                method: 'get', //请求方式
+                url: 'rubbish',  //地址
+                //参数
+                data: {
+                    name: name
+                },
+                // 成功的结果
+                success: function (res) {
+                    // 请求结果
+                    console.log(res);
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片渲染</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        p{
+            text-align: center;
+        }
+        .div1 {
+            width: 500px;
+            height: 110px;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translate(-50%);
+            border: 1px solid;
+            border-radius: 15px;
+            background-color: rgba(0, 128, 0, 0.539);
+        }
+
+        .div2 {
+            width: 500px;
+            height: 540px;
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        img{
+            width: 500px;
+            height: 500px;
+        }
+        .p1{
+            font-size: 20px;
+            font-weight: 700;
+        }
+        button{
+            width: 150px;
+            height: 40px;
+            border-radius: 15px;
+            background-color: blanchedalmond;
+            margin-top: 20px;
+        }
+        input{
+            width: 200px;
+            height: 30px;
+            padding-left: 15px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <P>英雄ID序号<input type="text"></P>
+        <p><button onclick="zim()">查询</button></p>
+    </div>
+    <div class="div2">
+        <img src="" alt="">
+        <p class="p1"></p>
+    </div>
+    <script>
+        // 公共地址
+        let BACEURL = ''
+
+        function ajax({ method, url, data, success }) {
+            // 准备ajax
+            var xhr = new XMLHttpRequest();
+            // 拼接公共域名
+            url = BACEURL + url
+            //   判断get/post
+            if (method == "get") {
+                // 拼接参数
+                let str = "";
+                for (var i in data) {
+                    str += i + "=" + data[i] + "&";
+                }
+                url = url + "?" + str.substring(0, str.length - 1);
+            }
+            // 拨号
+            xhr.open(method, url);
+            //设置请求头
+            if (method == 'post') {
+                xhr.setRequestHeader("Content-type", "application/json");
+            }
+            // 判断token
+            let token = localStorage.getItem('token')
+            if (token) {
+                xhr.setRequestHeader("token", token);
+            }
+            if (method == "get") {
+                xhr.send();
+            } else {
+                xhr.send(JSON.stringify(data));
+            }
+            // 处理接受到的数据
+            xhr.onload = function () {
+                success(JSON.parse(xhr.responseText));
+            };
+        }
+
+        function zim(params) {
+            let input = document.querySelector('input').value;
+            let p = document.querySelector('.div2 p')
+                    let imgs = document.querySelector('.div2 img')
+            ajax({
+                method: 'get',
+                url: 'https://game.gtimg.cn/images/lol/act/img/js/heroList/hero_list.js?v=58',
+                data: {
+                    input
+                },
+                success: function (res) {
+                    console.log(res);
+                    var name = res.hero.map(a1 => a1.name)
+                    console.log(name);
+                    var a1 = res.hero.map(a1 => a1.alias)
+                    console.log(a1); 
+                    p.innerText = name[parseInt(input) - 1]
+                    let src1 = 'https://game.gtimg.cn/images/lol/act/img/champion/'
+                    imgs.src = src1 + a1[parseInt(input) - 1] + '.png'
+                    console.log(imgs.src);
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

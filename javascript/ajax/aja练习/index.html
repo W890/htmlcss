@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="login">
+        <p>用户名：<input class="admin" type="text" value="admin"></p>
+        <p>密码：<input class="password" type="password" value="123456"></p>
+        <p><button onclick="login()">登陆</button></p>
+    </div>
+    <div class="content">
+        <p>手机号：<input class="phone" type="text"><button onclick="query()">查询</button></p>
+        <!-- <p>日期：<input class="date" type="text"><button onclick="wandate()">查询</button></p> -->
+    </div>
+    <script src="ajax.js"></script>
+    <script>
+        function login(params) {
+            let admin = document.querySelector('.admin').value
+            let password = document.querySelector('.password').value
+            // 发起ajax
+            ajax({
+                method: 'post', //请求方式
+                url: '/login',  //地址
+                //参数
+                data: {
+                    username: admin,
+                    password: password
+                },
+                // 成功的结果
+                success: function (res) {
+                    // 请求结果
+                    console.log(res);
+                    localStorage.setItem('token', res.data.token)
+                }
+            })
+        }
+        function query() {
+            let phone = 15964210515
+            ajax({
+                method: 'get',
+                url: '/phone',
+                data: {
+                    phone: phone
+                },
+                success: function (res) {
+                    console.log(res);
+                }
+            })
+
+        }
+
+    </script>
+</body>
+
+</html>

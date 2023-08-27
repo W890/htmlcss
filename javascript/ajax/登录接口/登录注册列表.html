@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+        }
+        .a1{
+            margin: 10px;
+            border: 1px solid;
+        }
+        body .zim{
+            width: 900px;
+            
+            border: 1px solid;
+        }
+        body .zim div {
+            width: 900px;
+            height: 270px;
+            border: 1px solid;
+        }
+        body .zim1{
+            width: 900px;
+           position: absolute;
+           right: 10px;
+           top: 0;
+        }
+        body .zim1 .neirong{
+            width: 900px;
+            height: 500px;
+            border: 1px solid;
+        }
+        body .zim1 .idlook{
+            width: 900px;
+            height: 300px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="zim">
+<!-- 注册 -->
+<div>
+    <p><h1>注册</h1></p>
+    <p>用户名：<input class="username" type="text" value="wykkk"></p>
+    <p>密码：<input class="password" type="text" value="123456"></p>
+    <p>管理员姓名：<input class="name" type="text" value="大法师"></p>
+    <p>角色：<input class="role" type="text" value="1"></p>
+    <p><button onclick="zhuce()">注册</button></p>
+</div>
+<!-- 登录 -->
+<div>
+    <p><h1>登录</h1></p>
+    <p>用户名：<input class="userName1" type="text" value="wykkk"></p>
+    <p>密码：<input class="passWord1" type="text" value="123456"></p>
+    <p> <button onclick="login()">登录</button></p>
+</div>
+<!-- 留言列表 -->
+<div>
+    <p><h1>留言列表</h1></p>
+    <p>页码数：<input class="page" type="text" value="1"></p>
+    <p>条数：<input class="rows" type="text" value="10"></p>
+    <p><button onclick="xuyuan()">许愿留言</button></p>
+</div>
+<!-- 添加留言 -->
+<div>
+    <p><h1>添加留言</h1></p>
+    <p>姓名：<input class="addname" type="text" value="老六"></p>
+    <p>内容：<input class="content" type="text" value="撒旦"></p>
+    <p>角色：<input class="role1" type="text" value="1"></p>
+    <p><button onclick="addliuyan()">点击添加</button></p>
+</div>
+<!-- 根据id查询 -->
+<div>
+    <p><h1>根据ID查询</h1></p>
+    <p><input class="idd" type="text"></p>
+    <p><button onclick="idchaxun()">点击查询</button></p>
+</div>
+    </div>
+    
+
+    <div class="zim1">
+        <div class="neirong"><h1>许愿列表</h1></div>
+        <div class="idlook"><h1>id查询内容</h1></div>
+    </div>
+
+
+
+    <script src="./ajax.js"></script>
+    <script>
+        function zhuce(params) {
+            let username = document.querySelector('.username').value
+            let password = document.querySelector('.password').value
+            let name = document.querySelector('.name').value
+            let role = document.querySelector('.role').value
+            // 发起ajax
+            ajax({
+                method: 'post', //请求方式
+                url: 'register',  //地址
+                //参数
+                data: {
+                    userName: username,
+                    passWord: password,
+                    name: name,
+                    role: role
+                },
+                // 成功的结果
+                success: function (res) {
+                    // 请求结果
+                    console.log(res);
+                }
+            })
+        }
+
+        function login(params) {
+            let username1 = document.querySelector('.userName1').value
+            let password1 = document.querySelector('.passWord1').value
+            // 发起ajax
+            ajax({
+                method: 'post', //请求方式
+                url: 'login',  //地址
+                //参数
+                data: {
+                    userName: username1,
+                    passWord: password1
+                },
+                // 成功的结果
+                success: function (res) {
+                    // 请求结果
+                    console.log(res);
+                    localStorage.setItem('token', res.data.token)
+                }
+            })
+        }
+
+        function xuyuan(params) {
+            let page = document.querySelector('.page').value
+            let rows = document.querySelector('.rows').value
+            let div1 = document.querySelector('.neirong')
+            // 发起ajax
+            ajax({
+                method: 'get', //请求方式
+                url: 'wish',  //地址
+                //参数
+                data: {
+                    page: page,
+                    rows: rows
+                },
+                // 成功的结果
+                success: function (res) {
+                    // 请求结果
+                    console.log(res);
+                    let ress = res.data.list
+                    let num = ''
+                    for (let i = 0; i < ress.length;i++){
+                        for(let j in ress[i]){
+                            num+= '<span class="a1">'+ j +':' + ress[i][j]+'</span>'
+                        }
+                    }
+                    div1.innerHTML = num
+                }
+            })
+        }
+
+        function addliuyan(params) {
+            let addname = document.querySelector('.addname').value
+            let content = document.querySelector('.content').value
+            let role1 = document.querySelector('.role1').value
+            // 发起ajax
+            ajax({
+                method: 'post', //请求方式
+                url: 'wish',  //地址
+                //参数
+                data: {
+                    name: addname,
+                    content: content,
+                    role: role1
+                },
+                // 成功的结果
+                success: function (res) {
+                    // 请求结果
+                    console.log(res);
+                }
+            })
+        }
+
+        function idchaxun(params) {
+            let idd = document.querySelector('.idd').value
+            let div2 = document.querySelector('.idlook')
+            // 发起ajax
+            ajax({
+                method: 'get', //请求方式
+                url: 'wish/',  //地址
+                //参数
+                data: {
+                   id:idd
+                },
+                // 成功的结果
+                success: function (res) {
+                    // 请求结果
+                    console.log(res);
+                    let res1 = res.data
+                    let num1 = ''
+                        for(let j in res1){
+                            num1+= '<span class="a1">'+ j +':' + res1[j]+'</span>'
+                        }
+                    console.log(res1);
+                    div2.innerHTML = num1
+                }
+                ,
+                wh:1
+            })
+            
+        }
+    </script>
+
+</body>
+
+</html>
