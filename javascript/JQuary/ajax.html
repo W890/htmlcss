@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // 1.0
+        $.ajax({
+            // 请求方式 get post put
+            type: 'get',
+            url: 'http://192.168.0.88:3002/echare',
+            data: { name: 1 },
+            // 成功之后的操作
+            success: function (res) {
+                // console.log(res);
+            },
+            // 失败之后的操作
+            error: function (res) {
+                // console.log(res);
+            },
+            // 无论成功还是失败都执行
+            complete: function (res) {
+                // console.log(res);
+            }
+        })
+        $.ajax({
+            // 请求方式 get post put
+            type: 'get',
+            // 请求地址
+            url: 'http://192.168.0.88:3002/qi',
+            // 设置请求头
+            headers: {
+                token: '123456'
+            },
+            // 设置请求的格式
+            contentType: 'application/json',
+            // 传递的参数
+            data: { city: '青岛' },
+            // 成功之后的操作
+            success: function (res) {
+                console.log(res);
+            },
+            // 失败之后的操作
+            error: function (res) {
+                console.log(res);
+            },
+            // 无论成功还是失败都执行
+            complete: function (res) {
+                console.log(res);
+            },
+            // async:true/false  是否使用异步请求方式
+            // dataType:'json?xml?text' 自动推断
+        })
+        $.ajax({
+            type: 'post',
+            url: 'http://192.168.0.88:3002/login',
+            data: {
+                username: "admin",
+                password: '123456'
+            },
+            success: (res) => {
+                $('body').text(res.data.token)
+            }
+        })
+    </script>
+</body>
+
+</html>

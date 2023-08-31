@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>div</div>
+    <p id="pad">pad</p>
+    <div class="phone">
+        <p>div中的p</p>
+    </div>
+
+
+     <!-- 引入jQuery -->
+     <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('div').css('color','red')
+            $('#pad').css('color','green')
+            $('.phone').css('color','blue')
+            $('.phone p').css('fontSize','24px')
+        })
+        console.log($('div'));
+        // function $(){}
+        // 1.参数时function 是入口函数
+        // 2.参数时document 把js的dom对象转为jq对象
+        // 3.参数时选择器，用来获取元素
+        // $实际上就是一个函数
+        // tab切换
+        
+    </script>
+</body>
+</html>

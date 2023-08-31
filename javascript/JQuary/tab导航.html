@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+            float: left;
+            line-height: 30px;
+            width: 150px;
+            text-align: center;
+            border-radius: 1px;
+            border: 1px solid;
+        }
+        ul{
+            width: 630px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .active{
+            background-color: aquamarine;
+        }
+        /* .content{
+            width: 100px;
+            height: 30px;
+            overflow: hidden;
+        } */
+        p{
+            display: none;
+        }
+        .open{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="active">我是第1个</li>
+        <li>我是第2个</li>
+        <li>我是第3个</li>
+        <li>我是第4个</li>
+    </ul>
+    <div class="content">
+        <p class="open">我是第1个内容</p>
+        <p>我是第2个内容</p>
+        <p>我是第3个内容</p>
+        <p>我是第4个内容</p>
+    </div>
+     <!-- 引入jQuery -->
+     <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $('li').click(function(params){
+            // $('li').css('background','none')
+            // $(this).css('background','aquamarine')
+            // 移除样式
+            $('li').removeClass('active')
+            $('p').removeClass('open')
+            // 添加类名
+            $(this).addClass('active')
+            // 获取
+            let index = $(this).index();
+            $('p').eq(index).addClass('open')
+        })
+    </script>
+    </body>
+</html>

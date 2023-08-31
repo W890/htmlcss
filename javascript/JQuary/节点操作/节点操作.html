@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="background-color: red;">
+        <p class="pppp">我是标准</p>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li class="li5">5</li>
+        <span>spans</span>
+    </ul>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // 创建jq对象 基于html
+        let _a =$('<a href="http://www.baidu.com">百度</a>')
+        console.log(_a);
+        // 在父元素尾部添加
+        $('div').append(_a);
+        let _a1 =$('<a href="http://www.baidu.com">百度欠钱</a>')
+        // 在父元素开头插入
+        $('div').prepend(_a1)
+        let p = $('<p>我是兄弟前</p>')
+        // 在兄弟元素之前
+        $('div').before(p)
+        let p1 = $('<p>我是兄弟后</p>')
+        // 在兄弟元素之后
+        $('div').after(p1)
+
+        // 删除元素
+        // $('.pppp').remove()
+        // $('li').click(function(){
+        //     $(this).remove()
+        // })
+        $('.li5').clone(true)//会克隆元素方法
+        $('ul').append($('.li5').clone(false))//不可隆方法
+
+        // 事件委托
+        // 绑定事件 事件类型 当前元素的后代 参数3：事件对象的一个属性，可以各部data传值，
+        // 利用事件对象传值 参数4.回调函数
+        $('ul').on('click','li',function(e){
+            console.log(123456);
+            // console.log(e.data);
+        })
+        // 事件解绑
+        $('button').click(function(params){
+            $('ul').off()
+        })
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

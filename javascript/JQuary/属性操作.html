@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="">去百度</a>
+     <!-- 引入jQuery -->
+     <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        // 赋值
+        // attr('属性名','属性值')
+        $('a').attr('href','http://www.baidu.com')
+        console.log($('a').attr('href'));
+        // 删除属性
+        $('a').removeAttr('href')
+    </script>
+
+    </body>
+</html>

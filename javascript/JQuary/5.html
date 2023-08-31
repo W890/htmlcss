@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    .main {
+      margin: 0 auto;
+      width: 800px;
+      display: flex;
+    }
+
+    .er {
+      display: flex;
+      margin: 0 auto;
+      width: 800px;
+      height: 50px;
+    }
+
+    .er p {
+      box-sizing: border-box;
+      width: 200px;
+      text-align: center;
+      line-height: 50px;
+      font-size: 50px;
+      height: 50px;
+    }
+
+    .video {
+      display: flex;
+      overflow: hidden;
+      /* height: 200px; */
+      /* margin: 0 auto; */
+      width: 200px;
+      height: 800px;
+      position: relative;
+      background: linear-gradient(to bottom, white 0%, white 89.99%, rgba(204, 176, 124, 0.185) 90%, rgba(194, 163, 105, 0.4) 100%);
+      transition: all 0.5s;
+      border: 2px solid skyblue;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .bot {
+      display: flex;
+      height: 100px;
+      background-color: #ccc;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    input {
+      width: 200px;
+      height: 30px;
+    }
+
+    button {
+      height: 30px;
+      width: 100px;
+      background-color: orange;
+      color: #fff;
+      /* box-shadow: none; */
+    }
+
+    .bullet {
+      font-size: 100px;
+      position: absolute;
+      overflow: hidden;
+      height: 110px;
+    }
+
+    a {
+      position: absolute;
+      font-size: 100px;
+      right: 30px;
+      top: 0;
+      z-index: 100;
+    }
+  </style>
+</head>
+
+<body>
+  <a></a>
+  <div class="main">
+    <div class="video">
+
+    </div>
+    <div class="video">
+
+    </div>
+    <div class="video">
+
+    </div>
+    <div class="video">
+
+    </div>
+  </div>
+  <div class="er">
+    <p>D</p>
+    <p>F</p>
+    <p>J</p>
+    <p>K</p>
+  </div>
+  <script>
+    let sc = 0
+    function randomInteger(max) {
+      return Math.floor(Math.random() * (max + 1));
+    }
+    function show(params) {
+      $('a').html(sc)
+    }
+    show()
+    function randomRgbColor() {
+      let r = randomInteger(255);
+      let g = randomInteger(255);
+      let b = randomInteger(255);
+      return `(${r},${g},${b})`;
+    }
+    function randomsize() {
+      return randomInteger(40) + 20
+
+    }
+    function randomtop(params) {
+      return randomInteger(4)
+    }
+    const old = new Array
+    // $('button').on('click', )
+    setInterval(function (params) {
+      let h = $(window).height()
+      let ne = $(`<div>o</div>`)
+      // console.log($('.video'));
+      $('.video').eq(randomtop() - 1).append(ne)
+      ne.addClass('bullet')
+      old.push($('input').val())
+      // ne.css('top', `${randomtop()*200}px`)
+      ne.css('color', `rgb${randomRgbColor()}`)
+      // ne.css('left', `-${ne.width()}px`)
+      ne.animate({ top: h }, 5000, 'linear', function () {
+        ne.remove()
+        sc--
+        show()
+      },
+
+      )
+    }, randomInteger(1000) + 800)
+    function lin(key, num, params) {
+      if (params.keyCode === key) {
+
+        if (($(window).height() - $('.video').eq(num).children().eq(0).position().top) / $(window).height() < 0.35) {
+          console.log(111);
+          let e = $('.video').eq(num).children().eq(0).animate().stop()
+
+          sc++
+          show()
+          $('.video').eq(num).children().eq(0).remove()
+          $('.video').eq(num).css('background', 'linear-gradient(to bottom, white 0%, white 65.99%, rgba(204, 176, 124, 0.01) 66%, rgba(194, 163, 105, 0.4) 100%)')
+          setTimeout(() => {
+            $('.video').eq(num).css('background', 'linear-gradient(to bottom, white 0%, white 89.99%, rgba(204, 176, 124, 0.185) 90%, rgba(194, 163, 105, 0.4) 100%)')
+          }, 100)
+        }
+      }
+
+    }
+    $(document).keydown(function (params) {
+
+      lin(68, 0, params)
+      lin(70, 1, params)
+      lin(74, 2, params)
+      lin(75, 3, params)
+
+    })
+
+  </script>
+</body>
+
+</html>

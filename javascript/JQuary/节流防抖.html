@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="132">
+    <p>防抖：<span>0</span></p>
+    <button>点点</button>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // 节流和防抖
+        // 节流：n秒之内只运行一次 在n秒钟重复触发，只生效一次
+        // 防抖:n秒后执行，n秒后重新发出
+        // 节流第一步
+        let type = true
+        $('button').on('click', function () {
+            // 节流第二步
+            if (type) {
+                // 开启节流
+                console.log($('input').val());
+                // 设置节流状态
+                type = false
+                // 延时放开节流
+                setTimeout(() => {
+                    type = true
+                }, 1000)
+            }
+
+        })
+
+        // 防抖
+        // 第一步
+        // 定义计时器
+        let tiem
+        $('button').on('click', function () {
+
+            clearTimeout(tiem)
+            //    第二步
+            tiem = setTimeout(() => {
+                let num = $('span').text()
+                num++
+                $('span').text(num)
+            }, 1000)
+
+        })
+        let tiems
+        $('input').on('input', function (params) {
+            clearTimeout(tiems)
+            tiems = setTimeout(() => {
+                console.log($('input').val());
+            }, 1000)
+        })
+
+    </script>
+</body>
+
+</html>

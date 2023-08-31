@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .login {
+            background: #f2f2f5;
+            width: 340px;
+            height: 340px;
+            margin: 0 auto;
+            margin-top: 150px;
+            padding: 20px;
+        }
+
+        .login-box {
+            height: 100%;
+            position: relative;
+            background: white;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .hider {
+            overflow: hidden;
+            color: #808080;
+            font-size: 14px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .hider>div {
+            float: left;
+            width: 50%;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 0 0 10px 0;
+        }
+
+        .hider .hideropen {
+            border-bottom: 3px solid #fa7d3c;
+            padding-bottom: 8px;
+            font-weight: 400;
+            color: #000;
+        }
+
+        .content {
+            height: 90%;
+        }
+
+        .content div {
+            display: none;
+        }
+
+        .ma {
+            height: 100%;
+        }
+
+        .ma {
+            position: relative;
+
+        }
+
+        .ma img {
+            width: 60%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-image: url('../images/wb.png');
+            background-position: -40px -191px;
+            transition: all .4s;
+        }
+
+        .content .show {
+            display: block;
+        }
+
+        .active {
+            background-position: 0 -150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        <div class="login-box">
+            <div class="hider">
+                <div class="hideropen">账号登陆</div>
+                <div>安全登陆</div>
+            </div>
+            <div class="icon"></div>
+            <div class="content">
+                <div class="phone show">手机号：<input type="text">
+                    <br>验证码：<input type="text">
+                </div>
+                <div class="ma">
+                    <img src="../images/ewm.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // 点击切换
+        $('.hider div').click(function () {
+            setlook($(this).index())
+        })
+        // 点击右上角图标切换
+        $('.icon').click(function () {
+            // 设置切换类名
+            $('.icon').toggleClass('active')
+            // 判断类名是否存在，如果存在将true通过Number转换为数字1否则转为数字0
+            let index = Number($('.icon').hasClass('active'))
+            // 调用切换显示方法
+            setlook(index)
+        })
+        // 切换显示方法
+        function setlook(index) {
+            // 清除所有元素的类名
+            $('.hider div').removeClass('hideropen')
+            // 给指定元素添加类名
+            $('.hider div').eq(index).addClass('hideropen')
+
+            // 切换内容
+            $('.content div').removeClass('show')
+            // 给指定元素添加类名
+            $('.content div').eq(index).addClass('show')
+        }
+    </script>
+
+</body>
+
+</html>

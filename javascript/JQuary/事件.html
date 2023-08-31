@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 引入jQuery -->
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <div>点我</div>
+    <input type="text">
+    <script>
+        // $('选择器').事件名(function(){
+
+        // })
+        // 事件名没有on
+
+        $('div').click(function(){
+            console.log(this);
+            // this是js dom 元素，不能够直接调用jq方法，需要调用$()转为jq对象
+            // jQuery不要和js混用
+            // this.style.color = 'red'
+
+
+        })
+
+        $('div').dblclick(function(){
+            console.log('双击',this);
+        })
+
+        // // 聚焦 获取焦点
+        // $('input').focus(function(){
+        //     console.log('获取焦点');
+        // })
+        // // 失去焦点
+        // $('input').blur(function(){
+        //     console.log('失去焦点');
+        // })
+
+        // 链式操作
+        $('input').focus(function(){
+            console.log('获取焦点');
+        }).blur(function (params) {
+            console.log('失去焦点');
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>张三</li>
+        <li>李四</li>
+        <li>王五</li>
+        <li>赵六</li>
+        <li>刘七</li>
+    </ul>
+    <!-- 引入jQuery -->
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        // js模式
+        // let lis =document.querySelector('li');
+        // for(let i = 0; i < lis.length;i++) {
+        //     lie[i].onclick = function(){
+        //         this.style.color = 'red'
+        //     }
+        // }
+        // jq模式
+        $('li').click(function () {
+            // $(this).css('color', 'red');
+            $(this).css({
+                color:'red',
+                fontSize:'30px'
+            })
+        })
+        // 理解
+        // function $(params) {
+        //     let dou = document.querySelector(params)
+        //     let domobj = {
+        //         dou,
+        //         click: function (fn) {
+        //             return this
+        //         },
+
+        //         css: function (a, b) {
+        //             doml.style.a = b
+        //         }
+        //     }
+        //     return dom
+        // }
+        // 选择元素的方式
+        // $(选择器)
+        // click(函数)
+        // css(属性名，属性值)
+        // 如果是多个属性需要使用对象形式传递
+        // css({
+        //     属性名：属性值，
+        //     属性名：属性值
+        // })
+    </script>
+
+</body>
+
+</html>

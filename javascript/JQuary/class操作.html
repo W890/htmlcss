@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .open{
+            font-size: 20px;
+        }
+        .set{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>class</div>
+    <button>添加</button>
+    <button>删除</button>
+    <button>切换</button>
+    <button>判断</button>
+    <button>再次添加</button>
+     <!-- 引入jQuery -->
+     <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $('button').eq(0).click(function(){
+            $('div').addClass('open')
+        })
+        $('button').eq(1).click(function(){
+            $('div').removeClass('open')
+        })
+        $('button').eq(2).click(function(){
+            // 判断是否存在指定的类名，如果有就移除，没有就添加
+            $('div').toggleClass('open')
+        })
+        $('button').eq(3).click(function(){
+            // 判断是否存在指定的类名，返回true和false
+            $('div').hasClass('open')
+        })
+        $('button').eq(4).click(function(){
+            // add添加类名不会覆盖
+            $('div').addClass('set')
+        })
+
+    </script>
+
+
+    </body>
+</html>

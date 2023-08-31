@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .out {
+            width: 322px;
+            height: 308px;
+            border: 1px solid;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f2f1f6;
+            padding: 15px;
+        }
+
+        .zim {
+            width: 292px;
+            height: 278px;
+            background-color: #fdfdfd;
+            padding: 15px;
+        }
+
+        .p1 {
+            display: block;
+            width: 292px;
+            height: 30px;
+            border-bottom: 1px solid #8e8e8e;
+        }
+
+        .spanb {
+            display: block;
+            width: 46px;
+            height: 45px;
+            background: url(../images/wb.png) no-repeat;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+        }
+        .spanb2{
+            background-position: -35px -190px;
+        }
+        .spanb1{
+            background-position: -73px -228px;
+        }
+
+        .bbq {
+            width: 292px;
+            height: 258px;
+            position: absolute;
+            right: 27px;
+            top: 62px;
+            background: url(../images/ewm.png) no-repeat;
+            background-size: 100%;
+        }
+
+        .bbp {
+            width: 292px;
+            height: 258px;
+        }
+
+        .look {
+            display: block;
+        }
+
+        .nolook {
+            display: none;
+        }
+        img{
+            width: 100%;
+        }
+        .dj{
+            margin-left: 40px;
+            margin-right: 10px;
+        }
+        .cu{
+            font-weight: 700;
+        }
+        .xi{
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="out">
+        <div class="zim">
+            <p class="p1">
+                <span class="dj spans cu">账号登录</span>
+                <span class="dj spanss xi">安全登录</span>
+                <span class="spanb spanb1 cu"></span>
+            <div class="bbp look">
+                <img src="../images/45.png" alt="">
+            </div>
+
+            <div class="bbq nolook"></div>
+        </div>
+    </div>
+
+    <!-- 引入jQuery -->
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $('.spanb').click(function () {
+            $('.bbq').toggleClass('nolook')
+            $('.bbp').toggleClass('look')
+            $('.spanb').toggleClass('spanb1')
+            $('.spanb').toggleClass('spanb2')
+            $('.spans').toggleClass('xi')
+            $('.spans').toggleClass('cu')
+            $('.spanss').toggleClass('cu')
+            $('.spanss').toggleClass('xi')
+        })
+    </script>
+</body>
+
+</html>

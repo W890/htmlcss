@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <img src="../images/03.jpg" alt="">
+     <!-- 引入jQuery -->
+     <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        // 当页面加载完成之后执行
+        window.onload = function(params){
+            console.log(('执行了'));
+        }
+
+        // jq的入口函数不会等待图片加载
+        // 第一种写法
+        $(document).ready(function(params){
+            console.log('我是jq的入口函数');
+        })
+        // 第二种写法
+        $(function(){
+            // 隐形迭代，jq自动遍历
+            console.log('div');
+        })
+        // 注意：js的入口函数比jq的入口函数晚一些
+
+    </script>
+</body>
+</html>

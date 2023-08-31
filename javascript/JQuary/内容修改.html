@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>div</div>
+    <input type="text">
+    <button onclick="get()">获取</button>
+    <!-- 引入jQuery -->
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        // js写法
+        let div = document.querySelector('div')
+        div.innerHTML = '456123'
+        div.innerText = 'df'
+        // jq写法
+        $('div').html('<i>jq</i>')
+        $('div').text('<i>jq</i>')
+        function get(params) {
+            // document.querySelector('input').value
+            // 获取输入框内容
+            console.log($('input').val());
+            // 写入input
+            $('input').val('dfdf')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        div {
+            position: relative;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a1"></div>
+    <div class="a2"></div>
+    <div class="a3"></div>
+    <button>开始</button>
+    <button>队列开始开始</button>
+    <script>
+        // 自定义动画
+        // animate(参数1，参数2,参数3)
+        // 参数1:要执行的css样式 对象格式
+        // 参数2：执行毫秒数
+        // 参数3：过渡效果 linear匀速
+        $('button').eq(0).click(function () {
+            $('.a1').animate({ left: 800 }, 3000)
+            $('.a2').animate({ left: 800 }, 3000, 'linear')
+            $('.a3').animate({ left: 800 }, 2000, 'linear', function () {
+                console.log('执行完成');
+            })
+        })
+        // 动画队列
+        $('button').eq(1).click(function () {
+            $('.a1').animate({ left: 800 }, 1500).animate({ top: 200 }, 1000).animate({ left: 0 }, 1000).animate({ top: 0 }, 1000, function (params) {
+                // 暂停动画
+                // $('.a2').stop(true) 
+                // 停止当前动画并完成
+                // $('.a2').stop(true,true)     
+                $('.a2').stop()
+            })
+            // $('.a2').animate({left:800},3000,'linear')
+            // $('.a3').animate({left:800},2000,'linear',function(){
+            //     console.log('执行完成');
+            // })
+            $('.a2').animate({ left: 800 }, 3000).animate({ top: 200 }, 1000).animate({ width: 200 }, 1000).animate({ left: 0 }, 1000).animate({ top: 0 }, 1000).animate({ height: 10 }, 1000)
+            $('.a3').animate({ left: 800 }, 3000).animate({ top: 200 }, 1000).animate({ width: 300 }, 1000).animate({ left: 0 }, 1000).animate({ top: 0 }, 1000)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li id="li3">4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li><span></span></li>
+        <span></span>
+    </ul>
+     <!-- 引入jQuery -->
+     <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // 获取子元素 children(参数) 不写参数获取全部，写哪个，找哪个
+         console.log($('ul').children());
+        //  获取后代元素
+        console.log($('ul').find('li'));
+        console.log($('ul').find('span'));
+
+        // 找父元素
+        console.log($('li').parent());
+        // 兄弟元素 除了自己之外所有兄弟节点
+        console.log($('#li3').siblings());
+        // 下一个兄弟
+        console.log($('#li3').next());
+        // 上一个兄弟
+        console.log($('#li3').prev());
+
+        // 获取元素的索引值
+        $('li').click(function(){
+            console.log($(this).index());
+        })
+
+    </script>
+
+
+    </body>
+</html>

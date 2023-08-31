@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button>-</button>
+        <span>0</span>
+        <button>+</button>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li ab="sss">3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <!-- 引入jQuery -->
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $('div button:first-child').click(function(){
+            console.log(('点击了减号'));
+            let num = $('div span').text()
+            num--
+            $('div span').text(num)
+        })
+        $('div button:last-child').click(function(){
+            console.log('点击了加号');
+            let num = $('div span').text()
+            num++
+            $('div span').text(num)
+        })
+
+        // eq(索引)
+        console.log($('div button:eq(1)'));
+        console.log($('div button').eq(0));
+        // 奇数
+        $('li:even').css('color','red')
+        // 偶数
+        $('li:odd').css('color','green')
+
+        // 大于索引
+        $('li:gt(2)').css('fontSize','20px')
+        // 小于索引
+        $('li:lt(2)').css('fontSize','12px')
+        // 通过属性选择
+        $('li[ab=sss]').css('background','blue')
+    </script>
+</body>
+</html>
