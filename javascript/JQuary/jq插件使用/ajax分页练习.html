@@ -1,88 +1,108 @@
 <!-- http://localhost:8360/api/catalog/currentlist -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- 1.引入对应的包 -->
-    <link href="./jquery-xjzPagination-master/docs/assets/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./jquery-xjzPagination-master/docs/assets/bootstrap-3.3.6-dist/css/bootstrap.min.css"
+        rel="stylesheet" />
     <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
     <script src="./jquery-xjzPagination-master/dist/jquery.xjzPagination.min.js"></script>
 
     <style>
-        .content li{
-            
+        .content li {
+
             border: 1px solid;
             width: 300px;
-                display: flex;
-                align-items: center;
-            }
-            img{
-                width: 60px;
-                height: 60px;
-            }
-        </style>
-    </head>
-    <body>
-        <ul class="content" id="ly-content">
-        </ul>
-        <!-- 2.插入html结构 -->
-        <div class="container">
-            <br />
-            <div class="text-center">
-                <ul id="xjzPagination" class="pagination"></ul>
-            </div>
-        </div>
-        <script>
-            
-            $(function () {
+            display: flex;
+            align-items: center;
+        }
 
-// 3.引入对应js
-// 分页功能
-                let page = 1
-                // 总页数
-                let totalPages=0
-            $("#xjzPagination").xjzPagination({
-                // 总页数
-                totalPages: 5,
-                onPageClick: function (currentPage) {
-                    // 给全局页码赋值
-                    page=currentPage
-                    // 选中的页码
-                    console.log('分页',currentPage);
-                    getdata()
-                }
-            });
+        img {
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="content" id="ly-content">
+    </ul>
+    <!-- 2.插入html结构 -->
+    <div class="container">
+        <br />
+        <div class="text-center">
+            <ul id="xjzPagination" class="pagination"></ul>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            // 3.引入对应js
+            // 分页功能
+            let page = 1
+            let totalPages = 0
+            let gettype = true
+            function setpage(params) {
+                gettype = false
+                console.log(totalPages);
+                $("#xjzPagination").xjzPagination({
+                    // 总页数
+                    totalPages: totalPages,
+                    onPageClick: function (currentPage) {
+                        // 给全局页码赋值
+                        page = currentPage
+                        // 选中的页码
+                        console.log('分页', currentPage);
+                        // 如果gettype是true，那么代表初始化。
+                        // 初始化不执行getdata方法
+                        if (gettype) {
+                            gettype = false
+                        } else {
+                            getdata()
+                        }
+                    }
+                });
+            }
+            getdata()
             // 获取数据
-            function getdata(){
+            function getdata() {
                 $.ajax({
-                    type:'post',
-                    url:'http://192.168.0.88:8360/api/catalog/currentlist',
-                    data:{
+                    type: 'post',
+                    url: 'http://192.168.0.88:8360/api/catalog/currentlist',
+                    data: {
                         id: 0,
                         page: page,
                         size: 8
                     },
-                    success:function(red){
+                    success: function (red) {
                         console.log(red);
-                       setHtml(red.data)
+                        setHtml(red.data)
                     }
                 })
             }
             // 渲染页面
-            function setHtml(data){
+            function setHtml(data) {
                 console.log(data);
+                // 页面渲染
                 $('#ly-content').html('')
-                data.data.forEach(item=>{
+                data.data.forEach(item => {
                     $(`<li>
-                <img src="${item.list_pic_url}" alt="">
-                <p>商品名：<span>${item.name}</span>---</p><p>价格： <span>$${item.min_retail_price}</span></p></li>`).appendTo($('#ly-content'))
+                            <img src="${item.list_pic_url}" alt="">
+                            <p>
+                                商品名：<span>${item.name}</span>---
+                            </p><p>价格： <span>$${item.min_retail_price}</span></p>
+                        </li>`).appendTo($('#ly-content'))
                 })
-
+                // 给全局总条数赋值
+                totalPages = data.totalPages
+                // 渲染分页器
+                setpage()
             }
         });
+    </script>
+</body>
 
-        </script>
-    </body>
-    </html>
+</html>

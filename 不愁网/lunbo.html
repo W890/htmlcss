@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+  <title>Document</title>
+  <style>
+    .xiaoshi2 {
+      display: none;
+    }
+
+    body {
+      position: relative;
+      height: 100%;
+      background: white;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 130%;
+      height: 100%;
+      background-color: white;
+    }
+
+    .swiper-slide {
+      width: 338px;
+      height: 454px;
+      text-align: center;
+      font-size: 18px;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .swiper-slide:hover img {
+      transform: scale(2);
+      transition: all 0.8s;
+    }
+
+    .paimian {
+
+      width: 100%;
+      height: 60px;
+      position: absolute;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      text-align: center;
+      color: white;
+      font-size: 25px;
+      line-height: 60px;
+
+    }
+
+    .juzhong-paimian {
+      position: absolute;
+      width: 0%;
+      color: white;
+      height: 0px;
+      background-color: rgba(0, 0, 0, 0.5);
+      transition: all 0.8s;
+
+    }
+
+    .swiper-slide:hover .juzhong-paimian {
+      width: 100%;
+      height: 456px;
+      transition: all 0.8s;
+    }
+
+    .swiper-slide:hover .tu-biaoti,
+    .swiper-slide:hover .tu-neirong {
+      display: block;
+    }
+
+    .tu-biaoti {
+      margin-top: 166px;
+      display: none;
+    }
+
+    .tu-neirong {
+      display: none;
+    }
+
+    .swiper-slide:hover .paimian {
+      bottom: -40%;
+      transition: all 0.3s;
+    }
+    .juzhong-paimian{
+      transform: scale(0);
+    }
+    .swiper-slide:hover .juzhong-paimian{
+      transform: scale(1);
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img
+          src="http://iotdb-bak-test.oss-cn-beijing.aliyuncs.com/official/1634277037413_1c9af82e-602a-4ca8-b1ed-4121375cdbec.png.jpg?Expires=1949637037&OSSAccessKeyId=LTAI4G9UbPy1UCF2LKZ6tk7C&Signature=i6PPryK%2Fz2seN%2BgpxIydssake8g%3D"
+          alt="">
+        <div class="paimian">生猪交易系统</div>
+        <div class="juzhong-paimian ">
+          <h1 class="tu-biaoti">生猪交易系统</h1>
+          <p class="tu-neirong">为满足企业当前生猪交易业务流程，解决市场普遍存在的区域垄断、信息不对称、信息不及时等现象，帮助企业更快、更高效的进行生猪交易，实现生猪交易的跨区域和在线交易。
+          </p>
+        </div>
+
+      </div>
+      <div class="swiper-slide"><img
+          src="http://iotdb-bak-test.oss-cn-beijing.aliyuncs.com/official/1634287412412_b34f051c-b976-4c6a-8c0a-a6e72fb4fdf8.png.jpg?Expires=1949647413&OSSAccessKeyId=LTAI4G9UbPy1UCF2LKZ6tk7C&Signature=OaOvj0yGX7P%2BTGUKzYm3rqCm2L8%3D"
+          alt="">
+        <div class="paimian">智慧养殖大数据平台</div>
+        <div class="juzhong-paimian ">
+          <h1 class="tu-biaoti">智慧养殖大数据平台</h1>
+          <p class="tu-neirong">
+            不愁养猪大数据平台是基于养殖管理系统数据、行业数据而搭建，通过授权机制，把猪场智能化养猪和数字化管理相关数据对接到大数据平台。通过大数据平台的综合处理，为养猪企业提供数据对标、大数据分析、专家智能决策服务，
+
+          </p>
+        </div>
+      </div>
+      <div class="swiper-slide"><img
+          src="http://iotdb-bak-test.oss-cn-beijing.aliyuncs.com/official/1634267191395_9e798975-226c-48b9-9196-bef2e49479f0.png.jpg?Expires=1949627191&OSSAccessKeyId=LTAI4G9UbPy1UCF2LKZ6tk7C&Signature=TDySUaWGJJTFzpglA8t%2BFoGtbqQ%3D"
+          alt="">
+        <div class="paimian">不愁物联</div>
+        <div class="juzhong-paimian ">
+          <h1 class="tu-biaoti">不愁物联</h1>
+          <p class="tu-neirong">智慧大脑，定制开发，为每一位企业解决特有场景的安全防控。
+
+          </p>
+        </div>
+      </div>
+      <div class="swiper-slide"><img
+          src="http://iotdb-bak-test.oss-cn-beijing.aliyuncs.com/official/1634267996776_7607ce01-2eb5-467d-9f5a-a729da78d20e.png.jpg?Expires=1949627997&OSSAccessKeyId=LTAI4G9UbPy1UCF2LKZ6tk7C&Signature=SrcRJKq5jdvz2Qe%2FNyofb%2FmdhQc%3D"
+          alt="">
+        <div class="paimian">合同猪综合管理平台</div>
+        <div class="juzhong-paimian ">
+          <h1 class="tu-biaoti">合同猪综合管理平台</h1>
+          <p class="tu-neirong">解决五个核心业务问题：工作协同、资产安全、全程可控、人均效率、精准结算。
+
+          </p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img
+          src="http://iotdb-bak-test.oss-cn-beijing.aliyuncs.com/official/1634275414873_df83a176-2f23-449e-a774-72150da36dec.png.jpg?Expires=1949635416&OSSAccessKeyId=LTAI4G9UbPy1UCF2LKZ6tk7C&Signature=NOX9arSSGQlqDJ1omaB4adXZiDU%3D"
+          alt="">
+        <div class="paimian">"不愁网猪场管理系统"
+        </div>
+        <div class="juzhong-paimian ">
+          <h1 class="tu-biaoti">"不愁网猪场管理系统"
+          </h1>
+          <p class="tu-neirong">多节点的生产提示，精准的透视功能，定位到生产的每头母猪
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.js"> </script>
+  <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      autoplay: true,
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 10,
+      slidesoffsetBefore: 50,
+
+      breakpoints: {
+        "@0.00": {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        "@0.75": {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        "@1.00": {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        "@1.50": {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        "@1.50": {
+          slidesPerView: 5,
+          spaceBetween: 50,
+        },
+        "@1.50": {
+          slidesPerView: 6,
+          spaceBetween: 60,
+        },
+      },
+    });
+    $.ajax({
+      type: 'get',
+      url: '/stage-api/website/getHomePageInfo',
+      success: (res) => {
+        console.log(res);
+        //案例展示跳转
+        // console.log($('.swiper-slide').length);
+        for (let i = 0; i < 6; i++) {
+          $('.swiper-slide').eq(i).click(function () {
+            location.href = ('../anlizhanshi/anli.html')
+            localStorage.setItem('caseCompanyId', '7')
+            // console.log(`${res.data.companyInfo[i].caseCompanyId}`);
+            localStorage.setItem('anlibool', 'true')
+          })
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
