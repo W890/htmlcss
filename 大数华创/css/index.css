@@ -126,7 +126,7 @@
         /*抗锯齿效果*/
         -webkit-tap-highlight-color: transparent;
         -webkit-overflow-scrolling: touch;
-        overflow-scrolling: touch;
+
         overflow: auto;
         overflow-x: hidden;
     }
@@ -5722,7 +5722,7 @@
         /*抗锯齿效果*/
         -webkit-tap-highlight-color: transparent;
         -webkit-overflow-scrolling: touch;
-        overflow-scrolling: touch;
+    
         overflow: hidden;
         overflow-y: auto;
     }
@@ -5763,7 +5763,7 @@
         margin: 0;
         outline: none;
         font-family: al1;
-        -webkit-appearance: none;
+        
         border: none;
     }
 
@@ -11626,7 +11626,7 @@
         padding: 0;
         margin: 0;
         font-family: "微软雅黑";
-        -webkit-appearance: none;
+ 
         outline: none;
         border: none;
     }
