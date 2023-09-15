@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 头部标签 : <header>
+        导航标签 : <nav>
+        内容标签 : <article>
+        块级标签 : <section>
+        侧边栏标签 : <aside>
+        尾部标签 : <footer> -->
+            <!-- 音频标签 -->
+            <!-- controls:显示控件 -->
+            <!-- loop:播放结束后重新播放 -->
+            <!-- autoplay 自动播放 -->
+            <audio controls src="../yy.mp3"></audio>
+            <br>
+            <!-- 视频 -->
+            <!-- muted:静音播放 -->
+            <video muted="muted" autoplay loop width="300px" controls src="../ss.mp4"></video>
+            
+            <video width="condition" controls="controls" type="video/mp4" autoplay="autoplay" loop="loop" muted="muted" >
+                <!-- autoplay自动播放 controls播放控件 loop循环播放 poster加载等待画面 muted 静音播放(解决谷歌禁用自动播放) -->
+                <source src="../ss.mp4" type="video/mp4">
+                <!-- <source src="INDEX1.ogg" type="video/ogg"> -->
+                您的浏览器太low了,不支持播放
+            </video>
+</body>
+</html>

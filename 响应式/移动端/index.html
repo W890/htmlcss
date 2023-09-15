@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 15px">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      overflow: hidden;
+    }
+
+    p {
+      float: left;
+      width: 50%;
+      background-color: red;
+      height: 200px;
+      /* rem 的大小根据html 的文字大小 */
+      font-size: 0.3rem;
+    }
+
+    p:last-child {
+      background-color: aqua;
+    }
+
+    section {
+      font-size: 1.0rem;
+    }
+
+    /* em: 根据父元素的大小 */
+    span {
+      font-size: 1em;
+    }
+
+    /* vh vw */
+    header {
+      background-color: aqua;
+      height: 90vh;
+    }
+  </style>
+  <script>
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        resizeEvt = "orientationchange" in window ? "orientationchange" : "resize",
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          if (clientWidth >= 760) {
+            docEl.style.fontSize = 80 * (760 / 640) + "px";
+          } else {
+            docEl.style.fontSize = 80 * (clientWidth / 640) + "px";
+          }
+        };
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener("DOMContentLoaded", recalc, false);
+    })(document, window);
+
+    var commentData = [];
+  </script>
+</head>
+
+<body>
+  <!-- 流式布局（百分比） -->
+  <div>
+    <p>
+      哈哈哈
+      <span>emememem哈哈</span>
+    </p>
+    <p>嘻嘻嘻嘻</p>
+    <section>路口见哈付款时间哈三联</section>
+  </div>
+  <header>我是头部</header>
+</body>
+
+</html>

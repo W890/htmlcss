@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+        list-style: none;
+            display: flex;
+    width: 500px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+        }
+        li{
+            padding: 10px 20px;
+            border: 1px solid;
+        }
+       
+        div{
+            position: relative;
+        }
+        p{
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            display: none
+        }
+        /* @media (max-width:500px) {
+    ul{
+        width: 100%;  
+    }
+    li{
+            display: none;
+        }
+        p{
+            display: block;
+        }
+} */
+    </style>
+    <!-- 引入外部样式        设置媒体查询的条件 -->
+    <link rel="stylesheet" media="all and (max-width:500px)" href="./css/phone.css">
+</head>
+<body>
+    <div>
+        <ul>
+            <li>首页</li>
+            <li>导航</li>
+            <li>哈哈</li>
+            <li>关于</li>
+            <li>我们</li>
+        </ul>
+        <p>三</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .out {
+            width: 540px;
+            height: 940px;
+            border: 1px solid;
+            margin: 0 auto;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .zim1 {
+            width: 540px;
+            height: 354px;
+        }
+
+        input {
+            width: 480px;
+            height: 35px;
+            margin: 0 auto;
+            border-radius: 20px 20px 20px 20px;
+            margin: 10px 10px;
+            padding-left: 40px;
+            background: url('./image/416.png') no-repeat;
+            background-size: 8%;
+        }
+
+        .zim1 ul {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .zim1 ul li {
+            width: 103px;
+            height: 58px;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zim1 li:first-child {
+            background-color: #fa6c53;
+            border-radius: 15px 0 0 0;
+        }
+
+        .zim1 li:nth-child(2) {
+            background-color: #479efa;
+        }
+
+        .zim1 li:nth-child(3) {
+            background-color: #6292ff;
+        }
+
+        .zim1 li:nth-child(4) {
+            background-color: #43d0b4;
+        }
+
+        .zim1 li:nth-child(5) {
+            border-radius: 0 15px 0 0;
+            background-color: #ff973f;
+        }
+        .zim1 li:nth-child(6),li:nth-child(11){
+            background-color: #fff5f1;
+        }
+        .zim1 li:nth-child(7),li:nth-child(12){
+            background-color: #eff9ff;
+        }
+        .zim1 li:nth-child(8),li:nth-child(13){
+            background-color: #f2f5ff;
+        }
+        .zim1 li:nth-child(9),li:nth-child(14){
+            background-color: #ecfcf8;
+        }
+        .zim1 li:nth-child(10),li:nth-child(15){
+            background-color: #fff9f2;
+        }
+        .img1 {
+            width: 28px;
+            height: 28px;
+        }
+
+        .div1 {
+            width: 254px;
+            height: 148px;
+            float: left;
+            margin-top: 10px;
+        }
+
+        .div2 {
+            width: 254px;
+            height: 148px;
+            float: right;
+            margin-top: 10px;
+        }
+
+        .img2 {
+            word-wrap: 73px;
+            height: 20px;
+        }
+
+        .div1_1 {
+            width: 239px;
+            height: 84px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .img3 {
+            width: 239px;
+            height: 84px;
+        }
+
+        .div2_1 {
+            float: left;
+        }
+
+        .div2_2 {
+            float: right;
+        }
+
+        .div2_1_1 {
+            width: 117px;
+            height: 84px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .div2_2_1 {
+            width: 117px;
+            height: 84px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .img4 {
+            width: 117px;
+            height: 84px;
+        }
+
+        .span1 {
+            width: 100px;
+            height: 25px;
+            float: right;
+            font-size: 12px;
+            background-color: antiquewhite;
+        }
+
+        .span2 {
+            width: 40px;
+            height: 25px;
+            /* float: right; */
+            font-size: 12px;
+            background-color: antiquewhite;
+        }
+
+        .img5 {
+            width: 516px;
+            height: 129px;
+        }
+
+        .zim2 {
+            width: 516px;
+            height: 129px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .zim3 {
+            width: 540px;
+            height: 182px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .zim3 div {
+            width: 75px;
+            height: 27px;
+            padding-left: 28px;
+            font-size: 14px;
+            padding-top: 5px;
+        }
+
+        .zim3 p {
+            text-align: center;
+        }
+
+        .dfa {
+            float: left;
+            margin-top: 20px;
+            margin-left: 50px;
+            border: 1px solid;
+            border-radius: 10px;
+        }
+
+        .dfb {
+            float: right;
+            margin-top: 20px;
+            margin-right: 50px;
+            border: 1px solid;
+            border-radius: 10px;
+        }
+
+        .zim4 {
+            width: 540px;
+            height: 48px;
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            align-items: flex-end;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .zim4 li {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .zim4 span {
+            width: 32px;
+            height: 32px;
+            background: url('https://bd-s.tripcdn.cn/NFES/html5/1693277985850/_next/serverStatic/img/tabbar.png') no-repeat;
+            background-size: 100%;
+            background-position: 0px 0px;
+        }
+
+        .zim4 li:nth-child(2) span {
+            background-position: 0px -30px;
+        }
+
+        .zim4 li:nth-child(3) span {
+            background-position: 0px -63px;
+        }
+
+        .zim4 li:nth-child(4) span {
+            background-position: 0px -94px;
+        }
+
+        .zim4 p {
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="out">
+        <input type="text" placeholder="搜索:目的地/酒店/景点/航班号">
+        <div class="zim1">
+            <ul>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>酒店</p>
+                </li>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>机票</p>
+                </li>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>火车票</p>
+                </li>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>旅游</p>
+                </li>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>攻略/景点</p>
+                </li>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>民宿/客栈</p>
+                </li>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>机+酒</p>
+                </li>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>汽车/船票</p>
+                </li>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>门票/活动</p>
+                </li>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>美食</p>
+                </li>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>特价/爆款</p>
+                </li>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>接送机/包车</p>
+                </li>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>租车</p>
+                </li>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>周边游</p>
+                </li>
+                <li><img class="img1"
+                        src="https://bd-s.tripcdn.cn/modules/basebiz/h5home/hotel.fc17d0f7726132bf2459621923704f0f.png"
+                        alt="">
+                    <p>购物/免税</p>
+                </li>
+            </ul>
+            <div class="div1">
+                <img class="img2" src="https://images4.c-ctrip.com/target/0zc71120008g0ha4z93C6.png" alt="">
+                <span class="span1">特价好货直播中</span>
+                <div class="div1_1">
+                    <img class="img3" src="https://images4.c-ctrip.com/target/02A3612000c2vd4qxC029_D_280_280_R5.jpg"
+                        alt="">
+                </div>
+                <p style="font-size: 18px; font-weight: 800; color: #fa6c53;">￥2288</p>
+            </div>
+            <div class="div2">
+                <div class="div2_1">
+                    <img class="img2" src="https://images4.c-ctrip.com/target/0zc6g120008g0hcb587E5.png" alt="">
+                    <div class="div2_1_1">
+                        <img class="img4" src="https://dimg04.c-ctrip.com/images/10070q000000h3nzk0D75_R_238_268.jpg"
+                            alt="">
+                    </div>
+                    <p style="font-size: 13px;">Top10美食林榜单...</p>
+                </div>
+                <div class="div2_2">
+                    <span class="span2">权威排行榜</span>
+                    <div class="div2_2_1">
+                        <img class="img4" src="https://dimg04.c-ctrip.com/images/0106x120008ghpc63B032_R_238_268.jpg"
+                            alt="">
+                    </div>
+                    <p style="font-size: 13px;">正宗本帮菜</P>
+                </div>
+            </div>
+        </div>
+
+        <div class="zim2">
+            <img class="img5" src="https://dimg04.c-ctrip.com/images/0zg6z120009hxl5q9CCF7.jpg" alt="">
+        </div>
+        <div class="zim3">
+            <div class="dfa">电话预定</div>
+            <div class="dfb">下载携程</div>
+            <br><br><br><br>
+            <p>
+                <span style="margin-right: 20px; border-right: 1px solid;padding-right: 20px;">网站地图</span>
+                <span>电脑版</span>
+            </p>
+            <p>©2023携程旅行沪ICP备08023580号</p>
+        </div>
+        <!-- <br><br><br><br><br><br><br><br><br><br> -->
+        <div class="zim4">
+            <li><span></span>
+                <p>首页</p>
+            </li>
+            <li><span></span>
+                <p>社区</p>
+            </li>
+            <li><span></span>
+                <p>消息</p>
+            </li>
+            <li><span></span>
+                <p>我的</p>
+            </li>
+        </div>
+    </div>
+
+</body>
+
+</html>

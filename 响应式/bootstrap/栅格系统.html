@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<style>
+    div{
+        text-align: center;
+    }
+    .div1{
+        background-color: aqua;
+    }
+    .div2{
+        background-color: red;
+    }
+    .div3{
+        background-color: thistle;
+    }
+    .div4{
+        background-color: violet;
+    }
+    .div5{
+        background-color: aquamarine;
+    }
+    .div6{
+        background-color: orange;
+    }
+    .div7{
+        background-color: green;
+    }
+    .div8{
+        background-color: navajowhite;
+    }
+    .div9{
+        background-color: hotpink;
+    }
+    .diva{
+        background-color: deepskyblue;
+    }
+    .divb{
+        background-color: darkmagenta;
+    }
+    .divc{
+        background-color: springgreen;
+    }
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 栅格系统将页面分为12块 -->
+        <div class="row">
+            <div style="background-color: aqua;" class="col-xs-12 col-sm-3 col-md-6">第一块</div>
+            <div style="background-color: red;" class=" col-xs-12 col-sm-3 col-md-6">第二块</div>
+            <div style="background-color: salmon;" class=" col-xs-12 col-sm-3 col-md-6">第三块</div>
+            <div style="background-color: sandybrown;" class="col-xs-12 col-sm-3 col-md-6">第四块</div>
+        </div>
+
+
+        <div class="row">
+            <div class="div1 col-lg-1 col-md-2 col-sm-3 col-xs-6">1</div>
+            <div class="div2 col-lg-1 col-md-2 col-sm-3 col-xs-6">2</div>
+            <div class="div3 col-lg-1 col-md-2 col-sm-3 col-xs-6">3</div>
+            <div class="div4 col-lg-1 col-md-2 col-sm-3 col-xs-6">4</div>
+            <div class="div5 col-lg-1 col-md-2 col-sm-3 col-xs-6">5</div>
+            <div class="div6 col-lg-1 col-md-2 col-sm-3 col-xs-6">6</div>
+            <div class="div7 col-lg-1 col-md-2 col-sm-3 col-xs-6">7</div>
+            <div class="div8 col-lg-1 col-md-2 col-sm-3 col-xs-6">8</div>
+            <div class="div9 col-lg-1 col-md-2 col-sm-3 col-xs-6">9</div>
+            <div class="diva col-lg-1 col-md-2 col-sm-3 col-xs-6">a</div>
+            <div class="divb col-lg-1 col-md-2 col-sm-3 col-xs-6">b</div>
+            <div class="divc col-lg-1 col-md-2 col-sm-3 col-xs-6">c</div>
+        </div>
+        <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control"  id="inputError1"  placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputFile">File input</label>
+              <input type="file" id="exampleInputFile">
+              <p class="help-block">Example block-level help text here.</p>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Check me out
+              </label>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+
+          <div class="form-group has-success has-feedback">
+            <label class="control-label" for="inputSuccess2">Input with success</label>
+            <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputSuccess2Status" class="sr-only">(success)</span>
+          </div>
+          <div class="form-group has-warning has-feedback">
+            <label class="control-label" for="inputWarning2">Input with warning</label>
+            <input type="text" class="form-control" id="inputWarning2" aria-describedby="inputWarning2Status">
+            <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+            <span id="inputWarning2Status" class="sr-only">(warning)</span>
+          </div>
+          <div class="form-group has-error has-feedback">
+            <label class="control-label" for="inputError2">Input with error</label>
+            <input type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status">
+            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            <span id="inputError2Status" class="sr-only">(error)</span>
+          </div>
+          <div class="form-group has-success has-feedback">
+            <label class="control-label" for="inputGroupSuccess1">Input group with success</label>
+            <div class="input-group">
+              <span class="input-group-addon">@</span>
+              <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+            </div>
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+          </div>
+          <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+    </div>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <li>
+            <a href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li>
+            <a href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+</body>
+</html>

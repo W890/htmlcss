@@ -1,0 +1,10 @@
+
+    ul{
+        width: 100%;  
+    }
+    li{
+            display: none;
+        }
+        p{
+            display: block;
+        }
