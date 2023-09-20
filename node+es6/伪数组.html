@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        let lis = document.querySelectorAll('li')
+        let arr = [1,2,3,4,5]
+        console.log(lis);
+        console.log(arr);
+
+        console.log(Array.isArray(lis));
+        console.log(Array.isArray(arr));
+
+        // lis.push(123)
+        arr.push(456)
+
+        // 伪数组不能push
+        // console.log(lis);
+        console.log(arr);
+
+        // 1.将伪数组转换为数组
+       let lisarr =  Array.prototype.slice.call(lis)
+       lisarr.push(123)
+       console.log(lisarr);
+
+        // 2.Array.form()
+        let newliss = Array.from(lis)
+        console.log(newliss);
+
+        // 数组中的空位
+        // let arrk = ['','']
+        // console.log(arrk);
+        // 数组中的空位，长度是3
+        let arrk = Array(3)
+        // 长度是1
+        let arrof = Array.of(3)
+
+        console.log(arrk);
+        console.log(arrof);
+        arrk.forEach(item=>{
+            console.log(item);
+        })
+    </script>
+</body>
+</html>

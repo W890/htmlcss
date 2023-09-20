@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // $.ajax({
+        //     type:'post',
+        //     url:'http://localhost:2000/userp',
+        //     data:{
+        //         username:admin,
+        //         passwork:123456
+        //     },
+        //     success:res=>{
+        //         console.log(res);
+        //     }
+        // })
+
+        // 第一种方式
+        $.ajax({
+            type:'get',
+            url:'http://localhost:2000/user/asdf',
+            data:{
+                username:'admin',
+                passwork:123456
+            },
+            success:res=>{
+                console.log(res);
+            }
+
+        })
+
+        // 路由传递
+        // $.ajax({
+        //     type:'get',
+        //     url:'http://localhost:2000/user/asdf',
+        //     data:{
+        //         username:'admin',
+        //         passwork:123456
+        //     },
+        //     success:res=>{
+        //         console.log(res);
+        //     }
+        // })
+        
+    </script>
+</body>
+</html>

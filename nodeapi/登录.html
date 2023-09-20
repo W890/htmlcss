@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <style>
+        div {
+            width: 500px;
+            height: 300px;
+            border: 1px solid;
+            margin: 0 auto;
+        }
+
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p><input class="user" type="username" placeholder="请输入你的用户名"></p>
+        <p><input class="pasw" type="password" placeholder="请输入你们密码号"></p>
+        <p><button onclick="open()">登录</button></p>
+    </div>
+
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        function open(params) {
+            let data = {
+                username: $('.user').val(),
+                password: $('.pasw').val()
+            }
+
+            $.ajax({
+                type: 'post',
+                url: 'http://localhost:2000/login',
+                data,
+                success: res => {
+                    console.log(res);
+                    if (res.code != 200) return (res.msg)
+
+                    alert(res.msg)
+                    alert('欢迎' + res.data.name)
+                    localStorage.setItem('token', res.data.token)
+                }
+            })
+        }
+
+        // let data = {
+        //     username:$('.user').val(),
+        //     password:$('.pasw').val()
+        // }
+
+        //     $.ajax({
+        //         type: 'post',
+        //         url: 'http://localhost:2000/login',
+        //         data,
+        //         success: res => {
+        //             console.log(res);
+        //             if(res.code!=200) return(res.msg)
+
+        //             alert(res.msg)
+        //             alert('欢迎'+res.data.name)
+        //             localStorage.setItem('token',res.data.token)
+        //         }
+
+        //     })
+
+    </script>
+</body>
+
+</html>
