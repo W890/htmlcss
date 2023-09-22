@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 1.show 改变css display:none-->
+        <div v-show="type">showshowshowshowshowshowshowshwoshwo</div>
+        <!-- 2.hidden -->
+        <div :hidden="!type">hiddenhiddenhiddenhidden</div>
+        <!-- 3. v-if 是通过添加删除节点来实现的 -->
+        <div v-if="!type">ifififififififififififi</div>
+        <div v-if="type">ifififififififififififi</div>
+
+        <p>蜜蜂找米，米找我胃</p>
+        <input type="text" v-model="fly">
+        <p v-if="fly == '是'">沸羊羊舔狗日记</p>
+        <p v-else-if="fly == '否'">你是个好人</p>
+        <p v-else="fly">王德发</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                type:false,
+                fly:'不知道'
+            }
+        })
+    </script>
+</body>
+</html>

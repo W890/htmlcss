@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 第一个指令：v-model -->
+        <!-- 双向数据绑定 -->
+        <input v-model="msd" type="text" name="" id="">
+        <p>{{msd}}</p>
+        <!-- 属性绑定 v-bind 单向数据绑定,缩写“：” -->
+        <input type="text" v-bind:value="msd">
+        <!-- 事件绑定 v-on 缩写：“@” -->
+        <button v-on:click="look()">点击事件</button>
+        <button @click="look()">点击事件缩写</button>
+
+        <p>手写model</p>
+        <input type="text" :value="msd" @input="change">
+        <p>text_html</p>
+        <p>v-text : <span v-text="msd"></span></p>
+        <p>v-text : <span v-text="msdhtml"></span></p>
+        <p>v-html : <span v-html="msd"></span></p>
+        <p>v-html : <span v-html="msdhtml"></span></p>
+
+        <!-- 练习：注册用户 -->
+        <p><label for="">姓名</label><input v-model="form.name" type="text"></p>
+        <p><label for="">用户名</label><input v-model="form.username" type="text"></p>
+        <p><label for="">性别</label><input v-model="form.size" name="siz" value="男" type="radio">男<input v-model="form.size" name="siz" value="女" type="radio">女</p>
+        <p><label for="">密码</label><input v-model="form.password" type="text"></p>
+        <button @click="look()">提交</button>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                msd:'',
+                msdhtml:`<h1>v-htmlhtml</h1>`,
+                form:{
+                    name:'',
+                    username:'',
+                    size:'',
+                    password:''
+                }
+            },
+            // 定义事件的位置
+            methods:{
+                look(){
+                    console.log(123456);
+                    console.log(this.form);
+                },
+
+                change(e){
+                    console.log(e.target.value);
+                    this.msd = e.target.value
+                }
+            }
+            // mounted(){
+            //     setTimeout(()=>{
+            //         this.msd = '我data发生变化了'
+            //     },3000)
+            // }
+        })
+    </script>
+</body>
+</html>

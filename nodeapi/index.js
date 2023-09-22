@@ -9,6 +9,7 @@ const router = new Router()
 
 // 2.1.2导入写好的路由模块
 const userRouter = require('./router/user.router')
+const weatherRouter = require('./router/weather.router')
 // 4.1导入koa-body
 const {koaBody}=require('koa-body')
 // 3.1解决跨域
@@ -18,8 +19,10 @@ app.use(cors())
 // 4.2挂载koa-body
 app.use(koaBody())
 
+
 // 2.2注册挂载路由中间件
 app.use(userRouter.routes())
+app.use(weatherRouter.routes())
 
 // 状态相关
 app.use(userRouter.allowedMethods())

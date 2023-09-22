@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+                <!-- 项的别名，下标的别名 -->
+        <p v-for="(item,index) in arr">
+            {{item}}{{index}}
+        </p>
+        
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                arr:['西游记','红楼梦','水浒传','三国演义','新仙剑']
+            }
+        })
+    </script>
+</body>
+</html>

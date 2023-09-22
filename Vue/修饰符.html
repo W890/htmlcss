@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 从而转为在change事件之后进行同步 -->
+        <input type="text" v-model.lazy="num">
+        <p>{{num}}</p>
+        <!-- 将用户的输入值转换为数值类型 -->
+        <input type="text" v-model.number="num1">
+        <p>{{typeof num1}}</p>
+        <!-- 自动过滤用户输入的首尾空白字符 -->
+        <input type="text" v-model.trim="num2">
+        <p>{{num2}}</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                num:1,
+                num1:123,
+                num2:''
+            }
+        })
+    </script>
+</body>
+</html>

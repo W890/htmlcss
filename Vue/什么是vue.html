@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- {{message}} 插值表达式渲染 -->
+    <!-- {{message}} 必须写在声明空间中，否则原样输出 -->
+    <div id = "app">
+        <!-- 插值插的是data中定义的数据，如果data中不存在这个值，那么js直接报错 is not defined -->
+        {{ message }}
+        <!-- 插值表达式，除了写变量，还可以写js语法 -->
+        <p>{{ pmsg }}--{{1+2>3?'假':'真'}}</p>
+        <p>姓名：{{obj.name}}</p>
+        <p>婚否：{{obj.six?'是':'否'}}</p>
+        <p>年龄：{{obj.age}}</p>
+        <p>数组：{{arr[0]}}</p>
+    </div>
+    
+    <!-- mvvm模型 -->
+    <!-- m:model模型 -->
+    <!-- v:view视图 -->
+    <!-- vm:视图模型层 -->
+ <script src="./vue.js"></script>
+ <script>
+    var app = new Vue({
+        // 声明空间 id选择器定义的元素
+        el:"#app",
+        // 存放变量
+        data:{
+            message:"hello vue",
+            pmsg:'我是p标签',
+            obj:{
+                name:'张三',
+                age:'15',
+                six:true
+            },
+            arr:['asdf','dddd']
+        },
+    });
+ </script>
+</body>
+</html>

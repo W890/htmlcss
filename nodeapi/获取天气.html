@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .shi {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="city">
+      <select class="sheng" name="" id="" onchange="opensheng(0)"></select>
+      <select class="shi" name="" id="" onchange="opensheng(1)">
+        <option value="请选择">请选择</option>
+      </select>
+    </div>
+    <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      let data = [];
+
+      let shidata = [];
+      $(function () {
+        // 获取地区
+        $.ajax({
+          url: "http://localhost:2000/weather/citylist",
+          success: (res) => {
+            console.log(res.citydata);
+            // 数据赋值
+            data = res.citydata;
+            setcaty($(".sheng"), data);
+          },
+        });
+      });
+
+      //  渲染方法
+      function setcaty(element, data) {
+        data.forEach((item) => {
+          let option = ` <option value="${item.value}">${item.value}</option>`;
+          $(option).appendTo(element);
+        });
+      } 
+
+      // 名字替换并搜索天气方法
+      function opensheng(city) {
+        if (city) {
+          // 城市名换code
+          var shi = $(".shi").val().replace(/省|市|自治区|特别行政区|壮族|回族|维吾尔|盟/g, "");
+        //   查询城市天气
+          getweathen(shi)
+        } else {
+          // 当点击省的时候
+          $(".shi").show();
+          let sheng = $(".sheng").val();
+          $(".shi").html(`<option value="请选择">请选择</option>`);
+
+          data.some((item) => {
+            if (item.value == sheng) {
+              shidata = item.children;
+              setcaty($(".shi"), item.children);
+              return true;
+            }
+          });
+        }
+      }
+      // 查询天气
+      function getweathen(city) {
+        $.ajax({
+          url: "http://localhost:2000/weather/list",
+          data: {
+            city,
+          },
+          success: (res) => {
+            console.log(res);
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pp{
+            color: red;
+            font-size: 10px;
+        }
+        .pt{
+            color: blue;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="number" v-model="num">
+       <p :style="{color:red}">第一种样式修改</p>
+       <p :style="{color:num>10?'red':'blue'}">第二种样式修改</p>
+       <!-- <p :style="{stylearr[1]}">第三种样式修改</p> -->
+        <p :class="{pp:classtype,pz:!classtype}">fcg</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                num:0,
+                red:'red',
+                classtype:true,
+                stylearr:[
+                    {
+                        fontSize:'30px',
+                        textAlign:'center'
+                    },
+                    {
+                        color:'pink'
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
