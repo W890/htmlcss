@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+    <div id="div2">
+        {{msg}}
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        //vue 第一种写法
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'vue第一种写法'
+            }
+        })
+        //vue第二种写法（以后必用而不用第一种）
+        new Vue({
+            // data两种写法
+            // data方法1
+            // data:{
+            //     msg:'vue第二种写法'
+            // }
+
+            // data方法2（以后必用而不用第一种）
+            data(){
+                return{
+                    msg:'第二种写法'
+                }
+            }
+        }).$mount('#div2')
+    </script>
+</body>
+</html>

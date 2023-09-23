@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hider{
+            width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input{
+            width: 120px;
+        }
+        table{
+            width: 700px;
+        }
+        th{
+            background-color: aqua;
+            line-height: 30px;
+        }
+        .page{
+            text-align: center;
+            margin-top: 20px;
+
+        }
+        .page span{
+            display: inline-block;
+            height: 20px;
+            border: 1px;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+        .page .pagelist{
+            display: inline-block;
+            width: auto;
+            border: 0;
+            padding: 0 ;
+        }
+        .pagelist span{
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+    <div class="hider">
+        <h1>成绩录入</h1>
+        姓名: <input v-model="form.name" class="name" type="text">
+        年龄:<input v-model="form.age" class="age" type="text">
+        性别: <select v-model="form.sex" class="sex" name="" id="">
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+        成绩:<input v-model="form.ment" class="ment" type="text"> 
+        <button class="add" @click="add()">添加</button>
+    
+       </div>
+       <div class="hider">
+        <h1>成绩展示</h1>
+        <table>
+            <thead>
+    
+                <tr>
+                    <th>学号</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                    <th>成绩</th>
+                    <th>操作</th>
+                </tr>
+    
+            </thead>
+            <tbody> 
+                <tr v-for="(item,index) in list">
+                    <td>{{index+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.age}}</td>
+                    <td>{{item.sex}}</td>
+                    <td>{{item.ment}}</td>
+                    <td><span @click="del(index)">删除</span></td>
+                </tr>
+            </tbody>
+        </table>
+    
+     
+       </div>
+    </div>
+       <script src="vue.js"></script>
+       <script>
+        new Vue({
+            el:'#app',
+           
+            data:{
+                msg:1,
+                // 表单数据
+                form:{
+                    name:'',
+                    age:'',
+                    sex:'',
+                    ment:''
+                },
+                // 数据列表
+                // 本地存储方法2
+                list:[]
+                // list:JSON.parse(localStorage.getItem('data')) || []
+            },
+
+            // 本地存储方法1 
+            mounted(){
+                this.list = localStorage.getItem('data') == 'undefined'?[]:JSON.parse(localStorage.getItem('data')) || []
+            },
+
+            // 监听器/侦听器
+            watch:{
+                // 写法：data中的数据名(){} 注意：不要箭头函数
+                // 使用后this指向window
+                list(newe,old){
+                    console.log(newe,old);
+                    localStorage.setItem('data',JSON.stringify(newe))
+                },
+                msg(newe,old){
+                    console.log(newe,old);
+                },
+
+                // 箭头函数写法（不推荐）
+                // msg:(newe,old)=>{
+                //     console.log(newe,old);
+                // }，
+
+                // 如果是对象 要想监听里面属性的变化，需要使用deep深度监听的方式
+                form:{
+                    // 深度监听
+                    deep:true,
+                    // 什么时候调用
+                    handler(newe){
+                        console.log('变化',newe);
+                    }
+                }
+
+
+            },
+
+            methods: {
+                // 添加事件
+                add(){
+                    // 深拷贝原始数据(很重要，不然会报错或者下标数值发生变化)
+                    // 如果不深拷贝，引用的地址，地址内容不发生改变，本地内容发生改变，相当于没变，所以深拷贝，让地址内容也发生变化
+                    let data = JSON.parse(JSON.stringify(this.form))
+                    this.list.push(data)
+
+                    // this.form = {}
+                    // this.uplocal()
+                    this.msg++
+                    this.msg = new Date()
+                },
+                // 删除事件
+                del(i){
+                    this.list.splice(i,1)
+                    // this.uplocal()
+                },
+                // 上传本地
+                // uplocal(){
+                //     localStorage.setItem('data',JSON.stringify(this.list))
+                // },
+            },
+        })
+
+       </script>
+</body>
+</html>

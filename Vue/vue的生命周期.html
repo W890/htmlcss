@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p class="p" ref="pref">哈哈哈</p>
+        <button @click="num()">{{nums}}</button>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            data:{
+                msg:'哈哈哈',
+                nums:0,
+            },
+
+            methods: {
+                num(){
+                    this.nums++
+                }
+            },
+
+            // 实例加载之前：还没有准备好，所以data中的数据还没有
+            beforeCreate(){
+                console.log('beforeCreate','实例化初始之前');
+
+                // 获取dom元素
+                // console.log(document.querySelector('p'));
+                console.log('beforeCreate-dom',this.$refs.pref);
+
+                // 获取data中的值
+                console.log('beforeCreate-data',this.msg);
+            },
+
+            // 实例加载完成：准备好了所以data中的数据有
+            created(){
+                console.log('created','实例化初始完成');
+                // 获取data中的值
+                console.log('created-data',this.msg);
+            },
+
+            // dom元素加载之前
+            beforeMount(){
+                console.log('beforeMount','dom元素加载之前');
+
+                // 获取dom元素
+                // console.log(document.querySelector('p'));
+                console.log('beforeMount-dom',this.$refs.pref);
+
+                // 获取data中的值
+                console.log('beforeMount-data',this.msg);
+            },
+
+            // dom元素加载之后
+            mounted(){
+                console.log('dom元素加载之前');
+
+                // 获取dom元素
+                // console.log(document.querySelector('p'));
+                console.log('mounted-dom',this.$refs.pref);
+
+                // 获取data中的值
+                console.log('mounted-data',this.msg);
+            },
+
+            // 数据更新之前
+            beforeUpdate(){
+                console.log('beforeUpdate','数据更新之前');
+            },
+
+             // 数据更新之后
+             updated(){
+                console.log('updated','数据更新之后');
+            }
+
+        }).$mount('#app')
+    </script>
+</body>
+</html>

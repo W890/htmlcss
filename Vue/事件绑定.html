@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="fn()">点击</button>
+        <button @click="fn1">点击</button>
+        <!-- 将$event 作为事件对象实参进行传递 -->
+        <button @click="fn1($event,'张三')">点击</button>
+
+        <!-- 事件修饰符 -->
+        <!-- once:只执行一次 -->
+        <button @click.once="fn1($event,'张三')">点击一次</button>
+        <!-- 阻止冒泡 -->
+        <div @clck="fn()">
+            <button @click.stop="fn1($event,'子元素')">点我</button>
+        </div>
+        <!-- 阻止默认事件 -->
+        <a href="http://www.baidu.com" @click.prevent="fn1($event,'张三')">跳转</a>
+    
+        <p>键盘事件</p>
+        <input type="text" @keyup.enter="login()">
+    </div>
+    
+    <script src="./vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:1,
+            },
+            // 添加事件
+            methods:{              
+                fn(e){
+                    console.log(1232);
+                },
+                // e，事件对象
+                fn1(e,text){
+                    console.log(e);
+                    e.target.innerHTML=text
+                    // this指向vue的实例对象
+                    console.log(this == vm);
+                },
+                login(){
+                    console.log('登录成功');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

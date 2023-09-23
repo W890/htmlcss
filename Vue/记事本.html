@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            width: 500px;
+            border: 1px solid;
+            margin: 0 auto;
+        }
+
+        input {
+            margin-left: 100px;
+        }
+
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="inputValue" />
+        <button @click="newp">点击添加</button>
+        <div>
+            <p v-for="(text, index) in zims" :key="index">
+                {{ text }}
+                <button @click="deletep(index)">点击删除</button>
+            </p>
+        </div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+         new Vue({
+            data() {
+                return {
+                    inputValue: '', // 输入框的值
+                    zims: [],
+                };
+            },
+            methods: {
+                newp() {
+                    // 将当前输入框的值添加到数组中
+                    this.zims.push(this.inputValue);
+                    console.log(this.zims);
+                },
+                deletep(index) {
+                    // 删除指定索引的段落
+                    this.zims.splice(index, 1);
+                    console.log(this.zims);
+                },
+            },
+        }).$mount('#app')
+    </script>
+</body>
+
+</html>
