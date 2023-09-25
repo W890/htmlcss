@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>姓:<input v-model="xing"></p>
+        <p>名:<input v-model="ming"></p>
+        <p>姓名：{{xing}}{{ming}}</p>
+        <p>姓名：{{namefun()}}</p>
+        <p>姓名：{{name}}</p>
+        <p>计算属性：{{cname}}</p>
+        <button @click="cname = '李四'">修改</button>
+
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                xing: '',
+                ming: '',
+                name: ''
+            },
+
+            // 计算属性：
+            // computed；{
+            // 直接当作普通属性调用不加括号
+            // 任何data中数据变化立即重新计算
+            // 计算属性会缓存
+            // return 必须return结果
+
+            // }
+
+            // 简便写法：
+            // 属性名：
+            // cname() {
+            //     console.log('get被调用了');
+            //     return this.xing + this.ming
+            // },
+
+            computed: {
+                cname: {
+                    // 被调用时触发，有人使用cname的时候
+                    get() {
+                        console.log('get被调用了');
+                        return this.xing + this.ming
+                    },
+                    // 当cname 修改的时候
+                    set(val) {
+                        console.log('set被调用了', val);
+                    }
+                }
+            },
+
+            // 添加事件
+            methods: {
+                namefun() {
+                    this.name = this.xing + this.ming
+                    return this.xing + this.ming
+                }
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>

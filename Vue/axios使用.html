@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script src="vue.js"></script>
+
+    <div id="app">
+        <button @click="getdata()">请求</button>
+        <ul>
+            <li v-for="a in asd">
+                <img :src="a" alt="">
+            </li>
+        </ul>
+    </div>
+    <script src="axios.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                asd:{}
+            },
+            methods: {
+               async getdata(){
+                let {data:{data:res}} = await axios.get('https://test.harumoe.cn/api/emoji/all')
+                console.log(res);
+                   this.asd=res
+                  
+                }
+            },
+        })
+    </script>
+    
+</body>
+</html>

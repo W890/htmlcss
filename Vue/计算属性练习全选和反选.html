@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th {
+            border: 1px solid;
+        }
+
+        td {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="app">
+        <tr>
+            <th>状态</th>
+            <th>id</th>
+            <th>名字</th>
+            <th>减</th>
+            <th>数量</th>
+            <th>加</th>
+            <th>价格</th>
+        </tr>
+        <tr v-for="(id,index) in ids" :key="index">
+            <td><input v-model="select[index]" type="checkbox"></td>
+            <td>{{ids[index]}}</td>
+            <td>{{names[index]}}</td>
+            <td @click="jian(index)">-</td>
+            <td v-model="nums[index]" :change="nums[index]">{{nums[index]}}</td>
+            <td @click="jia(index)">+</td>
+            <td>{{pice[index]}}</td>
+        </tr>
+        <tr>
+            <td>全选<input v-model="selectall" @change="selectAll" type="checkbox"></td>
+            <td>合计</td>
+            <td v-model="sum" :change="SUM()" colspan="5">{{sum}}</td>
+        </tr>
+    </table>
+
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            data() {
+                return {
+                    selectall: false,
+                    select: [],
+                    ids: [1, 2, 3, 4, 5, 6, 7, 8],
+                    names: ['毛衣', '秋裤', '外套', '裤子', '卫衣', '鞋子', '袜子', '帽子'],
+                    nums: [0, 2, 0, 0, 0, 0, 0, 0, 0],
+                    pice: [100, 50, 150, 110, 130, 300, 30, 80],
+                    sum: 0
+                }
+
+            },
+            methods: {
+                selectAll() {
+                    // 当全选/取消全选的复选框状态发生变化时，更新所有项的选择状态
+                    for (let i = 0; i < 8; i++) {
+                        this.select[i] = this.selectall;
+                    }
+                },
+                jian(index) {
+                    if (this.nums[index] > 0) {
+                        this.nums[index]--
+                        console.log(this.nums[index]);
+                    } else {
+                        this.nums[index] = 0
+                        console.log(this.nums[index]);
+                    }
+                    // return this.nums[index]
+                },
+                jia(index) {
+                    this.nums[index]++
+                    console.log(this.nums[index]);
+                    // return this.nums[index]
+                },
+                SUM() {
+                    let zim1 = 0
+                    let zim2 = 0
+                    if (this.selectall == true) {
+                        for (let i = 0; i < 8; i++) {
+                            this.nums[i] = 1
+                            zim1 += this.pice[i]
+                        }
+                    } else {
+                        for (let i = 0; i < 8; i++) {
+                            this.nums[i] = 0
+                            zim1 += this.nums[i] * this.pice[i]
+                            this.sum = 0
+                        }
+                    }
+                    this.sum = zim1
+                    console.log(this.sum);
+                }
+            },
+            // computed: {
+            //     objectnums() {
+            //         // 提取对象中的值并返回为一个数组
+            //         return Object.values(this.nums);
+            //     },
+            //     objectpice() {
+            //         // 提取对象中的值并返回为一个数组
+            //         return Object.values(this.pice);
+            //     },
+            // },
+        }).$mount('#app')
+
+
+    </script>
+</body>
+
+</html>
