@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <list :listdata="arr" @deled="fudel"></list>
+
+
+    <div>
+      <p>父组件的位置：</p>
+      <b>
+        要删除的对象 {{delobj}}
+      </b>
+    </div>
+  </div>
+  <script src="vue.js"></script>
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        num: 1,
+        num1: "123",
+        text: 50,
+        tiem: dayjs(),
+        arr: [
+          { id: 1, name: "西藏" },
+          { id: 2, name: "新疆" },
+          { id: 3, name: "山西" },
+          { id: 4, name: "山东" },
+        ],
+        //   用来接收子组件传递的值
+        delobj: {}
+      },
+      methods: {
+        fudel(e) {
+          this.delobj = e
+        }
+      },
+      // 组件
+      components: {
+        list: {
+          props: ['listdata'],
+          template: `
+              <ul>
+                 <li v-for="item in listdata" :key='item.id'>{{item.name}}<button @click="zidel(item)">删除</button></li>
+              </ul>
+                    `,
+          methods: {
+            // 子组件点击的时候
+            zidel(e) {
+              console.log(e);
+              // 自定义事件
+              this.$emit('deled', e)
+            }
+          },
+
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>

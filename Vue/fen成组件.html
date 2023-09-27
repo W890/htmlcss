@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      width: 250px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <table border="1px">
+      <taba></taba>
+      <contenr :text="arr1" :dian="changechecked"></contenr>
+      <feetabc :allbox="allbox" :he="heji"></feetabc>
+
+    </table>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    Vue.component('feetabc', {
+      template: ` 
+      <table border="1px">
+        <tr>
+          <td><input type="checkbox" v-model="allbox"  >全选</td>
+          <td>合计</td>
+          <td colspan="5">{{he}}</td>      
+        </tr>
+      </table> `,
+      props: ['allbox', 'he'],
+      data() {
+        return {}
+      },
+      methods: {
+      }
+    }),
+
+      new Vue({
+        el: '#app',
+        data: {
+          id: 56,
+          checkbox2: false,
+          arr1: [
+            {
+              name: '衣服',
+              num: 1,
+              arr: 10,
+              checked: false
+            },
+            {
+              name: '帽子',
+              num: 1,
+              arr: 15,
+              checked: false
+            },
+            {
+              name: '裤子',
+              num: 1,
+              arr: 25,
+              checked: false
+            },
+            {
+              name: '鞋子',
+              num: 1,
+              arr: 20,
+              checked: false
+            },
+          ]
+        },
+        components: {
+          taba: {
+            template: `
+            <table border="1px">
+              <tr  >
+                <th>状态</th>
+                <th>id</th>
+                <th>名字</th>
+                <th>减</th>
+                <th>数量</th>
+                <th>加</th>
+                <th>价格</th>         
+              </tr>
+            </table>
+            `
+          },
+          contenr: {
+            template: `
+            <table border="1px">
+              <tr  v-for="(item,index) in text " :key="item.name">
+                  <td><input type="checkbox":checked="item.checked"   @click="dian($event,item.name)" ></td>
+                  <td>{{index+1}}</td>
+                  <td>{{item.name}}</td>
+                  <td><button @click = "item.num--" :disabled="item.num == 0">-</button></td>
+                  <td>{{item.num}}</td>
+                  <td><button @click = "item.num++">+</button></td>
+                  <td>{{item.arr*item.num}}</td>
+              </tr>
+            </table> 
+            `,
+            props: ['text', 'dian'],
+            data() {
+              return {}
+            },
+            methods: {
+            }
+          },
+        },
+        methods: {
+          // 控制单选     
+          changechecked(e, name) {
+            let result = this.arr1.map((item) => {
+              if (name == item.name) {
+                item.checked = e.target.checked;
+              }
+              return item.checked;
+            });
+
+            let res = result.every((item) => {
+              return item;
+            });
+            if (res) {
+              this.checkbox2 = true;
+            } else {
+              this.checkbox2 = false;
+            }
+          }
+        },
+
+        computed: {
+          // 计算属性
+          heji() {
+            return this.arr1.filter(item => item.checked).reduce((a1, a2) => a1 + a2.arr * a2.num, 0)
+          },
+          allbox: {
+            get() {
+              // every有一个不满足条件的就返回false
+              return this.arr1.every((item) => item.checked);
+            },
+            set(val) {
+              return this.arr1.forEach((item) => { item.checked = val })
+            }
+          }
+        }
+      })
+  </script>
+
+</body>
+
+</html>

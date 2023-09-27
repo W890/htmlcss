@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .tab {
+      display: flex;
+    }
+
+    .tab div {
+      padding: 5px 10px;
+      text-align: center;
+      border: 1px solid;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 父组件 -->
+    <!-- 3使用组件 -->
+    <!-- 父组件绑定自定义属性 -->
+    <!-- 子组件向父组件传值，父组件通过自定义事件接收 -->
+    {{msg}}
+    <car-list @give="receive" :text="msg"></car-list>
+    
+    <b>你的二子回复你：{{opentext}}</b>
+  </div>
+  <p>---------华丽的分割线----------</p>
+
+  <script src="./vue.js"></script>
+
+  <script>
+
+    // 简单写法
+    Vue.component("car-list", {
+      // 子组件
+      // html:结构
+      template: `
+            <div>
+                <ul>
+                  <li>保时捷帕拉梅拉</li>
+                  <li>奔驰GT6</li>
+                  <li>奥迪RS7</li>
+                </ul>
+                <p>荣耀玩家，他就是最强玩家：{{text}}</p>
+                <i>{{allText}}</i>
+                <button @click="text = 123">text</button> 
+                <button @click="open()">回复你</button>  
+            </div>
+            `,
+      // 父组件传递过来的值
+      // props: ['父组件传递的自定义属性名(text)'],
+      // 1.驼峰命名写法  但是在html中
+      // 2.不要去修改父组件传递过来的值 因为vue采用的是单项数据流
+      // props:['text','allText'],
+      // 指定类型
+      // props:{
+      //     text:String,
+      //     allText:Number
+      // },
+      props: {
+        // 检测类型
+        text: String,
+        // 检测类型 + 其他验证
+        allText: {
+          type: Number,
+          default: 0, //默认值
+          required: false //是否必填
+        }
+      },
+      // 原本的数据
+      data() {
+        return {
+
+        }
+      },
+
+      methods:{
+        open(){
+          // 子组件向父组件传值，需要借助vue实例上的$emit方法(自定义方法)
+          // 写法
+          // this.$emit('事件名','传递的值')
+          this.$emit('give','我很好','您怎么样')
+        }
+      }
+    });
+
+    new Vue({
+      el: "#app",
+      data: {
+        msg: '一园外鹅',
+        opentext:''
+      },
+      methods:{
+        // 监听函数的参数就是子组件传递过来的值
+        receive(e){
+          console.log('子组件传递过来的值',e);
+          this.opentext = e
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

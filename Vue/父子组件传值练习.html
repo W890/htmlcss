@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <datagive :text="zim"></datagive>
+        <!-- <p>子传给父：{{fdp}}</p> -->
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        Vue.component('datagive', {
+            template: `
+            <div>
+                <button>父传子</button>
+                <button @click="sun()">子传父</button>
+                <p>{{zim}}</p>
+                
+            </div>
+            `,
+            data() {
+                return {
+                    fdp: ['香港', '台湾', '澳门', '山西', '山东', '西藏']
+                }              
+            },
+            methods: {
+                // 子组件向父组件传值
+                sun(){
+                    this.$emit('sonup',this.fdp)
+                }
+            }
+        })
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    zim: ['菏泽', '运城', '西安', '青岛', '三门峡', '太原']
+                }
+            },
+            props:{
+                text:String,
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

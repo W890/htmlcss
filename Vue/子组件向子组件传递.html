@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <list @one="fuoopen"></list>
+        <p>---------</p>
+        <list2 :arr="arr"></list2>
+
+    </div>
+    <script src="vue.js"></script>
+    <!-- 第一种方案 子传父再父传子 -->
+    <!-- 第二种 中央事件总线 -->
+
+
+    <script>
+        // 给原型添加属性
+        Vue.prototype.$bus = new Vue()
+        new Vue({
+            el: '#app',
+            data: {
+                arr: []
+            },
+            methods: {
+                // 子传父
+                fuoopen(e) {
+                    this.arr = e
+                }
+            },
+            components: {
+                list: {
+                    template: `
+                    <div>
+                        <p>我是第一个子组件</p>
+                        <button @click="open()">发送</button>
+                    </div>
+                    `,
+                    methods: {
+                        open() {
+                            // 子组件向父组件传值
+                            let arr = ['张三', '李四']
+                            this.$emit('one', arr)
+                            // 第二种方式 事件总线发送的方式
+                            this.$bus.$emit('busfun', arr)
+                        }
+                    },
+                },
+                list2: {
+                    template: `                  
+                    <div> 
+                        <p>我是第二个子组件{{arr}}</p>
+                        <p>我是第二个子组件中央事件总线传过来的{{busarr}}</p>
+                    </div>
+                    `,
+                    // 父组件向子组件传过来的值
+                    props: ['arr'],
+                    data() {
+                        return {
+                            busarr: []
+                        }
+                    },
+                    created() {
+                        // 第二种方式 事件总线 获取的方式
+                        // $on 是vue提供给我们用来接收$emit的值
+                        this.$bus.$on('busfun', item => {
+                            console.log(item);
+                            this.busarr = item
+                        })
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
