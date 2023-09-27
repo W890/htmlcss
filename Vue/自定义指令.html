@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+   <p v-text="text"></p>
+   <!-- 指令在调用的时候要加 v- -->
+   <p v-big="text"></p>
+    </div>
+    <script src="vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+    <script>
+       
+        new Vue({
+            el:'#app',
+            data:{
+                num:1,
+                num1:'123',
+                text:50,
+                tiem:dayjs()
+            },
+            // 自定义指令
+            directives:{
+                // 指令在定义的时候不需要加v-
+                big(element,item){
+                    console.log(element);
+                    console.log(item.value);
+                    element.innerText = item.value
+                    element.style.fontSize= '80px'
+
+                }
+            }
+
+           
+        })
+    </script>
+</body>
+</html>

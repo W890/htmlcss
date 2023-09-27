@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        td {
+            border: 1px solid;
+        }
+
+        th {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <top-list></top-list> -->
+        <div id="zim1">
+            <top-list></top-list>
+        </div>
+        <div id="zim2">
+            <conter-list></conter-list>
+        </div>
+        <div id="zim3">
+            <bottom-list></bottom-list>
+        </div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        // 头部
+        Vue.component('top-list', {
+            template: `
+                <table border="1px">                   
+                    <tr>
+                        <th>状态</th>
+                        <th>id</th>
+                        <th>名字</th>
+                        <th>减</th>
+                        <th>数量</th>
+                        <th>加</th>
+                        <th>价格</th>
+                    </tr>
+                    
+                </table>
+            `,
+        })
+        // <conter-list></conter-list>  
+                    // <bottom-list></bottom-list> 
+        //中部
+        Vue.component('conter-list', {
+            template: ` 
+            <table border="1px">
+                    <tr v-for="item in arr" :key="item.id">
+                        <td><input type="checkbox" v-model="item.type" /></td>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td><button @click="item.num--" :disabled="item.num == 0">-</button></td>
+                        <td>{{item.num}}</td>
+                        <td><button @click="item.num++">+</button></td>
+                        <td>{{item.pice}}</td>
+                     </tr>
+            </table>
+            `,
+            data() {
+                return {
+                    arr: [
+                        {
+                            id: 1,
+                            name: "衣服",
+                            num: 0,
+                            pice: 60,
+                            type: false,
+                        },
+                        {
+                            id: 2,
+                            name: "上衣",
+                            num: 0,
+                            pice: 60,
+                            type: false,
+                        },
+                        {
+                            id: 3,
+                            name: "帽子",
+                            num: 0,
+                            pice: 60,
+                            type: false,
+                        },
+                        {
+                            id: 4,
+                            name: "裤子",
+                            num: 0,
+                            pice: 60,
+                            type: false,
+                        },
+                        {
+                            id: 5,
+                            name: "鞋子",
+                            num: 0,
+                            pice: 60,
+                            type: false,
+                        },
+                    ],
+                }
+            },
+        })
+
+        // 底部
+        Vue.component('bottom-list', {
+            template: ` 
+            <table border="1px">       
+                    <tr>
+                        <td><input type="checkbox" v-model="allbox" />全选</td>
+                        <td>合计</td>
+                        <td colspan="5">{{allnum}}</td>
+                    </tr>
+            </table>
+            `,
+
+                // 计算属性
+            computed: {
+                allbox: {
+                    get() {
+                        // every: 有一个不满足条件就返回false
+                        return this.arr.every((item) => item.type);
+                    },
+                    set(val) {
+                        this.arr.forEach((item) => (item.type = val));
+                    },
+                },
+                allnum() {
+                    return this.arr.filter(item => item.type).reduce((a1, a2) => a1 + a2.pice * a2.num, 0)
+                }
+            }
+        })
+
+        
+        new Vue({
+            el:'#app'
+        })
+    </script>
+</body>
+
+</html>

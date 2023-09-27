@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <table border="1px">
+      <tr>
+        <th>状态</th>
+        <th>id</th>
+        <th>名字</th>
+        <th>减</th>
+        <th>数量</th>
+        <th>加</th>
+        <th>价格</th>
+      </tr>
+      <tr v-for="item in arr" :key="item.id">
+        <td><input type="checkbox" v-model="item.type" /></td>
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td><button @click="item.num--" :disabled="item.num == 0">-</button></td>
+        <td>{{item.num}}</td>
+        <td><button @click="item.num++">+</button></td>
+        <td>{{item.pice}}</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" v-model="allbox" />全选</td>
+        <td>合计</td>
+        <td colspan="5">{{allnum}}</td>
+      </tr>
+    </table>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        arr: [
+          {
+            id: 1,
+            name: "衣服",
+            num: 10,
+            pice: 60,
+            type: false,
+          },
+          {
+            id: 5,
+            name: "上衣",
+            num: 10,
+            pice: 60,
+            type: false,
+          },
+          {
+            id: 11,
+            name: "帽子",
+            num: 10,
+            pice: 60,
+            type: false,
+          },
+          {
+            id: 21,
+            name: "裤子",
+            num: 10,
+            pice: 60,
+            type: true,
+          },
+          {
+            id: 51,
+            name: "鞋子",
+            num: 10,
+            pice: 60,
+            type: false,
+          },
+        ],
+      },
+      // 计算属性
+      computed: {
+        //    allbox(){
+        //     // return false
+        //     // 第一种方法
+        //     let type = false
+        //     this.arr.some(item => {
+        //         if (item.type==false) {
+        //             type = false
+        //             return true
+        //         }else{
+        //             type =true
+        //         }
+        //     });
+
+        //     return type
+        //    }
+        //   全选操作
+        allbox: {
+          get() {
+            // every: 有一个不满足条件就返回false
+            return this.arr.every((item) => item.type);
+          },
+          set(val) {
+            this.arr.forEach((item) => (item.type = val));
+          },
+        },
+        //   合计
+        // allnum(){
+        //     // 获取选中项
+        //     let arr = this.arr.filter(item=>item.type)
+        //     // reduce(参数1，参数2) 
+        //     // 参数1：是一个函数作为累加器使用 (参数1.1，参数1.2)=>{}
+        //     // 参数1.1 : 加完了的值
+        //     // 参数1.2:遍历对象
+        //     // 参数2： 初始值
+        //     let he = arr.reduce((a1,a2)=>{
+        //         console.log(a1,a2);
+        //         return a1+ a2.pice*a2.num
+        //     },0)
+
+        //     return he
+        // }
+        allnum() {
+          return this.arr.filter(item => item.type).reduce((a1, a2) => a1 + a2.pice * a2.num, 0)
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>

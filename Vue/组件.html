@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab{
+            display: flex;
+        }
+        .tab div{
+            padding: 5px 10px;
+            text-align: center;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 3使用组件 -->
+        <tab-list></tab-list>
+        <car-list></car-list>
+    </div>
+    <p>---------华丽的分割线----------</p>
+    <div id="app2">
+        <!-- 3使用组件 -->
+        <tab-list></tab-list>
+        <car-list></car-list>
+        <car-list2 v-if="type"></car-list2>
+        <p>局部组件
+            <taba></taba>
+        </p>
+        <button @click="type = !type">切换显示</button>
+       
+    </div>
+    <script src="vue.js"></script>
+
+    <script>
+// 1.创建组件
+        const tab = Vue.extend({
+            template:`
+            <div class="tab">
+            <div @click="dianwo()" v-for="item in arr">{{item}}</div>
+            </div>
+            `,
+            data(){
+                return{
+                    arr:['首页','关于we','关于他们','他们我们']
+                }
+            },
+            methods: {
+                dianwo(){
+                    console.log('点了');
+                }
+            },
+        })
+        // 注意：每一个组件模板只能有一个根元素
+        // 命名：小写或者首字母大写， 或者加-
+        // 不要使用html已有的标签
+        // 使用 <tab-list></tab-list>或<tab-list/>(在脚手架中使用)
+
+        // 2.注册组件
+        Vue.component('tab-list',tab)
+
+        // 简单写法 
+            Vue.component('car-list',{
+            // html:结构
+            template:`
+            <ul>
+            <li>巅峰1</li>
+            <li>巅峰2</li>
+            <li>巅峰3</li>
+        </ul>
+            `
+        })
+       // 简单写法 
+       Vue.component('car-list2',{
+            // html:结构
+            template:`
+           
+            <div>
+                <p>嵌套组件</p>
+                <car-list></car-list>
+            </div>
+            `,
+
+            // 第7/8生命周期
+            beforeDestroy(){
+                console.log('销毁前');
+            },
+            destroyed(){
+                console.log('销毁后');
+            }
+        })
+        new Vue({
+            el:'#app',
+            data:{
+                num:1,
+                num1:'123',
+                text:50,
+          
+            },    
+        })
+        new Vue({
+            el:'#app2',
+            data:{
+                num:1,
+                num1:'123',
+                text:50,
+                type:true,
+                // msg:'hhh'
+            },    
+
+            // 局部组件：
+            components:{
+                // 组件名：{配置对象}
+                taba:{
+                    template:`
+                    <div>
+                    我是局部组件{{msg}}
+                    </div>
+                    `,
+
+                    data(){
+                    return {
+                        msg:'局部数据'
+                    }
+                }
+                },
+               
+            }
+        })
+    </script>
+</body>
+</html>

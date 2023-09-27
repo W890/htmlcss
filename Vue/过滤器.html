@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      
+    正常的：{{ text}}
+    <br>
+    过滤后的： {{text | mytext}}
+    <br>
+    正常时间：{{tiem}}
+    <br>
+    过滤后的： {{tiem | setTiem}}
+    </div>
+    <script src="vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+    <script>
+        // 全局过滤器
+        Vue.filter('mytext',function(value){
+            // 返回处理结果
+            return `处理后的 + ${value}`
+        })
+        new Vue({
+            el:'#app',
+            data:{
+                num:1,
+                num1:'123',
+                text:'哈哈哈拉拉',
+                tiem:dayjs()
+            },
+
+            filters: {
+                setTiem(value){
+                    return dayjs(value).format('YYYY年-MM月-DD日 HH:mm:ss') 
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>

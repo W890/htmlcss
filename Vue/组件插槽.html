@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .tab {
+      display: flex;
+    }
+
+    .tab div {
+      padding: 5px 10px;
+      text-align: center;
+      border: 1px solid;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+
+    <textbox>
+      我肚子疼啊
+    </textbox>
+    <textbox>
+      赵琪德给我下毒了
+    </textbox>
+    <textbox>
+      哈哈哈哈，他也肚子疼666
+    </textbox>
+    <p>---------华丽的分割线----------</p>
+    <textbox2>
+      <h1 slot="user">姜明干</h1>
+      <b slot="type">居心叵测，包藏祸心，水中下毒，天理难容</b>
+      <u slot="set">骑着加特林去日本炸富士山</u>
+    </textbox2>
+    <p>---------华丽的分割线----------</p>
+    <p>作用域插槽</p>
+    <textbox3>
+      <template v-slot="scopes">
+        <b v-if="scopes.info.id==1">{{scopes.info.name}}</b>
+
+      </template>
+
+    </textbox3>
+    <p>----------</p>
+    <textbox3>
+      <template v-slot="scopes">
+        <b v-if="scopes.info.id==4">{{scopes.info.name}}</b>
+
+      </template>
+
+    </textbox3>
+    <p>----------</p>
+    <textbox3>
+      <template v-slot="scopes">
+        <b v-if="scopes.info.id==5">{{scopes.info.name}}</b>
+
+      </template>
+
+    </textbox3>
+  </div>
+  <script src="vue.js"></script>
+
+  <script>
+
+
+    new Vue({
+      el: "#app",
+      data: {
+        num: 1,
+        num1: "123",
+        text: 50,
+        type: true,
+      },
+      // 局部组件
+      components: {
+        // 组件名：{配置对象}
+        textbox: {
+          // 匿名插槽 <slot></slot>
+          // 在组件中用slot 进行占位  在组件标签中填写内容<textbox>我肚子疼啊</textbox>
+          template: `
+            <div>
+
+<p> 我是子组件</p>
+<p>我是插槽传递过来的<slot></slot></p>
+
+</div>
+            `
+        },
+        textbox2: {
+          // 具名插槽 <slot></slot>
+          // 在组件中用slot 进行占位  在组件标签中填写内容<textbox>我肚子疼啊</textbox>
+          template: `
+            <div>
+
+<p> 我是子组件具名插槽</p>
+<p>今天我肚子疼，要是是因为<slot name="user"></slot></p>
+<p>此人<slot name="type"></slot></p>
+<p>为响应国家号召，增强名族团结，展现大国风采，故决定执行<slot name='set'></slot></p>
+</div>
+            `
+        },
+        textbox3: {
+          // 作用域插槽 <slot></slot>
+          // 在组件中用slot 进行占位  在组件标签中填写内容<textbox>我肚子疼啊</textbox>
+          template: `
+            <div>
+
+                <p v-for="item in list"> 我是子组件作用域插槽  <slot :info = "item">默认</slot></p>
+
+            </div>
+            `,
+          data() {
+            return {
+              list: [
+                { id: 1, name: '张三' },
+                { id: 4, name: '张三4' },
+                { id: 5, name: '张三5' },
+                { id: 6, name: '张三6' },
+
+              ]
+            }
+          },
+        }
+      },
+
+
+    });
+
+  </script>
+</body>
+
+</html>
