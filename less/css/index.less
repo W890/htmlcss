@@ -1,0 +1,31 @@
+// 定义变量结尾一定要写分号
+@h1size:50px;
+@h2size:20px;
+@textsize:15px;
+
+// 混入
+.border-t{
+    border-top: 10px solid #222fff;
+}
+
+
+
+div{
+    background-color: blueviolet;
+    p{
+        color: aqua;
+       
+    }
+}
+
+.divh1{
+    // 计算时单位在后面
+    font-size:20+ @h1size;
+}
+.divh2{
+    font-size: @h1size;
+    .border-t()
+}
+
+
+

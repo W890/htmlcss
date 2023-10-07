@@ -1,0 +1,16 @@
+.border-t {
+  border-top: 10px solid #222fff;
+}
+div {
+  background-color: blueviolet;
+}
+div p {
+  color: aqua;
+}
+.divh1 {
+  font-size: 70px;
+}
+.divh2 {
+  font-size: 50px;
+  border-top: 10px solid #222fff;
+}

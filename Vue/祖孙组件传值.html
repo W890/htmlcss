@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .tab {
+      display: flex;
+    }
+
+    .tab div {
+      padding: 5px 10px;
+      text-align: center;
+      border: 1px solid;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 祖父元素 -->
+    <textbox3 :num1="num1" :text="text" @mode1="openy"> </textbox3>
+  </div>
+  <script src="vue.js"></script>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        num: 1,
+        num1: "123",
+        text: 50,
+        type: true,
+      },
+      // 后代传值
+      provide() {
+        return {
+          sie: 666,
+          font: this.logfun
+        }
+      },
+      methods: {
+        logfun() {
+          console.log('哈哈哈');
+        },
+        openy(e) {
+          console.log(e);
+        },
+      },
+      // ---组件
+      // 局部组件
+      components: {
+        textbox3: {
+          // 作用域插槽 <slot></slot>
+          // 在组件中用slot 进行占位  在组件标签中填写内容<textbox>我肚子疼啊</textbox>
+          template: `
+            <div>
+
+                <p> 我是子组件 {{num1}}</p>
+                <p><textbox4 v-on="$listeners" v-bind="$attrs"></textbox4></p>
+
+            </div>
+            `,
+          /*
+            包含了父作用域中不作为 prop 被识别 (且获取) 的 attribute 绑定 (class 和 style 除外)。当一个组件没有声明任何 prop 时，
+            这里会包含所有父作用域的绑定 (class 和 style 除外)，并且可以通过 v-bind="$attrs" 传入内部组件——在创建高级别的组件时非常有用。
+          */
+          /* 包含了父作用域中的 (不含 .native 修饰器的) v-on 事件监听器。它可以通过 v-on="$listeners" 传入
+          内部组件——在创建更高层次的组件时非常有用。*/
+          props: ["num1"],
+          inheritAttrs: true,
+          // 接收后代传值
+          inject: ['sie', 'font'],
+          created() {
+            console.log(this.sie);
+            this.font()
+          },
+          data() {
+            return {
+              list: [
+                { id: 1, name: "张三" },
+                { id: 4, name: "张三4" },
+                { id: 5, name: "张三5" },
+                { id: 6, name: "张三6" },
+              ],
+            };
+          },
+          components: {
+            textbox4: {
+              template: `
+                  <div>
+                  
+                      <p @click="open()"> 我是孙子组件4 孙子组件{{text}}{{num1}}</p>
+                  
+                  </div>
+                  `,
+              props: ["text", "num1"],
+              inject: ['sie', 'font'],
+              created() {
+                console.log(this.sie);
+                this.font()
+              },
+              methods: {
+                open() {
+                  console.log(123456);
+                  this.$emit("mode1", 456789);
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>

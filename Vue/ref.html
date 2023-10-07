@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- 在vue中ref 是用来获取dom元素的
+        如果是普通元素 获取到时就是dom
+        如果是组件 获取到的就是组件实例  ，所有父组件可以直接调用子组件中的方法
+
+        获取ref所绑定的值 用 this.$refs.ref的值 -->
+
+    <list ref="listref">
+
+    </list>
+    <button @click="getref()">
+      获取子元素
+    </button>
+  </div>
+  <script src="vue.js"></script>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        num: 1,
+        num1: "123",
+        num2: "",
+      },
+      created() {
+        // 将回调延迟到下次 DOM 更新循环之后执行
+        this.$nextTick(() => {
+          console.log('我是父元素的', this.$refs.listref);
+        })
+      },
+      methods: {
+        getref() {
+          console.log('我是父元素的', this.$refs.listref.open());
+        }
+      },
+      components: {
+        list: {
+          template: `
+                    <div @click="open()">
+                        我是子组件
+                    </div>
+                    `,
+          methods: {
+            open() {
+              console.log("我是子组件中的事件");
+
+              return '满足你们的好奇心。略略'
+            },
+          },
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>

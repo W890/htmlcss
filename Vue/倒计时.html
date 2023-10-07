@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style scoped>
+        .Box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 450px;
+            width: 100%;
+            padding: 30px 20px;
+            box-sizing: border-box;
+        }
+
+        .Box .time {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="Box">
+            <div style="position: relative;">
+                <el-progress type="circle" :width="300" :percentage="percentage" :show-text="false"></el-progress>
+                <div class="time">
+                    <h2 v-if="countdown > 0">倒计时{{ countdown }}秒</h2>
+                    <h2 v-else>倒计时结束</h2>
+                </div>
+            </div>
+            <div style="margin-top: 10px;">
+                <el-tag @click="chooseTime(item.num)" style="margin-left: 10px;" v-for="(item, index) in timeList"
+                    :key="index">
+                    {{ item.name }}
+                </el-tag>
+            </div>
+            <el-button type="primary" v-if="!is_pause" style="margin-top: 30px;" @click="timeFn">开始</el-button>
+            <el-button type="danger" v-if="is_pause" style="margin-top: 30px;" @click="pauseFn">暂停</el-button>
+        </div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        export default {
+            data() {
+                return {
+                    countdown: 60,//倒计时
+                    countdownNum: 60,
+                    timer: null,//定时器
+                    is_pause: false,//是否暂停
+                    percentage: 100,//圆环百分比
+                    timeList: [
+                        {
+                            name: '10秒',
+                            num: 10
+                        },
+                        {
+                            name: '30秒',
+                            num: 30
+                        },
+                        {
+                            name: '1分钟',
+                            num: 60
+                        },
+                        {
+                            name: '2分钟',
+                            num: 120
+                        },
+                        {
+                            name: '5分钟',
+                            num: 300
+                        },
+                    ]
+                }
+            },
+            methods: {
+                //开始倒计时
+                timeFn() {
+                    this.is_pause = true
+                    this.timer = setInterval(() => {
+                        if (this.countdown > 0) {
+                            this.countdown--;
+                            // console.log('打印', this.countdown / this.countdownNum)
+                            this.percentage = (this.countdown / this.countdownNum).toFixed(2) * 100  //计算圆环百分比
+                        } else {
+                            clearInterval(this.timer);
+                            // 倒计时结束后需要执行的操作
+                            this.is_pause = false
+                        }
+                    }, 1000);
+                },
+                //暂停倒计时
+                pauseFn() {
+                    clearInterval(this.timer);
+                    this.is_pause = false
+                },
+                //选择时间
+                chooseTime(num) {
+                    this.percentage = 100
+                    this.countdown = num
+                    this.countdownNum = num
+                    this.is_pause = false
+                    clearInterval(this.timer);
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
