@@ -33,13 +33,13 @@
             
         },
         created(){
-            console.log(this.$http);
+        //     console.log(this.$http);
 
-            // this.$http.get('/citylist')
-            this.$http.get('/query')
-            .then(res=>{
-                console.log(res.data);
-            })
+        //     // this.$http.get('/citylist')
+        //     this.$http.get('/query')
+        //     .then(res=>{
+        //         console.log(res.data);
+        //     })
         }
 
     }
